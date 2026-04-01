@@ -1,38 +1,54 @@
 const plans = [
   {
-    name: 'Basic',
-    devices: '1 Device',
-    monthly: '199',
-    lifetime: '1,999',
+    name: "Basic",
+    devices: "1 Device",
+    monthly: "199",
+    lifetime: "1,999",
     featured: false,
     features: [
-      'Full POS System',
-      'Product Management',
-      'Sales & Expense Tracking',
-      'Dashboard & Reports',
-      'End-of-Day Reports',
-      'Refund Management',
-      'Barcode Scanner',
-      'Receipt Printing',
-      'Works Offline',
+      "Full POS System",
+      "Product Management",
+      "Sales & Expense Tracking",
+      "Dashboard & Reports",
+      "End-of-Day Reports",
+      "Refund Management",
+      "Barcode Scanner",
+      "Receipt Printing",
+      "Works Offline",
     ],
   },
   {
-    name: 'Pro',
-    devices: 'Up to 3 Devices',
-    monthly: '349',
-    lifetime: '3,499',
+    name: "Pro",
+    devices: "Up to 3 Devices",
+    monthly: "349",
+    lifetime: "3,499",
     featured: true,
     features: [
-      'Everything in Basic',
-      'Multi-Device Support',
-      'LAN Sync (no internet needed)',
-      'Multiple Cashier Stations',
-      'Employee Management',
-      'Role-Based Access',
-      'Tax Settings',
-      'Promo Codes',
-      'Priority Support',
+      "Everything in Basic",
+      "Multi-Device Support",
+      "LAN Sync (no internet needed)",
+      "Multiple Cashier Stations",
+      "Employee Management",
+      "Role-Based Access",
+      "Tax Settings",
+      "Promo Codes",
+      "Priority Support",
+    ],
+  },
+  {
+    name: "Custom",
+    devices: "Unlimited Devices",
+    monthly: null,
+    lifetime: null,
+    featured: false,
+    custom: true,
+    features: [
+      "Everything in Pro",
+      "Unlimited Devices",
+      "Custom Branding",
+      "Dedicated Support",
+      "Custom Feature Requests",
+      "On-Site Setup Assistance",
     ],
   },
 ];
@@ -41,23 +57,24 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-20 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-4">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            All features included. Choose by how many devices you need. Start with a 14-day free trial.
+          <p className="text-lg text-text-secondary max-w-xl mx-auto">
+            All features included. Choose by how many devices you need. Start
+            with a 14-day free trial.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto md:items-stretch">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl p-8 transition-all duration-300 ${
+              className={`relative rounded-2xl p-8 transition-all duration-300 flex flex-col ${
                 plan.featured
-                  ? 'bg-dark text-white shadow-2xl shadow-dark/25 scale-[1.02]'
-                  : 'bg-white border border-border shadow-sm hover:shadow-lg'
+                  ? "bg-dark text-white shadow-2xl shadow-dark/25 md:-my-4 md:py-12"
+                  : "bg-white border border-border shadow-sm hover:shadow-lg"
               }`}
             >
               {plan.featured && (
@@ -69,39 +86,66 @@ export default function Pricing() {
               )}
 
               <div className="text-center mb-8">
-                <h3 className={`text-2xl font-bold mb-1 ${plan.featured ? 'text-white' : 'text-dark'}`}>
+                <h3
+                  className={`text-2xl font-bold mb-1 ${plan.featured ? "text-white" : "text-dark"}`}
+                >
                   {plan.name}
                 </h3>
-                <p className={`text-sm mb-6 ${plan.featured ? 'text-white/60' : 'text-text-secondary'}`}>
+                <p
+                  className={`text-sm mb-6 ${plan.featured ? "text-white/60" : "text-text-secondary"}`}
+                >
                   {plan.devices}
                 </p>
 
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className={`text-5xl font-extrabold ${plan.featured ? 'text-white' : 'text-dark'}`}>
-                    ₱{plan.monthly}
-                  </span>
-                  <span className={`text-base ${plan.featured ? 'text-white/50' : 'text-text-secondary'}`}>
-                    /month
-                  </span>
-                </div>
+                {plan.custom ? (
+                  <>
+                    <div className="text-4xl font-extrabold text-dark mb-2">
+                      Let's Talk
+                    </div>
+                    <p className="text-sm text-text-secondary">
+                      Tailored pricing for your business needs
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span
+                        className={`text-5xl font-extrabold ${plan.featured ? "text-white" : "text-dark"}`}
+                      >
+                        ₱{plan.monthly}
+                      </span>
+                      <span
+                        className={`text-base ${plan.featured ? "text-white/50" : "text-text-secondary"}`}
+                      >
+                        /month
+                      </span>
+                    </div>
 
-                <div className={`my-3 text-sm ${plan.featured ? 'text-white/40' : 'text-text-secondary'}`}>
-                  or
-                </div>
+                    <div
+                      className={`my-3 text-sm ${plan.featured ? "text-white/40" : "text-text-secondary"}`}
+                    >
+                      or
+                    </div>
 
-                <div className={`text-lg font-semibold ${plan.featured ? 'text-accent' : 'text-primary'}`}>
-                  ₱{plan.lifetime}{' '}
-                  <span className={`text-sm font-normal ${plan.featured ? 'text-white/50' : 'text-text-secondary'}`}>
-                    one-time
-                  </span>
-                </div>
+                    <div
+                      className={`text-lg font-semibold ${plan.featured ? "text-accent" : "text-primary"}`}
+                    >
+                      ₱{plan.lifetime}{" "}
+                      <span
+                        className={`text-sm font-normal ${plan.featured ? "text-white/50" : "text-text-secondary"}`}
+                      >
+                        one-time
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
                     <svg
-                      className={`w-5 h-5 shrink-0 mt-0.5 ${plan.featured ? 'text-accent' : 'text-success'}`}
+                      className={`w-5 h-5 shrink-0 mt-0.5 ${plan.featured ? "text-accent" : "text-success"}`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -111,7 +155,9 @@ export default function Pricing() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className={`text-sm ${plan.featured ? 'text-white/80' : 'text-text-secondary'}`}>
+                    <span
+                      className={`text-sm ${plan.featured ? "text-white/80" : "text-text-secondary"}`}
+                    >
                       {feature}
                     </span>
                   </li>
@@ -122,11 +168,13 @@ export default function Pricing() {
                 href="#contact"
                 className={`block w-full text-center py-3.5 rounded-xl font-semibold transition-all ${
                   plan.featured
-                    ? 'bg-primary hover:bg-primary-light text-white shadow-lg shadow-primary/25'
-                    : 'bg-dark hover:bg-dark-light text-white'
+                    ? "bg-primary hover:bg-primary-light text-white shadow-lg shadow-primary/25"
+                    : plan.custom
+                      ? "bg-primary/10 hover:bg-primary/20 text-primary"
+                      : "bg-dark hover:bg-dark-light text-white"
                 }`}
               >
-                Get Started
+                {plan.custom ? "Contact Us" : "Get Started"}
               </a>
             </div>
           ))}
