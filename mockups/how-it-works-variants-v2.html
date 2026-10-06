@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — How It Works (Round 2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+      .bg-cream { background-color: #FBEFD9; }
+      .bg-cream-deep { background-color: #F5E4C2; }
+      .text-deep { color: #3F1D04; }
+      .text-mid { color: #6B4423; }
+      .text-soft { color: #8C6B47; }
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .secondary-text { color: #2F5D50; }
+      .tertiary-bg { background-color: #92400E; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Mini phone for V5 */
+      .mini-phone {
+        position: relative;
+        background: linear-gradient(160deg, #2A1810 0%, #1A0E04 40%, #0F0700 75%, #050200 100%);
+        border-radius: 28px;
+        padding: 5px;
+        box-shadow:
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          inset 0 1px 0 rgba(255,255,255,0.14),
+          inset 0 -1px 1px rgba(0,0,0,0.35),
+          0 0 0 0.5px rgba(63,29,4,0.50),
+          0 4px 8px -2px rgba(63,29,4,0.22),
+          0 25px 50px -15px rgba(63,29,4,0.45);
+      }
+      .mini-phone .screen {
+        border-radius: 24px; overflow: hidden;
+        background: #FBEFD9;
+        position: relative;
+        min-height: 480px;
+      }
+
+      /* Receipt paper */
+      .receipt-paper {
+        background:
+          repeating-linear-gradient(0deg, transparent 0, transparent 26px, rgba(146,64,14,0.05) 26px, rgba(146,64,14,0.05) 27px),
+          #FBEFD9;
+        position: relative;
+      }
+      .receipt-paper::before, .receipt-paper::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0;
+        height: 14px;
+        background-image:
+          radial-gradient(circle at 8px 0, transparent 7px, #F5E4C2 7px),
+          radial-gradient(circle at 8px 14px, transparent 7px, #F5E4C2 7px);
+        background-size: 16px 14px;
+        background-repeat: repeat-x;
+      }
+      .receipt-paper::before { top: -7px; }
+      .receipt-paper::after { bottom: -7px; transform: rotate(180deg); }
+
+      @keyframes notif-slide {
+        0%, 18% { opacity: 0; transform: translateY(-8px); }
+        20%, 78% { opacity: 1; transform: translateY(0); }
+        82%, 100% { opacity: 1; transform: translateY(0); }
+      }
+      .notif-1 { animation: notif-slide 12s ease infinite; animation-delay: 0s; }
+      .notif-2 { animation: notif-slide 12s ease infinite; animation-delay: 2s; opacity: 0; }
+      .notif-3 { animation: notif-slide 12s ease infinite; animation-delay: 4s; opacity: 0; }
+      .notif-4 { animation: notif-slide 12s ease infinite; animation-delay: 6s; opacity: 0; }
+      .notif-5 { animation: notif-slide 12s ease infinite; animation-delay: 8s; opacity: 0; }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— How It Works (Round 2)</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v4plus" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V4+ Journey</a>
+          <a href="#v5" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V5 Phone</a>
+          <a href="#v6" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V6 Receipt</a>
+          <a href="#v7" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V7 Day Timeline</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V4+ — JOURNEY ENHANCED (more detail, payment chips, time tags)
+         ============================================================ -->
+    <section id="v4plus" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V4+ · Journey Enhanced · More detail per step (matches V1's depth)
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">How it works</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Your <em class="accent-text italic">first day</em> with RetailFlow.
+          </h2>
+          <p class="mt-4 text-mid">From the first message to your first sale — usually under 24 hours.</p>
+        </div>
+
+        <div class="relative max-w-6xl mx-auto h-[640px] mb-8">
+          <!-- Curved dashed path -->
+          <svg viewBox="0 0 1100 640" class="absolute inset-0 w-full h-full pointer-events-none">
+            <path d="M 80 90 Q 280 200, 320 320 Q 360 440, 550 320 Q 740 200, 780 320 Q 820 440, 1020 540"
+                  stroke="#D97706" stroke-width="2.5" stroke-dasharray="8 6" fill="none" opacity="0.40"/>
+            <!-- Decorative dots -->
+            <circle cx="200" cy="160" r="3" fill="#D97706" opacity="0.45"/>
+            <circle cx="430" cy="370" r="3" fill="#D97706" opacity="0.45"/>
+            <circle cx="660" cy="270" r="3" fill="#D97706" opacity="0.45"/>
+            <circle cx="900" cy="450" r="3" fill="#D97706" opacity="0.45"/>
+          </svg>
+
+          <!-- Step 1: top-left -->
+          <article class="absolute left-0 top-0 w-[260px]">
+            <div class="bg-cream rounded-2xl p-5 border border-cream shadow-lg" style="box-shadow: 0 15px 35px -10px rgba(63,29,4,0.20)">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-sm">
+                  <span class="text-2xl">💬</span>
+                  <span class="absolute -top-1 -right-1 w-7 h-7 accent-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md">1</span>
+                </div>
+                <span class="text-[10px] font-mono accent-text font-bold opacity-80 uppercase tracking-wider">Day 0 · ~2 min</span>
+              </div>
+              <h3 class="font-fraunces text-lg text-deep mb-1">Get in touch</h3>
+              <p class="text-sm text-mid">Send a quick message — Messenger, email, or phone. Tell us what kind of business you run.</p>
+            </div>
+          </article>
+
+          <!-- Step 2: upper-mid-left -->
+          <article class="absolute left-[24%] top-[42%] w-[260px]">
+            <div class="bg-cream rounded-2xl p-5 border border-cream shadow-lg" style="box-shadow: 0 15px 35px -10px rgba(63,29,4,0.20)">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-sm">
+                  <span class="text-2xl">📩</span>
+                  <span class="absolute -top-1 -right-1 w-7 h-7 secondary-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md">2</span>
+                </div>
+                <span class="text-[10px] font-mono secondary-text font-bold opacity-80 uppercase tracking-wider">Day 0 · &lt;1 hr</span>
+              </div>
+              <h3 class="font-fraunces text-lg text-deep mb-1">We send your link</h3>
+              <p class="text-sm text-mid">We reply with your Google Play download link and a quick setup guide for your business type.</p>
+            </div>
+          </article>
+
+          <!-- Step 3: middle -->
+          <article class="absolute left-[44%] top-[36%] w-[260px]">
+            <div class="bg-cream rounded-2xl p-5 border border-cream shadow-lg" style="box-shadow: 0 15px 35px -10px rgba(63,29,4,0.20)">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-sm">
+                  <span class="text-2xl">🎁</span>
+                  <span class="absolute -top-1 -right-1 w-7 h-7 tertiary-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md">3</span>
+                </div>
+                <span class="text-[10px] font-mono font-bold opacity-80 uppercase tracking-wider" style="color:#92400E">Day 0–14 · Free</span>
+              </div>
+              <h3 class="font-fraunces text-lg text-deep mb-1">Try free for 14 days</h3>
+              <p class="text-sm text-mid">Install the app, set up products, run real sales. Full features. No credit card needed.</p>
+            </div>
+          </article>
+
+          <!-- Step 4: upper-right -->
+          <article class="absolute left-[66%] top-[42%] w-[260px]">
+            <div class="bg-cream rounded-2xl p-5 border border-cream shadow-lg" style="box-shadow: 0 15px 35px -10px rgba(63,29,4,0.20)">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="relative inline-flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-sm">
+                  <span class="text-2xl">💸</span>
+                  <span class="absolute -top-1 -right-1 w-7 h-7 accent-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md">4</span>
+                </div>
+                <span class="text-[10px] font-mono accent-text font-bold opacity-80 uppercase tracking-wider">Day 14 · ~3 min</span>
+              </div>
+              <h3 class="font-fraunces text-lg text-deep mb-1">Pay your way</h3>
+              <p class="text-sm text-mid">Send payment when you're ready. Monthly or lifetime.</p>
+              <div class="flex flex-wrap gap-1 mt-2">
+                <span class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream">GCash</span>
+                <span class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream">Maya</span>
+                <span class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream">Bank</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Step 5: bottom-right (FINISH) -->
+          <article class="absolute right-0 bottom-0 w-[280px]">
+            <div class="bg-white rounded-2xl p-5 border-2 shadow-2xl relative" style="border-color:#D97706; box-shadow: 0 25px 50px -15px rgba(217,119,6,0.40)">
+              <div class="absolute -top-3 -left-3 accent-bg text-white text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full shadow-lg" style="transform: rotate(-12deg)">🚀 Finish</div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="relative inline-flex items-center justify-center w-14 h-14 rounded-full text-white shadow-md" style="background: linear-gradient(135deg,#D97706,#92400E)">
+                  <span class="text-2xl">🔑</span>
+                  <span class="absolute -top-1 -right-1 w-7 h-7 bg-white text-deep text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md border-2" style="border-color:#D97706">5</span>
+                </div>
+                <span class="text-[10px] font-mono accent-text font-bold opacity-80 uppercase tracking-wider">Day 14 · ~1 min</span>
+              </div>
+              <h3 class="font-fraunces text-lg text-deep mb-1">Activate & sell</h3>
+              <p class="text-sm text-mid">Enter your license key. The next sale you ring up runs on RetailFlow — no downtime.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Summary callout -->
+        <div class="max-w-3xl mx-auto bg-cream rounded-2xl p-5 border border-cream flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl secondary-bg text-white flex items-center justify-center text-lg">⏱️</div>
+            <div>
+              <div class="text-xs uppercase tracking-widest font-bold text-soft">Total setup time</div>
+              <div class="font-fraunces text-lg text-deep"><strong>~15 minutes</strong> of your time, spread across 14 days</div>
+            </div>
+          </div>
+          <a class="accent-bg text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-lg whitespace-nowrap">Start step 1 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V5 — PHONE NOTIFICATION STREAM
+         ============================================================ -->
+    <section id="v5" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V5 · Phone Notifications · Notifications drop in as the journey unfolds
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">How it works</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Watch it happen, <em class="accent-text italic">step by step.</em>
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+
+          <!-- Left: Step descriptions -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="bg-white rounded-2xl p-5 border-l-4 border-cream" style="border-left-color: #D97706">
+              <div class="flex items-start gap-3">
+                <div class="text-2xl">💬</div>
+                <div>
+                  <div class="text-[10px] uppercase tracking-widest accent-text font-bold mb-0.5">Step 1 · You start</div>
+                  <h3 class="font-fraunces text-lg text-deep mb-1">Get in touch</h3>
+                  <p class="text-sm text-mid">Send us a message via Messenger, email, or phone.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border-l-4 border-cream" style="border-left-color: #2F5D50">
+              <div class="flex items-start gap-3">
+                <div class="text-2xl">📩</div>
+                <div>
+                  <div class="text-[10px] uppercase tracking-widest font-bold mb-0.5" style="color:#2F5D50">Step 2 · We respond</div>
+                  <h3 class="font-fraunces text-lg text-deep mb-1">Your link arrives</h3>
+                  <p class="text-sm text-mid">Google Play download link + quick setup guide.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border-l-4 border-cream" style="border-left-color: #92400E">
+              <div class="flex items-start gap-3">
+                <div class="text-2xl">🎁</div>
+                <div>
+                  <div class="text-[10px] uppercase tracking-widest font-bold mb-0.5" style="color:#92400E">Step 3 · You install</div>
+                  <h3 class="font-fraunces text-lg text-deep mb-1">14 days free</h3>
+                  <p class="text-sm text-mid">Full features. No card. Run real sales.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border-l-4 border-cream" style="border-left-color: #D97706">
+              <div class="flex items-start gap-3">
+                <div class="text-2xl">💸</div>
+                <div>
+                  <div class="text-[10px] uppercase tracking-widest accent-text font-bold mb-0.5">Step 4 · You decide</div>
+                  <h3 class="font-fraunces text-lg text-deep mb-1">Pay & activate</h3>
+                  <p class="text-sm text-mid">GCash, Maya, or bank. License key arrives. Selling continues.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Phone showing notification stream -->
+          <div class="lg:col-span-7 relative flex justify-center">
+            <div class="absolute -inset-8 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse, rgba(217,119,6,0.20) 0%, transparent 65%)"></div>
+
+            <div class="mini-phone relative" style="width: 320px;">
+              <div class="screen p-3 space-y-2.5">
+                <!-- phone status bar -->
+                <div class="flex items-center justify-between px-2 pt-1 pb-3">
+                  <span class="text-[10px] font-bold text-deep">9:41</span>
+                  <span class="text-[10px] font-bold text-deep">📶 🔋</span>
+                </div>
+
+                <!-- date -->
+                <div class="text-center text-xs text-soft font-semibold">Today · Day 0</div>
+
+                <!-- Notification 1: You sent a message -->
+                <div class="bg-white rounded-2xl p-3 shadow-sm border border-cream notif-1">
+                  <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-lg accent-bg text-white flex items-center justify-center text-xs">💬</div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-0.5">
+                        <span class="text-[10px] font-bold text-deep uppercase">Messenger</span>
+                        <span class="text-[9px] text-soft">9:00 AM</span>
+                      </div>
+                      <div class="text-xs font-semibold text-deep">You</div>
+                      <div class="text-[11px] text-mid mt-0.5">Hi! Interested in RetailFlow for my sari-sari store…</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Notification 2: Reply with link -->
+                <div class="bg-white rounded-2xl p-3 shadow-sm border border-cream notif-2">
+                  <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-lg secondary-bg text-white flex items-center justify-center text-xs">📩</div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-0.5">
+                        <span class="text-[10px] font-bold text-deep uppercase">Messenger</span>
+                        <span class="text-[9px] text-soft">9:42 AM</span>
+                      </div>
+                      <div class="text-xs font-semibold text-deep">RetailFlow Support</div>
+                      <div class="text-[11px] text-mid mt-0.5">Tara! Here's your download link 📲 play.google.com/...</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Notification 3: Trial started -->
+                <div class="bg-white rounded-2xl p-3 shadow-sm border border-cream notif-3">
+                  <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-lg tertiary-bg text-white flex items-center justify-center text-xs">🎁</div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-0.5">
+                        <span class="text-[10px] font-bold text-deep uppercase">RetailFlow</span>
+                        <span class="text-[9px] text-soft">10:15 AM</span>
+                      </div>
+                      <div class="text-xs font-semibold text-deep">14-day trial started</div>
+                      <div class="text-[11px] text-mid mt-0.5">Welcome! Add your first product to begin.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- date -->
+                <div class="text-center text-xs text-soft font-semibold pt-2">Day 14</div>
+
+                <!-- Notification 4: Trial ending -->
+                <div class="bg-white rounded-2xl p-3 shadow-sm border border-cream notif-4">
+                  <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-lg accent-bg text-white flex items-center justify-center text-xs">💸</div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-0.5">
+                        <span class="text-[10px] font-bold text-deep uppercase">Messenger</span>
+                        <span class="text-[9px] text-soft">8:00 AM</span>
+                      </div>
+                      <div class="text-xs font-semibold text-deep">You</div>
+                      <div class="text-[11px] text-mid mt-0.5">Ready to subscribe! Sent ₱1,999 via GCash.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Notification 5: Activated -->
+                <div class="rounded-2xl p-3 shadow-sm border-2 notif-5" style="background: rgba(217,119,6,0.10); border-color: #D97706">
+                  <div class="flex items-start gap-2">
+                    <div class="w-7 h-7 rounded-lg text-white flex items-center justify-center text-xs" style="background: linear-gradient(135deg,#D97706,#92400E)">🚀</div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between mb-0.5">
+                        <span class="text-[10px] font-bold text-deep uppercase">RetailFlow</span>
+                        <span class="text-[9px] text-soft">8:42 AM</span>
+                      </div>
+                      <div class="text-xs font-semibold text-deep">✓ License activated</div>
+                      <div class="text-[11px] text-mid mt-0.5">Selling now. Salamat!</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a class="inline-flex items-center gap-2 accent-bg text-white px-6 py-3 rounded-full font-semibold text-sm shadow-lg">Send the first message →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V6 — RECEIPT-STYLE LIST
+         ============================================================ -->
+    <section id="v6" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        V6 · Receipt-style · Looks like a printed POS receipt
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">How it works</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Your setup, <em class="accent-text italic">printed.</em>
+          </h2>
+        </div>
+
+        <!-- Receipt -->
+        <div class="max-w-md mx-auto receipt-paper p-8 font-mono text-deep relative shadow-2xl" style="box-shadow: 0 30px 60px -15px rgba(63,29,4,0.30)">
+
+          <!-- Receipt header -->
+          <div class="text-center mb-5 pb-5" style="border-bottom: 2px dashed #92400E">
+            <div class="font-fraunces text-2xl font-bold tracking-tight">RetailFlow POS</div>
+            <div class="text-[10px] mt-1 text-mid">SETUP RECEIPT · NEW CUSTOMER</div>
+            <div class="text-[10px] text-soft mt-2">═══════════════════════════</div>
+            <div class="text-[10px] text-mid mt-1">Order #001 · Today's date</div>
+          </div>
+
+          <!-- Steps as line items -->
+          <div class="space-y-4 mb-5">
+
+            <div class="flex items-start gap-3">
+              <span class="font-bold accent-text">[✓]</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm uppercase">01 · Get in touch</span>
+                  <span class="text-[10px] text-soft">~2 min</span>
+                </div>
+                <div class="text-xs text-mid mt-0.5">Message us via Messenger / email / phone</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="font-bold accent-text">[✓]</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm uppercase">02 · Receive link</span>
+                  <span class="text-[10px] text-soft">&lt;1 hr</span>
+                </div>
+                <div class="text-xs text-mid mt-0.5">Google Play download link from us</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="font-bold accent-text">[✓]</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm uppercase">03 · Trial</span>
+                  <span class="text-[10px] text-soft">14 days · FREE</span>
+                </div>
+                <div class="text-xs text-mid mt-0.5">Full features · No card · Real sales</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="font-bold accent-text">[✓]</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm uppercase">04 · Payment</span>
+                  <span class="text-[10px] text-soft">~3 min</span>
+                </div>
+                <div class="text-xs text-mid mt-0.5">GCash · Maya · Bank transfer</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="font-bold accent-text">[✓]</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm uppercase">05 · Activate</span>
+                  <span class="text-[10px] text-soft">~1 min</span>
+                </div>
+                <div class="text-xs text-mid mt-0.5">Enter license key · Sell immediately</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtotal divider -->
+          <div class="text-[10px] text-soft text-center mb-3">- - - - - - - - - - - - - - - - - - - - - - - - -</div>
+
+          <!-- Totals -->
+          <div class="space-y-1.5 mb-5 text-sm">
+            <div class="flex justify-between"><span class="text-mid">Steps completed</span><span class="font-bold">5 / 5</span></div>
+            <div class="flex justify-between"><span class="text-mid">Active time</span><span class="font-bold">~15 min</span></div>
+            <div class="flex justify-between"><span class="text-mid">Calendar time</span><span class="font-bold">14 days</span></div>
+            <div class="flex justify-between"><span class="text-mid">Trial cost</span><span class="font-bold">₱0.00</span></div>
+            <div class="flex justify-between text-base pt-2 mt-1" style="border-top: 1.5px dashed #92400E">
+              <span class="font-bold">After trial:</span><span class="font-bold accent-text">₱199/mo</span>
+            </div>
+          </div>
+
+          <!-- Bottom -->
+          <div class="text-center text-[10px] text-mid pt-4" style="border-top: 1.5px dashed #92400E">
+            <div class="mb-2">★ ★ ★ ★ ★</div>
+            <div>SALAMAT · COME AGAIN!</div>
+            <div class="mt-3 mb-2">[ █▌ ▌█▌ █▌▌ █ ▌█▌▌ █▌ ]</div>
+            <div class="text-soft">SCAN TO START</div>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a class="inline-flex items-center gap-2 accent-bg text-white px-6 py-3 rounded-full font-semibold text-sm shadow-lg">Send first message →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V7 — DAY-BY-DAY HORIZONTAL TIMELINE
+         ============================================================ -->
+    <section id="v7" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V7 · Day Timeline · Calendar-based, shows actual time investment
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">How it works</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            <em class="accent-text italic">15 minutes</em> of your time, spread across 14 days.
+          </h2>
+        </div>
+
+        <!-- Horizontal timeline -->
+        <div class="max-w-6xl mx-auto">
+
+          <!-- Days bar -->
+          <div class="relative mb-12">
+            <div class="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 rounded-full" style="background: repeating-linear-gradient(to right, #F5DEB3 0, #F5DEB3 12px, transparent 12px, transparent 18px);"></div>
+
+            <!-- Day markers -->
+            <div class="relative flex justify-between items-center">
+              <div class="flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full accent-bg text-white flex items-center justify-center font-fraunces text-sm font-bold shadow-lg" style="box-shadow: 0 8px 20px -5px rgba(217,119,6,0.40)">D0</div>
+                <span class="text-[10px] text-soft mt-2 font-bold uppercase tracking-wider">Day 0</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-white border-2 border-cream text-mid flex items-center justify-center text-xs font-bold">D3</div>
+                <span class="text-[10px] text-soft mt-2 uppercase">Day 3</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-white border-2 border-cream text-mid flex items-center justify-center text-xs font-bold">D7</div>
+                <span class="text-[10px] text-soft mt-2 uppercase">Day 7</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-10 h-10 rounded-full bg-white border-2 border-cream text-mid flex items-center justify-center text-xs font-bold">D10</div>
+                <span class="text-[10px] text-soft mt-2 uppercase">Day 10</span>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full text-white flex items-center justify-center font-fraunces text-sm font-bold shadow-lg" style="background: linear-gradient(135deg,#D97706,#92400E); box-shadow: 0 10px 25px -5px rgba(217,119,6,0.50)">D14</div>
+                <span class="text-[10px] accent-text mt-2 font-bold uppercase tracking-wider">Day 14</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step cards under the timeline -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- Day 0 group -->
+            <article class="bg-white rounded-2xl p-6 border border-cream relative">
+              <div class="absolute -top-3 left-6 accent-bg text-white text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">Day 0 · ~5 min</div>
+              <div class="space-y-4 mt-2">
+                <div class="flex items-start gap-3">
+                  <div class="relative shrink-0 w-10 h-10 rounded-xl accent-bg text-white flex items-center justify-center text-lg font-bold font-fraunces">1</div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <span class="text-base">💬</span>
+                      <h3 class="font-fraunces text-base text-deep">Get in touch</h3>
+                    </div>
+                    <p class="text-xs text-mid">Message via Messenger, email, or phone.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="relative shrink-0 w-10 h-10 rounded-xl secondary-bg text-white flex items-center justify-center text-lg font-bold font-fraunces">2</div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <span class="text-base">📩</span>
+                      <h3 class="font-fraunces text-base text-deep">Receive link</h3>
+                    </div>
+                    <p class="text-xs text-mid">Google Play link arrives within 1 hour.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Day 0–14 trial -->
+            <article class="bg-white rounded-2xl p-6 border border-cream relative">
+              <div class="absolute -top-3 left-6 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full" style="background:#92400E">Day 0–14 · Free</div>
+              <div class="flex items-start gap-3 mt-2">
+                <div class="relative shrink-0 w-10 h-10 rounded-xl tertiary-bg text-white flex items-center justify-center text-lg font-bold font-fraunces">3</div>
+                <div>
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <span class="text-base">🎁</span>
+                    <h3 class="font-fraunces text-base text-deep">Try free for 14 days</h3>
+                  </div>
+                  <p class="text-xs text-mid mb-3">Install, set up products, run real sales. No card needed. Full feature access throughout.</p>
+                  <div class="flex items-center gap-2 text-[10px] text-soft">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Use it as much as you want
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Day 14 group -->
+            <article class="bg-white rounded-2xl p-6 border-2 relative" style="border-color: #D97706; box-shadow: 0 15px 35px -10px rgba(217,119,6,0.20)">
+              <div class="absolute -top-3 left-6 text-white text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full" style="background: linear-gradient(135deg,#D97706,#92400E)">Day 14 · ~4 min</div>
+              <div class="space-y-4 mt-2">
+                <div class="flex items-start gap-3">
+                  <div class="relative shrink-0 w-10 h-10 rounded-xl accent-bg text-white flex items-center justify-center text-lg font-bold font-fraunces">4</div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <span class="text-base">💸</span>
+                      <h3 class="font-fraunces text-base text-deep">Pay your way</h3>
+                    </div>
+                    <p class="text-xs text-mid mb-1.5">Send via GCash, Maya, or bank transfer.</p>
+                    <div class="flex gap-1">
+                      <span class="px-1.5 py-0.5 bg-cream rounded text-[9px] font-bold">GCash</span>
+                      <span class="px-1.5 py-0.5 bg-cream rounded text-[9px] font-bold">Maya</span>
+                      <span class="px-1.5 py-0.5 bg-cream rounded text-[9px] font-bold">Bank</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="relative shrink-0 w-10 h-10 rounded-xl text-white flex items-center justify-center text-lg font-bold font-fraunces" style="background: linear-gradient(135deg,#D97706,#92400E)">5</div>
+                  <div>
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <span class="text-base">🚀</span>
+                      <h3 class="font-fraunces text-base text-deep">Activate & sell</h3>
+                    </div>
+                    <p class="text-xs text-mid">Enter your license key. Done.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <!-- Bottom summary strip -->
+        <div class="max-w-6xl mx-auto mt-12 grid grid-cols-3 gap-4 bg-white rounded-2xl p-6 border border-cream">
+          <div class="text-center">
+            <div class="font-fraunces text-2xl text-deep">5</div>
+            <div class="text-[10px] uppercase tracking-widest text-soft font-bold mt-1">Steps total</div>
+          </div>
+          <div class="text-center" style="border-left: 1px solid #F5DEB3; border-right: 1px solid #F5DEB3">
+            <div class="font-fraunces text-2xl text-deep">~15<span class="text-sm font-normal text-mid"> min</span></div>
+            <div class="text-[10px] uppercase tracking-widest text-soft font-bold mt-1">Your active time</div>
+          </div>
+          <div class="text-center">
+            <div class="font-fraunces text-2xl text-deep">14<span class="text-sm font-normal text-mid"> days</span></div>
+            <div class="text-[10px] uppercase tracking-widest text-soft font-bold mt-1">To decide</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Round 2 — pick a How It Works</h2>
+        <p class="text-white/60 mb-10">V4+ is the enhanced journey. V5/V6/V7 are fresh new takes.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V4+ · Journey Enhanced</div>
+            <h3 class="text-lg font-bold mb-3">Curved path with detail cards</h3>
+            <p class="text-sm text-white/70 mb-4">Same playful path layout, now each step is a full card with: icon + number + time tag (Day 0 / &lt;1hr / Day 0–14 / Day 14) + description + (step 4) payment chips. Bottom summary callout shows total setup time.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Keeps the playful journey feel</div>
+              <div>✅ Now has real depth per step</div>
+              <div>✅ Time tags = transparency</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V5 · Phone Notifications</div>
+            <h3 class="text-lg font-bold mb-3">Notifications drop on a phone screen</h3>
+            <p class="text-sm text-white/70 mb-4">Left: 4 step cards with description. Right: a phone showing 5 notifications dropping in sequence (with animation). Each notif is a real-feeling Messenger / system notification with timestamp. Most product-y.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Animated — feels alive</div>
+              <div>✅ Reinforces the product (it's an app)</div>
+              <div>⚠️ Animation may distract</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V6 · Receipt</div>
+            <h3 class="text-lg font-bold mb-3">Looks like a printed POS receipt</h3>
+            <p class="text-sm text-white/70 mb-4">A real-feeling receipt with serrated edges, dashed dividers, mono font, "[✓]" checkmarks per step, totals at the bottom (Active time / Calendar time / Trial cost / After trial), and a "★★★★★ SALAMAT · COME AGAIN!" footer with a fake barcode. Most thematic — your product literally prints these.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most on-brand (you make POS!)</div>
+              <div>✅ Memorable and unique</div>
+              <div>⚠️ Slimmer / less hero-image energy</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">V7 · Day Timeline</div>
+            <h3 class="text-lg font-bold mb-3">Calendar-based horizontal timeline</h3>
+            <p class="text-sm text-white/70 mb-4">Top: a horizontal day strip (Day 0 → Day 14) with marker dots. Below: 3 grouped cards (Day 0 has steps 1+2, Day 0–14 has step 3, Day 14 has steps 4+5). Bottom: 3-column summary (5 steps · ~15 min · 14 days). Most informational.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Conveys "low time commitment" hard</div>
+              <div>✅ Shows trial duration visually</div>
+              <div>⚠️ Most structured, least playful</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#A78BFA">V6 (Receipt)</strong> — your product is a POS that literally prints these. Using a receipt as the metaphor for the setup steps is the most on-brand and memorable thing on the whole page. <strong style="color:#FB923C">V4+ (Journey Enhanced)</strong> if you want to keep the playful path feel with proper depth.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V4+</strong>, <strong class="text-white">V5</strong>, <strong class="text-white">V6</strong>, or <strong class="text-white">V7</strong>.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

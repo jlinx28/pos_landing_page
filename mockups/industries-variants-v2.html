@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Industries (Round 2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      .bg-cream { background-color: #FBEFD9; }
+      .text-deep { color: #3F1D04; }
+      .text-mid { color: #6B4423; }
+      .text-soft { color: #8C6B47; }
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .secondary-text { color: #2F5D50; }
+      .tertiary-bg { background-color: #92400E; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Marquee */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .marquee {
+        animation: marquee 35s linear infinite;
+      }
+      .marquee-track {
+        display: flex; gap: 1rem;
+        width: max-content;
+      }
+
+      /* Quote card hover */
+      .quote-card { transition: transform .2s, box-shadow .2s; }
+      .quote-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 25px 45px -15px rgba(63,29,4,0.20);
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— Industries (Round 2)</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#a" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">A · Quotes</a>
+          <a href="#b" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">B · Marquee</a>
+          <a href="#c" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">C · Storefronts</a>
+          <a href="#d" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">D · Hero+Chips</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         A — CUSTOMER QUOTE CARDS (testimonial-led industries)
+         ============================================================ -->
+    <section id="a" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        A · Customer Quote Cards · Each industry told through a real owner's voice
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Owners across <em class="accent-text italic">every kind of store.</em>
+          </h2>
+          <p class="mt-4 text-mid">Hear from the people running it.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <article class="quote-card bg-cream rounded-3xl p-7 border border-cream">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style="background:#D97706">🏪</div>
+              <div>
+                <div class="text-xs uppercase tracking-widest accent-text font-bold mb-0.5">Sari-sari & convenience</div>
+                <div class="font-fraunces text-deep font-semibold">Aling Nena</div>
+                <div class="text-xs text-soft">Quezon City · 8 yrs running</div>
+              </div>
+            </div>
+            <blockquote class="font-fraunces text-lg text-deep leading-snug">
+              "Brownout for two hours and we kept selling. The next morning everything synced."
+            </blockquote>
+          </article>
+
+          <article class="quote-card bg-cream rounded-3xl p-7 border border-cream">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style="background:#2F5D50">🍜</div>
+              <div>
+                <div class="text-xs uppercase tracking-widest font-bold mb-0.5" style="color:#2F5D50">Restaurants & kainan</div>
+                <div class="font-fraunces text-deep font-semibold">Mark Reyes</div>
+                <div class="text-xs text-soft">Cebu · 3 cashier stations</div>
+              </div>
+            </div>
+            <blockquote class="font-fraunces text-lg text-deep leading-snug">
+              "Three stations syncing over WiFi. No cloud setup. Game changer for our kainan."
+            </blockquote>
+          </article>
+
+          <article class="quote-card bg-cream rounded-3xl p-7 border border-cream">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style="background:#92400E">☕</div>
+              <div>
+                <div class="text-xs uppercase tracking-widest font-bold mb-0.5" style="color:#92400E">Cafés & bakeries</div>
+                <div class="font-fraunces text-deep font-semibold">Joana Cruz</div>
+                <div class="text-xs text-soft">Davao · Bakery</div>
+              </div>
+            </div>
+            <blockquote class="font-fraunces text-lg text-deep leading-snug">
+              "Setup took 10 minutes. My cashier learned it in one shift."
+            </blockquote>
+          </article>
+
+          <article class="quote-card bg-cream rounded-3xl p-7 border border-cream">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style="background:#C2410C">💈</div>
+              <div>
+                <div class="text-xs uppercase tracking-widest font-bold mb-0.5" style="color:#C2410C">Salons & barbers</div>
+                <div class="font-fraunces text-deep font-semibold">Kuya Erwin</div>
+                <div class="text-xs text-soft">Manila · Barbershop</div>
+              </div>
+            </div>
+            <blockquote class="font-fraunces text-lg text-deep leading-snug">
+              "Per-stylist commissions tracked automatically. Saves 4 hours every Sunday."
+            </blockquote>
+          </article>
+
+          <article class="quote-card bg-cream rounded-3xl p-7 border border-cream">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style="background:#2F5D50">💊</div>
+              <div>
+                <div class="text-xs uppercase tracking-widest font-bold mb-0.5" style="color:#2F5D50">Pharmacies & boticas</div>
+                <div class="font-fraunces text-deep font-semibold">Ate Lina</div>
+                <div class="text-xs text-soft">Iloilo · Botica</div>
+              </div>
+            </div>
+            <blockquote class="font-fraunces text-lg text-deep leading-snug">
+              "Expiry alerts saved us from selling expired stock. That alone paid for the year."
+            </blockquote>
+          </article>
+
+          <article class="quote-card bg-cream rounded-3xl p-7 border border-cream">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0" style="background:#92400E">👗</div>
+              <div>
+                <div class="text-xs uppercase tracking-widest font-bold mb-0.5" style="color:#92400E">Boutiques & retail</div>
+                <div class="font-fraunces text-deep font-semibold">Rica Mendoza</div>
+                <div class="text-xs text-soft">Makati · Boutique</div>
+              </div>
+            </div>
+            <blockquote class="font-fraunces text-lg text-deep leading-snug">
+              "Variants for size and color finally make sense. Our SKUs are clean."
+            </blockquote>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         B — MARQUEE STRIP (minimal acknowledgment)
+         ============================================================ -->
+    <section id="b" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        B · Marquee Strip · Auto-scrolling band, gets out of the way
+      </div>
+      <div class="py-20">
+        <div class="max-w-3xl mx-auto px-6 text-center mb-12">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium mb-4">
+            From corner stores to full-service kitchens.
+          </h2>
+          <p class="text-mid">RetailFlow flexes for whatever kind of business you run. The same offline-first POS quietly powers all of it.</p>
+        </div>
+
+        <!-- Marquee row 1 -->
+        <div class="overflow-hidden mb-3">
+          <div class="marquee-track marquee">
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🏪</span> Sari-sari stores</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🍜</span> Restaurants & kainan</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">☕</span> Cafés & bakeries</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">💈</span> Salons & barbers</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">💊</span> Pharmacies & boticas</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">👗</span> Boutiques</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🥖</span> Bakeshops</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🍞</span> Panaderyas</span>
+            <!-- duplicate for seamless loop -->
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🏪</span> Sari-sari stores</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🍜</span> Restaurants & kainan</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">☕</span> Cafés & bakeries</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">💈</span> Salons & barbers</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">💊</span> Pharmacies & boticas</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">👗</span> Boutiques</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🥖</span> Bakeshops</span>
+            <span class="px-5 py-3 bg-white border border-cream rounded-full text-sm font-semibold text-deep flex items-center gap-2 shrink-0"><span class="text-xl">🍞</span> Panaderyas</span>
+          </div>
+        </div>
+
+        <!-- Marquee row 2 (reverse) -->
+        <div class="overflow-hidden">
+          <div class="marquee-track marquee" style="animation-direction: reverse; animation-duration: 40s">
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🛍️</span> Tindahan</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🌮</span> Food carts</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">📚</span> Bookstores</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🌸</span> Florists</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🥩</span> Meat shops</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🐠</span> Wet markets</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🎁</span> Gift shops</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🐕</span> Pet supplies</span>
+            <!-- duplicate -->
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🛍️</span> Tindahan</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🌮</span> Food carts</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">📚</span> Bookstores</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🌸</span> Florists</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🥩</span> Meat shops</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🐠</span> Wet markets</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🎁</span> Gift shops</span>
+            <span class="px-5 py-3 bg-deep text-white rounded-full text-sm font-semibold flex items-center gap-2 shrink-0" style="background:#3F1D04"><span class="text-xl">🐕</span> Pet supplies</span>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a class="inline-flex items-center gap-2 text-sm font-semibold accent-text hover:underline">Don't see yours? Talk to us →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         C — STOREFRONT SVG ILLUSTRATIONS
+         ============================================================ -->
+    <section id="c" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        C · Storefront Illustrations · Custom hand-drawn shop facades
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Walk down any street. <em class="accent-text italic">We're in there.</em>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <!-- Sari-sari -->
+          <article class="bg-cream rounded-3xl p-6 border border-cream overflow-hidden">
+            <svg viewBox="0 0 200 120" class="w-full h-32 mb-4">
+              <!-- sky -->
+              <rect width="200" height="120" fill="#FBEFD9"/>
+              <!-- shop body -->
+              <rect x="20" y="40" width="160" height="65" fill="#fff" stroke="#D97706" stroke-width="2"/>
+              <!-- awning stripes -->
+              <rect x="15" y="32" width="170" height="14" fill="#D97706"/>
+              <line x1="40" y1="32" x2="40" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="65" y1="32" x2="65" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="90" y1="32" x2="90" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="115" y1="32" x2="115" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="140" y1="32" x2="140" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="165" y1="32" x2="165" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <!-- window grid -->
+              <rect x="30" y="55" width="60" height="35" fill="#3F1D04" opacity="0.08"/>
+              <line x1="60" y1="55" x2="60" y2="90" stroke="#3F1D04" stroke-width="1" opacity="0.2"/>
+              <line x1="30" y1="72" x2="90" y2="72" stroke="#3F1D04" stroke-width="1" opacity="0.2"/>
+              <!-- door -->
+              <rect x="115" y="60" width="30" height="45" fill="#92400E"/>
+              <circle cx="138" cy="82" r="1.5" fill="#fff"/>
+              <!-- sign -->
+              <text x="100" y="25" text-anchor="middle" font-family="Fraunces" font-size="11" font-weight="700" fill="#3F1D04">ALING NENA</text>
+              <!-- ground -->
+              <rect x="0" y="105" width="200" height="15" fill="#F5DEB3"/>
+            </svg>
+            <h3 class="font-fraunces text-xl text-deep mb-1">Sari-sari & convenience</h3>
+            <p class="text-sm text-mid">Quick scan, low-stock alerts, brownout-proof.</p>
+          </article>
+
+          <!-- Restaurant -->
+          <article class="bg-cream rounded-3xl p-6 border border-cream overflow-hidden">
+            <svg viewBox="0 0 200 120" class="w-full h-32 mb-4">
+              <rect width="200" height="120" fill="#FBEFD9"/>
+              <!-- shop body -->
+              <rect x="20" y="38" width="160" height="67" fill="#fff" stroke="#2F5D50" stroke-width="2"/>
+              <!-- roof -->
+              <polygon points="15,40 100,15 185,40" fill="#2F5D50"/>
+              <!-- big window with steam -->
+              <rect x="30" y="55" width="50" height="40" fill="#3F1D04" opacity="0.08"/>
+              <circle cx="55" cy="48" r="3" fill="#fff" opacity="0.6"/>
+              <circle cx="58" cy="42" r="2.5" fill="#fff" opacity="0.5"/>
+              <!-- door -->
+              <rect x="100" y="60" width="30" height="45" fill="#92400E"/>
+              <rect x="108" y="68" width="14" height="14" fill="#fff" opacity="0.3"/>
+              <!-- second window with chairs -->
+              <rect x="140" y="55" width="40" height="40" fill="#3F1D04" opacity="0.08"/>
+              <!-- sign -->
+              <text x="100" y="32" text-anchor="middle" font-family="Fraunces" font-size="10" font-weight="700" fill="#fff">KAINAN</text>
+              <rect x="0" y="105" width="200" height="15" fill="#F5DEB3"/>
+            </svg>
+            <h3 class="font-fraunces text-xl text-deep mb-1">Restaurants & kainan</h3>
+            <p class="text-sm text-mid">Tables, kitchen display, split bills.</p>
+          </article>
+
+          <!-- Café -->
+          <article class="bg-cream rounded-3xl p-6 border border-cream overflow-hidden">
+            <svg viewBox="0 0 200 120" class="w-full h-32 mb-4">
+              <rect width="200" height="120" fill="#FBEFD9"/>
+              <!-- shop body -->
+              <rect x="20" y="40" width="160" height="65" fill="#fff" stroke="#92400E" stroke-width="2"/>
+              <!-- striped awning -->
+              <path d="M 15 48 Q 100 35 185 48 L 185 30 L 15 30 Z" fill="#92400E"/>
+              <line x1="50" y1="40" x2="50" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="100" y1="36" x2="100" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <line x1="150" y1="40" x2="150" y2="46" stroke="#FBEFD9" stroke-width="2"/>
+              <!-- chalkboard window -->
+              <rect x="30" y="55" width="55" height="38" fill="#3F1D04"/>
+              <text x="57" y="72" text-anchor="middle" font-family="Fraunces" font-size="7" font-weight="600" fill="#FBEFD9">FRESH</text>
+              <text x="57" y="84" text-anchor="middle" font-family="Fraunces" font-size="7" font-weight="600" fill="#FBEFD9">BREW</text>
+              <!-- door -->
+              <rect x="100" y="58" width="28" height="47" fill="#5C2810"/>
+              <!-- pot plant -->
+              <ellipse cx="155" cy="100" rx="12" ry="3" fill="#3F1D04" opacity="0.2"/>
+              <rect x="148" y="85" width="14" height="15" fill="#92400E"/>
+              <circle cx="155" cy="80" r="8" fill="#2F5D50"/>
+              <!-- sign -->
+              <text x="100" y="22" text-anchor="middle" font-family="Fraunces" font-size="10" font-weight="700" fill="#3F1D04">CAFÉ</text>
+              <rect x="0" y="105" width="200" height="15" fill="#F5DEB3"/>
+            </svg>
+            <h3 class="font-fraunces text-xl text-deep mb-1">Cafés & bakeries</h3>
+            <p class="text-sm text-mid">Modifiers, fast checkout, custom receipts.</p>
+          </article>
+
+          <!-- Salon -->
+          <article class="bg-cream rounded-3xl p-6 border border-cream overflow-hidden">
+            <svg viewBox="0 0 200 120" class="w-full h-32 mb-4">
+              <rect width="200" height="120" fill="#FBEFD9"/>
+              <rect x="20" y="40" width="160" height="65" fill="#fff" stroke="#C2410C" stroke-width="2"/>
+              <!-- barber pole -->
+              <rect x="160" y="50" width="8" height="50" fill="#fff" stroke="#3F1D04" stroke-width="1"/>
+              <path d="M 160 55 Q 164 60 168 65 Q 164 70 160 75 Q 164 80 168 85 Q 164 90 160 95" stroke="#C2410C" stroke-width="3" fill="none"/>
+              <circle cx="164" cy="48" r="4" fill="#3F1D04"/>
+              <!-- mirror window -->
+              <rect x="30" y="55" width="80" height="45" fill="#fff" stroke="#3F1D04" stroke-width="1.5"/>
+              <ellipse cx="50" cy="78" rx="8" ry="10" fill="#3F1D04" opacity="0.2"/>
+              <ellipse cx="75" cy="78" rx="8" ry="10" fill="#3F1D04" opacity="0.2"/>
+              <ellipse cx="95" cy="78" rx="8" ry="10" fill="#3F1D04" opacity="0.2"/>
+              <!-- door -->
+              <rect x="120" y="60" width="30" height="45" fill="#5C2810"/>
+              <!-- sign -->
+              <rect x="50" y="20" width="100" height="14" fill="#C2410C" rx="2"/>
+              <text x="100" y="30" text-anchor="middle" font-family="Fraunces" font-size="9" font-weight="700" fill="#fff">BARBERIA</text>
+              <rect x="0" y="105" width="200" height="15" fill="#F5DEB3"/>
+            </svg>
+            <h3 class="font-fraunces text-xl text-deep mb-1">Salons & barbers</h3>
+            <p class="text-sm text-mid">Service billing, stylist commissions.</p>
+          </article>
+
+          <!-- Pharmacy -->
+          <article class="bg-cream rounded-3xl p-6 border border-cream overflow-hidden">
+            <svg viewBox="0 0 200 120" class="w-full h-32 mb-4">
+              <rect width="200" height="120" fill="#FBEFD9"/>
+              <rect x="20" y="40" width="160" height="65" fill="#fff" stroke="#2F5D50" stroke-width="2"/>
+              <!-- green cross sign -->
+              <rect x="155" y="50" width="22" height="22" fill="#2F5D50"/>
+              <rect x="163" y="53" width="6" height="16" fill="#fff"/>
+              <rect x="158" y="58" width="16" height="6" fill="#fff"/>
+              <!-- shelves -->
+              <rect x="30" y="55" width="100" height="45" fill="#3F1D04" opacity="0.06"/>
+              <line x1="30" y1="68" x2="130" y2="68" stroke="#3F1D04" stroke-width="1" opacity="0.3"/>
+              <line x1="30" y1="84" x2="130" y2="84" stroke="#3F1D04" stroke-width="1" opacity="0.3"/>
+              <!-- bottles -->
+              <rect x="35" y="60" width="6" height="6" fill="#D97706"/>
+              <rect x="45" y="60" width="6" height="6" fill="#2F5D50"/>
+              <rect x="55" y="60" width="6" height="6" fill="#92400E"/>
+              <rect x="65" y="60" width="6" height="6" fill="#D97706"/>
+              <rect x="35" y="76" width="6" height="6" fill="#2F5D50"/>
+              <rect x="45" y="76" width="6" height="6" fill="#D97706"/>
+              <rect x="55" y="76" width="6" height="6" fill="#92400E"/>
+              <!-- door -->
+              <rect x="135" y="78" width="22" height="27" fill="#5C2810"/>
+              <!-- sign -->
+              <text x="80" y="32" text-anchor="middle" font-family="Fraunces" font-size="11" font-weight="700" fill="#3F1D04">BOTICA</text>
+              <rect x="0" y="105" width="200" height="15" fill="#F5DEB3"/>
+            </svg>
+            <h3 class="font-fraunces text-xl text-deep mb-1">Pharmacies & boticas</h3>
+            <p class="text-sm text-mid">Batch & expiry tracking, prescriptions.</p>
+          </article>
+
+          <!-- Boutique -->
+          <article class="bg-cream rounded-3xl p-6 border border-cream overflow-hidden">
+            <svg viewBox="0 0 200 120" class="w-full h-32 mb-4">
+              <rect width="200" height="120" fill="#FBEFD9"/>
+              <rect x="20" y="40" width="160" height="65" fill="#fff" stroke="#92400E" stroke-width="2"/>
+              <!-- elegant arched awning -->
+              <path d="M 15 50 Q 100 25 185 50" fill="none" stroke="#92400E" stroke-width="2"/>
+              <!-- big shop window with mannequin -->
+              <rect x="30" y="55" width="60" height="50" fill="#fff" stroke="#3F1D04" stroke-width="1.5"/>
+              <!-- mannequin -->
+              <circle cx="60" cy="68" r="5" fill="#3F1D04" opacity="0.4"/>
+              <path d="M 53 75 Q 60 73 67 75 L 65 92 L 55 92 Z" fill="#D97706"/>
+              <line x1="60" y1="92" x2="58" y2="100" stroke="#3F1D04" stroke-width="1.5"/>
+              <line x1="60" y1="92" x2="62" y2="100" stroke="#3F1D04" stroke-width="1.5"/>
+              <!-- second window -->
+              <rect x="100" y="55" width="40" height="50" fill="#fff" stroke="#3F1D04" stroke-width="1.5"/>
+              <!-- hangers -->
+              <line x1="110" y1="60" x2="115" y2="70" stroke="#3F1D04" stroke-width="1"/>
+              <rect x="106" y="70" width="10" height="14" fill="#2F5D50" opacity="0.6"/>
+              <line x1="125" y1="60" x2="130" y2="70" stroke="#3F1D04" stroke-width="1"/>
+              <rect x="121" y="70" width="10" height="14" fill="#C2410C" opacity="0.6"/>
+              <!-- door -->
+              <rect x="148" y="60" width="25" height="45" fill="#5C2810"/>
+              <!-- sign -->
+              <text x="100" y="22" text-anchor="middle" font-family="Fraunces" font-size="10" font-weight="600" font-style="italic" fill="#3F1D04">Boutique</text>
+              <rect x="0" y="105" width="200" height="15" fill="#F5DEB3"/>
+            </svg>
+            <h3 class="font-fraunces text-xl text-deep mb-1">Boutiques & retail</h3>
+            <p class="text-sm text-mid">Variants, barcodes, seasonal promos.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         D — HERO + CHIPS (one big scene + chip-buttons)
+         ============================================================ -->
+    <section id="d" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        D · Hero + Chips · One big scene with industry chip-buttons
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+
+          <!-- Left: copy + chips -->
+          <div class="lg:col-span-6">
+            <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">— Industries</p>
+            <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium mb-5">
+              For every business that <em class="accent-text italic">opens its doors.</em>
+            </h2>
+            <p class="text-mid text-lg mb-8">
+              From the corner sari-sari to a 3-station kainan to a stylish boutique on Maginhawa.
+              RetailFlow flexes for whatever you sell.
+            </p>
+
+            <div class="text-xs uppercase tracking-widest text-soft font-bold mb-3">Used by</div>
+            <div class="flex flex-wrap gap-2 mb-8">
+              <button class="px-4 py-2.5 bg-white border-2 rounded-full text-sm font-semibold text-deep flex items-center gap-2" style="border-color:#D97706">
+                <span class="text-base">🏪</span> Sari-sari
+                <span class="text-xs accent-text font-bold">620+</span>
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">🍜</span> Restaurants
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">☕</span> Cafés & bakeries
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">💈</span> Salons & barbers
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">💊</span> Pharmacies
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">👗</span> Boutiques
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">🥖</span> Bakeshops
+              </button>
+              <button class="px-4 py-2.5 bg-white border border-cream rounded-full text-sm font-semibold text-mid hover:border-orange-300 flex items-center gap-2">
+                <span class="text-base">🌮</span> Food carts
+              </button>
+              <button class="px-4 py-2.5 border-2 border-dashed border-cream rounded-full text-sm font-semibold text-mid flex items-center gap-2">
+                +12 more
+              </button>
+            </div>
+
+            <a class="inline-flex items-center gap-2 text-sm font-semibold accent-text hover:underline">Talk to us about your business →</a>
+          </div>
+
+          <!-- Right: big visual scene -->
+          <div class="lg:col-span-6 relative">
+            <!-- Main "shop scene" composition using SVG + emoji -->
+            <div class="relative aspect-square max-w-[480px] mx-auto rounded-3xl overflow-hidden border border-cream" style="background: linear-gradient(135deg, #FBEFD9 0%, #FFF8E7 50%, #F5E4C2 100%)">
+              <!-- Big building silhouette -->
+              <svg viewBox="0 0 400 400" class="w-full h-full">
+                <!-- background blobs -->
+                <circle cx="320" cy="80" r="60" fill="#D97706" opacity="0.18"/>
+                <circle cx="80" cy="320" r="80" fill="#2F5D50" opacity="0.15"/>
+                <!-- street -->
+                <rect x="0" y="320" width="400" height="80" fill="#F5DEB3"/>
+                <!-- left building (sari-sari) -->
+                <rect x="40" y="180" width="100" height="140" fill="#fff" stroke="#D97706" stroke-width="2"/>
+                <rect x="35" y="170" width="110" height="14" fill="#D97706"/>
+                <rect x="55" y="200" width="35" height="40" fill="#3F1D04" opacity="0.12"/>
+                <rect x="100" y="240" width="30" height="80" fill="#92400E"/>
+                <text x="90" y="166" text-anchor="middle" font-family="Fraunces" font-size="11" font-weight="700" fill="#3F1D04">SARI-SARI</text>
+                <!-- middle building (cafe) -->
+                <rect x="150" y="140" width="110" height="180" fill="#fff" stroke="#92400E" stroke-width="2"/>
+                <path d="M 145 152 Q 205 138 265 152 L 265 132 L 145 132 Z" fill="#92400E"/>
+                <rect x="170" y="170" width="40" height="50" fill="#3F1D04"/>
+                <text x="190" y="195" text-anchor="middle" font-family="Fraunces" font-size="7" fill="#FBEFD9">FRESH</text>
+                <text x="190" y="210" text-anchor="middle" font-family="Fraunces" font-size="7" fill="#FBEFD9">BREW</text>
+                <rect x="220" y="170" width="35" height="80" fill="#5C2810"/>
+                <text x="205" y="126" text-anchor="middle" font-family="Fraunces" font-size="14" font-weight="700" fill="#3F1D04">CAFÉ</text>
+                <!-- right building (kainan) -->
+                <rect x="270" y="200" width="90" height="120" fill="#fff" stroke="#2F5D50" stroke-width="2"/>
+                <polygon points="265,202 315,180 365,202" fill="#2F5D50"/>
+                <rect x="280" y="220" width="35" height="40" fill="#3F1D04" opacity="0.12"/>
+                <rect x="325" y="260" width="25" height="60" fill="#92400E"/>
+                <text x="315" y="196" text-anchor="middle" font-family="Fraunces" font-size="9" font-weight="700" fill="#fff">KAINAN</text>
+                <!-- a tiny POS terminal floating -->
+                <rect x="160" y="50" width="80" height="60" rx="8" fill="#fff" stroke="#3F1D04" stroke-width="1.5"/>
+                <rect x="170" y="60" width="60" height="38" rx="3" fill="#3F1D04"/>
+                <circle cx="200" cy="105" r="3" fill="#D97706"/>
+                <text x="200" y="80" text-anchor="middle" font-family="Inter" font-size="8" font-weight="700" fill="#FBA94C">RETAILFLOW</text>
+                <text x="200" y="92" text-anchor="middle" font-family="Inter" font-size="6" fill="#fff" opacity="0.7">₱14,250</text>
+                <!-- connection lines -->
+                <line x1="200" y1="115" x2="90" y2="180" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+                <line x1="200" y1="115" x2="200" y2="140" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+                <line x1="200" y1="115" x2="320" y2="200" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Pick a fresh direction</h2>
+        <p class="text-white/60 mb-10">Four genuinely different concepts.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">A · Quote Cards</div>
+            <h3 class="text-lg font-bold mb-3">Industries through customer voices</h3>
+            <p class="text-sm text-white/70 mb-4">Each industry shown as a real-feeling owner quote — name, location, one-liner. Doubles as social proof.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most human</div>
+              <div>✅ Doubles as testimonials</div>
+              <div>⚠️ Needs real customer quotes eventually</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">B · Marquee Strip</div>
+            <h3 class="text-lg font-bold mb-3">Auto-scrolling chip bands</h3>
+            <p class="text-sm text-white/70 mb-4">Two rows of industry pills auto-scrolling in opposite directions. Compact, kinetic, just acknowledges breadth.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Tightest section, gets out of the way</div>
+              <div>✅ Conveys "many industries" instantly</div>
+              <div>⚠️ Less SEO weight per industry</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">C · Storefronts</div>
+            <h3 class="text-lg font-bold mb-3">Custom SVG shop facades</h3>
+            <p class="text-sm text-white/70 mb-4">Hand-drawn-style storefront illustrations for each industry — sari-sari awning, café chalkboard, barber pole, botica green-cross. Most original.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most distinctive / brand-defining</div>
+              <div>✅ Fully customizable later</div>
+              <div>⚠️ Most design effort to maintain</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">D · Hero + Chips</div>
+            <h3 class="text-lg font-bold mb-3">Big "street scene" + chip buttons</h3>
+            <p class="text-sm text-white/70 mb-4">Left side: copy + clickable industry chip pills. Right side: a single rich SVG illustration of a Filipino street with three storefronts + a floating POS terminal connected to all three. Memorable hero image.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most concise — one section, one big visual</div>
+              <div>✅ Strong storytelling moment</div>
+              <div>⚠️ Only one visual instead of per-industry</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#A78BFA">C (Storefronts)</strong> — most differentiated; nobody else's POS site has hand-drawn shop
+            facades. <strong style="color:#FB923C">A (Quotes)</strong> if you want to merge Industries and Testimonials into one
+            section. <strong style="color:#F59E0B">D (Hero+Chips)</strong> if you want the page tighter overall.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">A</strong>, <strong class="text-white">B</strong>, <strong class="text-white">C</strong>, or <strong class="text-white">D</strong> — or "show me more, none of these either" and I'll keep going.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

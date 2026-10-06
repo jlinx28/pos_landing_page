@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — CTA Variants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      .bg-cream { background-color: #FBEFD9; }
+      .text-deep { color: #3F1D04; }
+      .text-mid { color: #6B4423; }
+      .text-soft { color: #8C6B47; }
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      .dark-section {
+        background-color: #1F0F02;
+        background-image:
+          radial-gradient(at 80% 0%, rgba(217,119,6,0.18) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, rgba(47,93,80,0.20) 0px, transparent 50%);
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— CTA variants (with email capture)</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v1" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V1 · Inline Pill</a>
+          <a href="#v2" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V2 · Split Form</a>
+          <a href="#v3" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V3 · Card Form</a>
+          <a href="#v4" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V4 · Conversational</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V1 — INLINE PILL (single email + button, simplest)
+         ============================================================ -->
+    <section id="v1" class="dark-section text-white py-20 relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V1 · Inline Pill · Single email + button. Maximum conversion, lowest friction.
+      </div>
+
+      <!-- abstracts -->
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(217,119,6,0.30) 0%, transparent 70%)"></div>
+      <div class="absolute -bottom-32 -left-32 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(47,93,80,0.20) 0%, transparent 70%)"></div>
+
+      <div class="relative max-w-3xl mx-auto px-6 text-center mt-8">
+        <h2 class="font-fraunces text-4xl sm:text-5xl leading-tight font-medium">
+          Ready to <em class="italic" style="color:#FBA94C">run your store</em> the easy way?
+        </h2>
+        <p class="mt-4 text-white/70 max-w-xl mx-auto">14-day free trial. Full features. No credit card.</p>
+
+        <!-- Inline pill form -->
+        <form class="mt-8 max-w-xl mx-auto">
+          <div class="flex flex-col sm:flex-row gap-2 sm:gap-0 bg-white/10 backdrop-blur border border-white/15 rounded-full p-1.5">
+            <div class="flex-1 flex items-center pl-4">
+              <span class="text-white/40 mr-2">✉️</span>
+              <input type="email" placeholder="your@email.com" required
+                     class="flex-1 bg-transparent text-white placeholder:text-white/40 text-sm py-2.5 focus:outline-none" />
+            </div>
+            <button type="submit" class="accent-bg text-white px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.40)">
+              Send my trial link →
+            </button>
+          </div>
+          <p class="mt-3 text-xs text-white/40">We'll send your Google Play link within 1 hour. No spam, ever.</p>
+        </form>
+
+        <div class="mt-8 inline-flex items-center gap-3 text-xs text-white/50">
+          <span class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> No credit card</span>
+          <span class="text-white/20">·</span>
+          <span class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> 14-day free</span>
+          <span class="text-white/20">·</span>
+          <span class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> Cancel anytime</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V2 — SPLIT FORM (copy left, form right)
+         ============================================================ -->
+    <section id="v2" class="dark-section text-white py-20 relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V2 · Split Form · Copy + benefits on left, form card on right
+      </div>
+
+      <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(217,119,6,0.25) 0%, transparent 70%)"></div>
+      <div class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(47,93,80,0.20) 0%, transparent 70%)"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center mt-8">
+        <!-- Copy + benefits -->
+        <div>
+          <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#FBA94C">Get started</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl leading-tight font-medium mb-5">
+            Get your <em class="italic" style="color:#FBA94C">trial link</em> in your inbox.
+          </h2>
+          <p class="text-white/70 mb-6">Drop your email below. We'll send your Google Play link with a quick setup guide for your business type.</p>
+
+          <ul class="space-y-3 text-sm text-white/80">
+            <li class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-emerald-400">✓</span>
+              <span>Your link arrives in &lt;1 hour</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-emerald-400">✓</span>
+              <span>14-day free trial · full features</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-emerald-400">✓</span>
+              <span>Pay only when you're ready (GCash, Maya, bank)</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-emerald-400">✓</span>
+              <span>No credit card · cancel anytime</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Form card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl" style="box-shadow: 0 30px 60px -15px rgba(217,119,6,0.30)">
+          <div class="text-deep">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-2xl">📩</span>
+              <h3 class="font-fraunces text-xl font-semibold">Send my trial link</h3>
+            </div>
+            <p class="text-xs text-soft mb-5">Replies in &lt;1 hour during business hours.</p>
+
+            <form class="space-y-3">
+              <div>
+                <label class="text-[11px] font-bold text-soft uppercase tracking-wider block mb-1">Your name</label>
+                <input type="text" placeholder="Aling Nena" required
+                       class="w-full bg-cream border border-cream rounded-xl px-4 py-3 text-sm text-deep placeholder:text-soft focus:outline-none focus:border-orange-400" />
+              </div>
+
+              <div>
+                <label class="text-[11px] font-bold text-soft uppercase tracking-wider block mb-1">Email</label>
+                <input type="email" placeholder="aling.nena@example.com" required
+                       class="w-full bg-cream border border-cream rounded-xl px-4 py-3 text-sm text-deep placeholder:text-soft focus:outline-none focus:border-orange-400" />
+              </div>
+
+              <div>
+                <label class="text-[11px] font-bold text-soft uppercase tracking-wider block mb-1">What kind of business?</label>
+                <select required class="w-full bg-cream border border-cream rounded-xl px-4 py-3 text-sm text-deep focus:outline-none focus:border-orange-400">
+                  <option value="">Select one…</option>
+                  <option>🏪 Sari-sari store</option>
+                  <option>🍜 Restaurant / kainan</option>
+                  <option>☕ Café / bakery</option>
+                  <option>💈 Salon / barbershop</option>
+                  <option>💊 Pharmacy</option>
+                  <option>👗 Boutique / retail</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <button type="submit" class="w-full accent-bg text-white px-6 py-3.5 rounded-xl font-bold text-sm mt-2" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.40)">
+                Send my trial link →
+              </button>
+            </form>
+
+            <p class="mt-3 text-[10px] text-soft text-center">By signing up you agree to our <a class="underline">terms</a>. No spam, ever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V3 — CARD FORM (centered, premium card)
+         ============================================================ -->
+    <section id="v3" class="dark-section text-white py-20 relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#92400E">
+        V3 · Card Form · Centered hero card with email + business type
+      </div>
+
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(217,119,6,0.25) 0%, transparent 70%)"></div>
+      <div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(47,93,80,0.18) 0%, transparent 70%)"></div>
+
+      <div class="relative max-w-2xl mx-auto px-6 mt-8">
+        <div class="text-center mb-8">
+          <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#FBA94C">Start free</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl leading-tight font-medium">
+            Ready when <em class="italic" style="color:#FBA94C">you are.</em>
+          </h2>
+        </div>
+
+        <div class="bg-white rounded-3xl p-7 relative" style="box-shadow: 0 30px 60px -15px rgba(217,119,6,0.40), 0 50px 100px -30px rgba(63,29,4,0.50)">
+          <!-- Decorative ribbon -->
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 accent-bg text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">
+            14 days free · No card needed
+          </div>
+
+          <div class="text-deep mt-3">
+            <h3 class="font-fraunces text-2xl mb-1 text-center">Get your trial link</h3>
+            <p class="text-sm text-soft text-center mb-6">We'll email it within 1 hour.</p>
+
+            <form class="space-y-3">
+              <div class="flex items-center gap-2 bg-cream rounded-xl px-4 py-3 border border-cream focus-within:border-orange-400">
+                <span class="text-soft">✉️</span>
+                <input type="email" placeholder="your@email.com" required
+                       class="flex-1 bg-transparent text-sm text-deep placeholder:text-soft focus:outline-none" />
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" class="flex flex-col items-center gap-1 p-3 bg-cream rounded-xl border-2 hover:border-orange-300 cursor-pointer transition" style="border-color:#D97706">
+                  <span class="text-2xl">🏪</span>
+                  <span class="text-[10px] font-bold text-deep">Sari-sari</span>
+                </button>
+                <button type="button" class="flex flex-col items-center gap-1 p-3 bg-cream rounded-xl border-2 border-cream hover:border-orange-300 cursor-pointer transition">
+                  <span class="text-2xl">🍜</span>
+                  <span class="text-[10px] font-bold text-deep">Restaurant</span>
+                </button>
+                <button type="button" class="flex flex-col items-center gap-1 p-3 bg-cream rounded-xl border-2 border-cream hover:border-orange-300 cursor-pointer transition">
+                  <span class="text-2xl">☕</span>
+                  <span class="text-[10px] font-bold text-deep">Café</span>
+                </button>
+                <button type="button" class="flex flex-col items-center gap-1 p-3 bg-cream rounded-xl border-2 border-cream hover:border-orange-300 cursor-pointer transition">
+                  <span class="text-2xl">+</span>
+                  <span class="text-[10px] font-bold text-deep">Other</span>
+                </button>
+              </div>
+
+              <button type="submit" class="w-full accent-bg text-white px-6 py-3.5 rounded-xl font-bold text-sm" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.40)">
+                Send my trial link →
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center text-xs text-white/50">
+          Trusted by 1,200+ Filipino businesses · 4.9★ rating
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V4 — CONVERSATIONAL (Messenger-style email capture)
+         ============================================================ -->
+    <section id="v4" class="dark-section text-white py-20 relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V4 · Conversational · Like a Messenger thread, on-brand with How-It-Works
+      </div>
+
+      <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(217,119,6,0.25) 0%, transparent 70%)"></div>
+      <div class="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(47,93,80,0.18) 0%, transparent 70%)"></div>
+
+      <div class="relative max-w-2xl mx-auto px-6 text-center mt-8">
+        <h2 class="font-fraunces text-4xl sm:text-5xl leading-tight font-medium mb-3">
+          Let's <em class="italic" style="color:#FBA94C">start the conversation.</em>
+        </h2>
+        <p class="text-white/70 mb-8">Drop your email — we'll reply with your trial link in &lt;1 hour.</p>
+
+        <!-- Chat-style form card -->
+        <div class="bg-white rounded-3xl p-6 text-left">
+          <!-- Chat header -->
+          <div class="flex items-center gap-3 pb-4 border-b border-cream mb-5">
+            <div class="w-10 h-10 rounded-full" style="background: linear-gradient(135deg,#D97706,#92400E)"></div>
+            <div>
+              <div class="font-fraunces font-semibold text-deep">RetailFlow Support</div>
+              <div class="text-xs text-soft flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                Active now · replies in &lt;1 hour
+              </div>
+            </div>
+          </div>
+
+          <!-- Bot intro message -->
+          <div class="flex justify-start mb-4">
+            <div class="max-w-[85%]">
+              <div class="text-xs font-bold mb-1" style="color:#2F5D50">RETAILFLOW</div>
+              <div class="bg-cream rounded-2xl rounded-tl-md px-4 py-3 text-sm text-deep">
+                Tara! Drop your email and tell us what you sell — we'll send your free trial link 📲
+              </div>
+            </div>
+          </div>
+
+          <!-- Email + business as conversation inputs -->
+          <form class="space-y-3">
+            <!-- Email -->
+            <div class="flex items-center gap-2 bg-cream rounded-2xl px-4 py-2.5 border-2 border-cream focus-within:border-orange-400">
+              <span class="text-soft text-sm">✉️</span>
+              <input type="email" placeholder="Your email…" required
+                     class="flex-1 bg-transparent text-sm text-deep placeholder:text-soft focus:outline-none py-1" />
+            </div>
+
+            <!-- Business chips (button-style multi-select) -->
+            <div>
+              <div class="text-[11px] text-soft font-semibold mb-2 px-1">What kind of business?</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" class="px-3 py-1.5 rounded-full text-xs font-semibold border-2" style="background:#FED7AA; border-color:#D97706; color:#3F1D04">🏪 Sari-sari</button>
+                <button type="button" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-cream border-2 border-cream text-mid hover:border-orange-300">🍜 Restaurant</button>
+                <button type="button" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-cream border-2 border-cream text-mid hover:border-orange-300">☕ Café</button>
+                <button type="button" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-cream border-2 border-cream text-mid hover:border-orange-300">💈 Salon</button>
+                <button type="button" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-cream border-2 border-cream text-mid hover:border-orange-300">💊 Pharmacy</button>
+                <button type="button" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-cream border-2 border-cream text-mid hover:border-orange-300">+</button>
+              </div>
+            </div>
+
+            <!-- Send button styled like a Messenger send -->
+            <button type="submit" class="w-full accent-bg text-white px-6 py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.40)">
+              Send →
+            </button>
+          </form>
+
+          <p class="mt-4 text-[10px] text-soft text-center">Or message us directly on Messenger · @retailflow</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Pick a CTA direction</h2>
+        <p class="text-white/60 mb-10">All four capture leads. Different friction levels and visual treatments.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V1 · Inline Pill</div>
+            <h3 class="text-lg font-bold mb-3">Single email + button</h3>
+            <p class="text-sm text-white/70 mb-4">One pill-shaped container with email input + "Send my trial link" button. Trust line below. Most common SaaS pattern.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Highest conversion (1 field)</div>
+              <div>✅ Cleanest visual</div>
+              <div>⚠️ No segmentation data</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V2 · Split Form</div>
+            <h3 class="text-lg font-bold mb-3">Copy + benefits left, form right</h3>
+            <p class="text-sm text-white/70 mb-4">Left: heading + 4-bullet benefits list. Right: white card form with name + email + business type dropdown. Most "designed" feel.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Best for qualified leads</div>
+              <div>✅ Reinforces benefits at form moment</div>
+              <div>⚠️ 3 fields = more friction</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V3 · Card Form</div>
+            <h3 class="text-lg font-bold mb-3">Centered hero card with chip selector</h3>
+            <p class="text-sm text-white/70 mb-4">Centered white card with "14 days free" ribbon. Email field + 4-button business-type chip selector (Sari-sari · Restaurant · Café · Other). Tap-friendly.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most tap-friendly (no dropdowns)</div>
+              <div>✅ Visual + emoji-driven</div>
+              <div>⚠️ Limits to 3-4 visible business types</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">V4 · Conversational</div>
+            <h3 class="text-lg font-bold mb-3">Messenger-thread email capture</h3>
+            <p class="text-sm text-white/70 mb-4">Bot intro bubble ("Tara! Drop your email…") + email input + business-type chips. Perfectly on-brand with your How-It-Works chat motif.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Cohesive with chat-first brand voice</div>
+              <div>✅ Filipino Messenger-culture friendly</div>
+              <div>✅ Lower perceived friction</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#F59E0B">V4 (Conversational)</strong> — directly extends the Messenger-thread motif from your How-It-Works section, so the page feels like one cohesive story ("we talk to you, you give us your email, we send the link"). <strong style="color:#A78BFA">V3 (Card Form)</strong> for the most polished standard CTA. <strong style="color:#FB923C">V1 (Inline)</strong> if maximum conversion matters most.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V1</strong>, <strong class="text-white">V2</strong>, <strong class="text-white">V3</strong>, or <strong class="text-white">V4</strong>.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Warm Palette Variants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Serif+Display&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+      .font-serif-display { font-family: 'DM Serif Display', serif; }
+      .font-bricolage { font-family: 'Bricolage Grotesque', sans-serif; }
+
+      /* shared label pill */
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* ---------- V1 Terracotta & Clay ---------- */
+      .v1-bg {
+        background-color: #FBF3E2;
+        background-image:
+          radial-gradient(at 0% 0%, rgba(194,65,12,0.10) 0px, transparent 45%),
+          radial-gradient(at 100% 50%, rgba(146,64,14,0.08) 0px, transparent 50%),
+          radial-gradient(at 50% 100%, rgba(217,119,6,0.06) 0px, transparent 50%);
+      }
+      .v1-text-deep { color: #3D2817; }
+      .v1-text-mid { color: #6B4F37; }
+      .v1-text-soft { color: #8C6B4F; }
+      .v1-accent-bg { background-color: #C2410C; }
+      .v1-accent-bg:hover { background-color: #9A3412; }
+      .v1-accent-text { color: #C2410C; }
+      .v1-card { background:#fff; border-color:#F0DEC2; }
+
+      /* ---------- V2 Sunset Coral ---------- */
+      .v2-bg {
+        background-color: #FFF4ED;
+        background-image:
+          radial-gradient(at 100% 0%, rgba(248,113,113,0.18) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, rgba(217,119,6,0.10) 0px, transparent 50%);
+      }
+      .v2-text-deep { color: #3D1A1A; }
+      .v2-text-mid { color: #6B2C2C; }
+      .v2-text-soft { color: #8C5050; }
+      .v2-accent-bg { background-color: #E8553F; }
+      .v2-accent-bg:hover { background-color: #C2410C; }
+      .v2-accent-text { color: #E8553F; }
+      .v2-card { background:#fff; border-color:#FBD0BC; }
+
+      /* ---------- V3 Saffron & Cocoa ---------- */
+      .v3-bg {
+        background-color: #FBEFD9;
+        background-image:
+          radial-gradient(at 80% 0%, rgba(217,119,6,0.18) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, rgba(63,29,4,0.10) 0px, transparent 50%);
+      }
+      .v3-text-deep { color: #3F1D04; }
+      .v3-text-mid { color: #6B4423; }
+      .v3-text-soft { color: #8C6B47; }
+      .v3-accent-bg { background-color: #D97706; }
+      .v3-accent-bg:hover { background-color: #B45309; }
+      .v3-accent-text { color: #D97706; }
+      .v3-secondary-bg { background-color: #2F5D50; }
+      .v3-card { background:#fff; border-color:#F5DEB3; }
+
+      .stamp { transform: rotate(-2deg); }
+    </style>
+  </head>
+  <body class="bg-slate-100 text-slate-900">
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-slate-900">RetailFlow POS</span>
+          <span class="text-xs text-slate-500">— Warm Palette Variants</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v1" class="px-3 py-1.5 rounded-md hover:bg-slate-100 font-medium">V1 · Terracotta</a>
+          <a href="#v2" class="px-3 py-1.5 rounded-md hover:bg-slate-100 font-medium">V2 · Coral</a>
+          <a href="#v3" class="px-3 py-1.5 rounded-md hover:bg-slate-100 font-medium">V3 · Saffron</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md bg-slate-900 text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========================================================================
+         V1 — TERRACOTTA & CLAY
+         ======================================================================== -->
+    <section id="v1">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#C2410C">
+        V1 · Terracotta & Clay · Earthy, grounded, artisan
+      </div>
+
+      <div class="v1-bg">
+        <!-- Sub-navbar -->
+        <header class="border-b" style="border-color: rgba(194,65,12,0.12)">
+          <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-md" style="background: linear-gradient(135deg,#C2410C,#92400E)"></div>
+              <span class="font-bold v1-text-deep font-fraunces text-lg">RetailFlow</span>
+            </div>
+            <div class="hidden md:flex items-center gap-7 text-sm v1-text-mid">
+              <a class="hover:opacity-70">Features</a>
+              <a class="hover:opacity-70">Pricing</a>
+              <a class="hover:opacity-70">Stories</a>
+              <a class="hover:opacity-70">Help</a>
+            </div>
+            <a class="text-sm font-semibold v1-accent-bg text-white px-5 py-2 rounded-full transition">Start free trial</a>
+          </div>
+        </header>
+
+        <!-- Hero -->
+        <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-1.5 text-xs font-semibold mb-6 stamp shadow-sm" style="border-color:#F0DEC2; color:#92400E">
+              <span>🇵🇭</span> Built for Filipino businesses
+            </div>
+            <h1 class="font-fraunces text-5xl sm:text-6xl lg:text-7xl v1-text-deep leading-[1.02] font-medium">
+              Run your store, even when the <em class="v1-accent-text italic">power</em> goes out.
+            </h1>
+            <p class="mt-6 text-lg v1-text-mid max-w-lg">
+              The offline-first point of sale for sari-sari stores, restaurants, and
+              small shops across the Philippines. Brownouts, dropped WiFi, dead signal —
+              you keep selling.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a class="v1-accent-bg text-white px-6 py-3.5 rounded-full font-semibold transition shadow-lg shadow-orange-900/20">Start 14-day free trial</a>
+              <a class="px-6 py-3.5 rounded-full font-semibold v1-text-deep hover:bg-white/60 border" style="border-color:#F0DEC2">Watch the demo →</a>
+            </div>
+            <div class="mt-8 flex items-center gap-4 text-sm v1-text-soft">
+              <div class="flex -space-x-2">
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#C2410C"></div>
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#D97706"></div>
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#92400E"></div>
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#7C2D12"></div>
+              </div>
+              <span>Trusted by <strong class="v1-text-deep">1,200+</strong> Filipino businesses</span>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full blur-2xl" style="background:rgba(217,119,6,0.30)"></div>
+            <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-full blur-2xl" style="background:rgba(194,65,12,0.25)"></div>
+            <div class="relative bg-white rounded-3xl p-3 shadow-2xl border stamp" style="border-color:#F0DEC2; box-shadow: 0 25px 50px -12px rgba(124,45,18,0.30)">
+              <img src="../public/POS.JPG" alt="POS" class="rounded-2xl w-full" />
+            </div>
+            <div class="absolute -top-4 -right-4 text-white text-xs font-extrabold px-3 py-2 rounded-full shadow-lg" style="background:#92400E; transform: rotate(8deg)">
+              ₱199/month
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature strip -->
+        <div class="max-w-7xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl p-6 border shadow-sm v1-card">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="font-bold v1-text-deep mb-1 font-fraunces text-xl">Lightning checkout</h3>
+            <p class="text-sm v1-text-mid">Scan, total, paid — under 4 seconds.</p>
+          </div>
+          <div class="rounded-2xl p-6 border shadow-sm v1-card">
+            <div class="text-3xl mb-3">📴</div>
+            <h3 class="font-bold v1-text-deep mb-1 font-fraunces text-xl">Truly offline</h3>
+            <p class="text-sm v1-text-mid">SQLite-backed local storage. Brownout-proof.</p>
+          </div>
+          <div class="rounded-2xl p-6 border shadow-sm v1-card">
+            <div class="text-3xl mb-3">📱</div>
+            <h3 class="font-bold v1-text-deep mb-1 font-fraunces text-xl">Multi-device LAN sync</h3>
+            <p class="text-sm v1-text-mid">Phones, tablets, terminals on one WiFi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         V2 — SUNSET CORAL
+         ======================================================================== -->
+    <section id="v2">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#E8553F">
+        V2 · Sunset Coral · Friendly, golden-hour warm
+      </div>
+
+      <div class="v2-bg">
+        <header class="border-b" style="border-color: rgba(232,85,63,0.12)">
+          <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full" style="background: linear-gradient(135deg,#F87171,#E8553F)"></div>
+              <span class="font-bold v2-text-deep text-lg">RetailFlow</span>
+            </div>
+            <div class="hidden md:flex items-center gap-7 text-sm v2-text-mid">
+              <a class="hover:opacity-70">Features</a>
+              <a class="hover:opacity-70">Pricing</a>
+              <a class="hover:opacity-70">Stories</a>
+              <a class="hover:opacity-70">Help</a>
+            </div>
+            <a class="text-sm font-semibold v2-accent-bg text-white px-5 py-2 rounded-full transition">Start free trial</a>
+          </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-1.5 text-xs font-semibold mb-6 shadow-sm" style="border-color:#FBD0BC; color:#C2410C">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#E8553F"></span>
+              Made for Philippine retail
+            </div>
+            <h1 class="font-fraunces text-5xl sm:text-6xl lg:text-7xl v2-text-deep leading-[1.02] font-medium">
+              The POS that <em class="v2-accent-text italic">never quits</em> on you.
+            </h1>
+            <p class="mt-6 text-lg v2-text-mid max-w-lg">
+              Sell through brownouts. Sync across cashiers without internet. Close the day in
+              one tap. RetailFlow is the offline-first POS built for Filipino retail.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a class="v2-accent-bg text-white px-6 py-3.5 rounded-full font-semibold transition shadow-lg" style="box-shadow: 0 10px 25px -5px rgba(232,85,63,0.40)">Start 14-day free trial</a>
+              <a class="px-6 py-3.5 rounded-full font-semibold v2-text-deep hover:bg-white/60 border" style="border-color:#FBD0BC">Watch the demo →</a>
+            </div>
+            <div class="mt-8 flex items-center gap-4 text-sm v2-text-soft">
+              <div class="flex -space-x-2">
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#F87171"></div>
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#E8553F"></div>
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#FBA94C"></div>
+                <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#D97706"></div>
+              </div>
+              <span><strong class="v2-text-deep">1,200+</strong> Filipino businesses · 4.9★ rating</span>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full blur-2xl" style="background:rgba(248,113,113,0.40)"></div>
+            <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-full blur-2xl" style="background:rgba(217,119,6,0.30)"></div>
+            <div class="relative bg-white rounded-3xl p-3 shadow-2xl border" style="border-color:#FBD0BC; box-shadow: 0 25px 50px -12px rgba(193,65,12,0.30)">
+              <img src="../public/POS.JPG" alt="POS" class="rounded-2xl w-full" />
+            </div>
+            <div class="absolute -top-4 -right-4 text-white text-xs font-extrabold px-3 py-2 rounded-full shadow-lg" style="background:#D97706; transform: rotate(8deg)">
+              ₱199/month
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl p-6 border shadow-sm v2-card">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="font-bold v2-text-deep mb-1 font-fraunces text-xl">Lightning checkout</h3>
+            <p class="text-sm v2-text-mid">Scan, total, paid — under 4 seconds.</p>
+          </div>
+          <div class="rounded-2xl p-6 border shadow-sm v2-card">
+            <div class="text-3xl mb-3">📴</div>
+            <h3 class="font-bold v2-text-deep mb-1 font-fraunces text-xl">Truly offline</h3>
+            <p class="text-sm v2-text-mid">SQLite-backed. Brownout-proof.</p>
+          </div>
+          <div class="rounded-2xl p-6 border shadow-sm v2-card">
+            <div class="text-3xl mb-3">📱</div>
+            <h3 class="font-bold v2-text-deep mb-1 font-fraunces text-xl">Multi-device LAN sync</h3>
+            <p class="text-sm v2-text-mid">All cashiers on one WiFi. No cloud bill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         V3 — SAFFRON & COCOA
+         ======================================================================== -->
+    <section id="v3">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#92400E">
+        V3 · Saffron & Cocoa · Spice market, food-and-flavor warmth
+      </div>
+
+      <div class="v3-bg">
+        <header class="border-b" style="border-color: rgba(146,64,14,0.12)">
+          <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-md" style="background: linear-gradient(135deg,#D97706,#92400E)"></div>
+              <span class="font-bold v3-text-deep font-bricolage text-lg">RetailFlow</span>
+            </div>
+            <div class="hidden md:flex items-center gap-7 text-sm v3-text-mid">
+              <a class="hover:opacity-70">Features</a>
+              <a class="hover:opacity-70">Pricing</a>
+              <a class="hover:opacity-70">Stories</a>
+              <a class="hover:opacity-70">Help</a>
+            </div>
+            <a class="text-sm font-semibold v3-accent-bg text-white px-5 py-2 rounded-full transition">Start free trial</a>
+          </div>
+        </header>
+
+        <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-1.5 text-xs font-semibold mb-6 shadow-sm" style="border-color:#F5DEB3; color:#92400E">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#2F5D50"></span>
+              Tara — built for Filipino retail
+            </div>
+            <h1 class="font-bricolage text-5xl sm:text-6xl lg:text-7xl v3-text-deep leading-[0.98] font-extrabold tracking-tight">
+              Sell anywhere.<br/>
+              <span class="v3-accent-text">Even off-grid.</span>
+            </h1>
+            <p class="mt-6 text-lg v3-text-mid max-w-lg">
+              The offline-first point of sale built for Filipino sari-sari stores, kainan, and
+              small shops. Works through brownouts, dropped WiFi, and dead signal — because
+              your customers don't wait.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a class="v3-accent-bg text-white px-6 py-3.5 rounded-full font-semibold transition shadow-lg" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.40)">Start 14-day free trial</a>
+              <a class="px-6 py-3.5 rounded-full font-semibold v3-text-deep hover:bg-white/60 border" style="border-color:#F5DEB3">See it in action →</a>
+            </div>
+            <div class="mt-10 grid grid-cols-3 gap-4 pt-8 border-t" style="border-color:#F5DEB3">
+              <div>
+                <div class="text-2xl font-extrabold v3-text-deep">1,200+</div>
+                <div class="text-xs v3-text-soft uppercase tracking-wide">Active stores</div>
+              </div>
+              <div>
+                <div class="text-2xl font-extrabold v3-text-deep">100%</div>
+                <div class="text-xs v3-text-soft uppercase tracking-wide">Offline ready</div>
+              </div>
+              <div>
+                <div class="text-2xl font-extrabold v3-text-deep">&lt;5 min</div>
+                <div class="text-xs v3-text-soft uppercase tracking-wide">Setup time</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full blur-2xl" style="background:rgba(217,119,6,0.40)"></div>
+            <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-full blur-2xl" style="background:rgba(63,29,4,0.20)"></div>
+            <div class="relative bg-white rounded-3xl p-3 shadow-2xl border" style="border-color:#F5DEB3; box-shadow: 0 25px 50px -12px rgba(63,29,4,0.30)">
+              <img src="../public/POS.JPG" alt="POS" class="rounded-2xl w-full" />
+            </div>
+            <div class="absolute -top-4 -right-4 text-white text-xs font-extrabold px-3 py-2 rounded-full shadow-lg" style="background:#2F5D50; transform: rotate(8deg)">
+              ₱199/month
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl p-6 border shadow-sm v3-card">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="font-bold v3-text-deep mb-1 font-bricolage text-xl">Lightning checkout</h3>
+            <p class="text-sm v3-text-mid">Scan, total, paid — under 4 seconds.</p>
+          </div>
+          <div class="rounded-2xl p-6 border shadow-sm v3-card">
+            <div class="text-3xl mb-3">📴</div>
+            <h3 class="font-bold v3-text-deep mb-1 font-bricolage text-xl">Truly offline</h3>
+            <p class="text-sm v3-text-mid">Local SQLite. Brownout-proof.</p>
+          </div>
+          <div class="rounded-2xl p-6 border shadow-sm v3-card">
+            <div class="text-3xl mb-3">📱</div>
+            <h3 class="font-bold v3-text-deep mb-1 font-bricolage text-xl">Multi-device LAN sync</h3>
+            <p class="text-sm v3-text-mid">Phones, tablets, terminals on one WiFi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SUMMARY
+         ======================================================================== -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Pick a palette</h2>
+        <p class="text-white/60 mb-10">All three keep the warm/local soul. Differences are in temperature and personality.</p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- V1 swatch card -->
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="flex gap-1.5 mb-4">
+              <div class="h-12 flex-1 rounded-md" style="background:#FBF3E2"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#C2410C"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#92400E"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#3D2817"></div>
+            </div>
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V1 · Terracotta</div>
+            <h3 class="text-lg font-bold mb-3">Earthy, artisan</h3>
+            <p class="text-sm text-white/70 mb-4">Like sun-baked clay and adobe walls. Refined and grounded — closer to a thoughtful brand than a budget tool.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Refined, premium feel</div>
+              <div>✅ Distinctive in POS category</div>
+              <div>⚠️ Slightly more "lifestyle brand" energy</div>
+            </div>
+          </div>
+
+          <!-- V2 swatch card -->
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="flex gap-1.5 mb-4">
+              <div class="h-12 flex-1 rounded-md" style="background:#FFF4ED"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#F87171"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#E8553F"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#3D1A1A"></div>
+            </div>
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F87171">V2 · Coral</div>
+            <h3 class="text-lg font-bold mb-3">Friendly, golden-hour</h3>
+            <p class="text-sm text-white/70 mb-4">Soft, approachable, hospitality-adjacent. Reads as restaurant/café-friendly first.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Warmest of the three</div>
+              <div>✅ Strong appeal to F&B owners</div>
+              <div>⚠️ Could feel less serious for retail/inventory crowd</div>
+            </div>
+          </div>
+
+          <!-- V3 swatch card -->
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="flex gap-1.5 mb-4">
+              <div class="h-12 flex-1 rounded-md" style="background:#FBEFD9"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#D97706"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#2F5D50"></div>
+              <div class="h-12 flex-1 rounded-md" style="background:#3F1D04"></div>
+            </div>
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FBBF24">V3 · Saffron</div>
+            <h3 class="text-lg font-bold mb-3">Spice market, food-y</h3>
+            <p class="text-sm text-white/70 mb-4">Saffron + forest green = local market vibes. Energetic but grounded by deep cocoa text and forest accent.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most "Filipino market" feel</div>
+              <div>✅ Two-tone palette = more visual range</div>
+              <div>⚠️ Saffron orange close to current accent — less fresh</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#FB923C">V1 (Terracotta)</strong> — it's the most differentiated.
+            POS competitors all look like dashboards (blues, greens, grays); a terracotta-and-clay
+            palette with a warm serif headline reads as a real brand, not a SaaS template. Looks
+            equally good for a restaurant, a sari-sari, or a salon.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply with <strong class="text-white">V1</strong>, <strong class="text-white">V2</strong>, or <strong class="text-white">V3</strong> — or tell me what to tweak (deeper, lighter, swap an accent, different headline font, etc.)
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

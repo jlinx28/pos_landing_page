@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Story Rows Variations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      .bg-cream      { background-color: #FBEFD9; }
+      .bg-cream-deep { background-color: #F5E4C2; }
+      .text-deep     { color: #3F1D04; }
+      .text-mid      { color: #6B4423; }
+      .text-soft     { color: #8C6B47; }
+      .accent-bg     { background-color: #D97706; }
+      .accent-text   { color: #D97706; }
+      .secondary-bg  { background-color: #2F5D50; }
+      .secondary-text{ color: #2F5D50; }
+      .tertiary-bg   { background-color: #92400E; }
+      .border-cream  { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Phone frame — thin bezel, restrained corner radius */
+      .mini-phone {
+        position: relative;
+        background: linear-gradient(160deg, #2A1810 0%, #1A0E04 40%, #0F0700 75%, #050200 100%);
+        border-radius: 28px;
+        padding: 5px;
+        max-width: 240px;
+        box-shadow:
+          /* edge highlights */
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          inset 0 1px 0 rgba(255,255,255,0.14),
+          inset 0 -1px 1px rgba(0,0,0,0.35),
+          /* hairline outer ring */
+          0 0 0 0.5px rgba(63,29,4,0.50),
+          /* drop shadows — palette-tinted */
+          0 4px 8px -2px rgba(63,29,4,0.22),
+          0 20px 40px -12px rgba(63,29,4,0.42),
+          0 45px 70px -28px rgba(217,119,6,0.18);
+      }
+      /* tiny side buttons */
+      .mini-phone::before {
+        content:''; position:absolute; right:-2px; top:55px;
+        width:2px; height:38px;
+        background: linear-gradient(180deg, #1A0E04, #050200);
+        border-radius: 1px 0 0 1px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+      .mini-phone::after {
+        content:''; position:absolute; left:-2px; top:42px;
+        width:2px; height:24px;
+        background: linear-gradient(180deg, #1A0E04, #050200);
+        border-radius: 0 1px 1px 0;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+      .mini-phone .screen {
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        background: #000;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+      }
+      .mini-phone .screen img { display:block; width:100%; }
+      /* Glassy reflection */
+      .mini-phone .screen::after {
+        content:'';
+        position:absolute; inset:0;
+        background: linear-gradient(135deg,
+          rgba(255,255,255,0.14) 0%,
+          rgba(255,255,255,0.03) 22%,
+          transparent 42%,
+          transparent 78%,
+          rgba(255,255,255,0.06) 100%);
+        pointer-events: none;
+        border-radius: 24px;
+        mix-blend-mode: overlay;
+      }
+
+      /* Float animation for decorative cards */
+      @keyframes float-soft {
+        0%, 100% { transform: translateY(0) }
+        50% { transform: translateY(-6px) }
+      }
+      .float-1 { animation: float-soft 5s ease-in-out infinite; }
+      .float-2 { animation: float-soft 6s ease-in-out infinite .8s; }
+      .float-3 { animation: float-soft 7s ease-in-out infinite 1.6s; }
+
+      /* Dot pattern */
+      .dot-pattern {
+        background-image: radial-gradient(rgba(146,64,14,0.20) 1.2px, transparent 1.2px);
+        background-size: 22px 22px;
+      }
+
+      /* Big numeral for V3 */
+      .big-numeral {
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 12rem;
+        line-height: 0.85;
+        letter-spacing: -0.05em;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— Story Rows variations</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v2" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V2 · Wrapped Cards</a>
+          <a href="#v3" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V3 · Magazine</a>
+          <a href="#v4" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V4 · Full-bleed Bands</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V2 — WRAPPED CARDS
+         Each row is a big rounded card with tinted background
+         ============================================================ -->
+    <section id="v2" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V2 · Wrapped Cards · Each row in its own contained card
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Features</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Built for the way <em class="accent-text italic">you actually work.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+
+          <!-- Row 1 (saffron-tinted card, image right) -->
+          <article class="rounded-3xl p-8 lg:p-12 border border-cream relative overflow-hidden" style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(217,119,6,0.08) 100%)">
+            <div class="absolute top-4 left-6 text-xs font-bold accent-text font-fraunces" style="font-size:0.85rem; letter-spacing:0.15em">01 / POINT OF SALE</div>
+            <div class="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style="background:rgba(217,119,6,0.20)"></div>
+            <div class="relative grid lg:grid-cols-2 gap-10 items-center pt-6">
+              <div>
+                <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">A checkout your <em class="accent-text italic">cashier loves.</em></h3>
+                <p class="text-mid mb-6 max-w-md">Scan a barcode, tap a payment method, print the receipt. The whole flow feels obvious — even on day one.</p>
+                <div class="grid grid-cols-2 gap-2 max-w-sm">
+                  <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">📷</div><div class="text-xs font-semibold text-deep">Barcode scan</div></div>
+                  <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">💵</div><div class="text-xs font-semibold text-deep">Cash · GCash · Maya</div></div>
+                  <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">🧾</div><div class="text-xs font-semibold text-deep">Receipts</div></div>
+                  <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">🏷️</div><div class="text-xs font-semibold text-deep">Promos</div></div>
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <div class="mini-phone" style="transform: rotate(-4deg)">
+                  <div class="screen"><img src="../public/POS.JPG" alt="POS" /></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 2 (forest-tinted card, image left) -->
+          <article class="rounded-3xl p-8 lg:p-12 border border-cream relative overflow-hidden" style="background: linear-gradient(135deg, rgba(47,93,80,0.06) 0%, #FFFFFF 100%)">
+            <div class="absolute top-4 right-6 text-xs font-bold font-fraunces" style="font-size:0.85rem; letter-spacing:0.15em; color:#2F5D50">02 / OFFLINE-FIRST</div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl pointer-events-none" style="background:rgba(47,93,80,0.15)"></div>
+            <div class="relative grid lg:grid-cols-2 gap-10 items-center pt-6">
+              <div class="flex justify-center order-2 lg:order-1">
+                <div class="mini-phone" style="transform: rotate(4deg)">
+                  <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard" /></div>
+                </div>
+              </div>
+              <div class="order-1 lg:order-2">
+                <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">When the WiFi drops, <em class="italic" style="color:#2F5D50">you keep selling.</em></h3>
+                <p class="text-mid mb-6 max-w-md">Local SQLite storage means every sale, every inventory update, every report works without internet. When you reconnect, everything syncs.</p>
+                <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-cream max-w-md">
+                  <div class="w-12 h-12 rounded-full secondary-bg text-white flex items-center justify-center text-xl">📴</div>
+                  <div>
+                    <div class="font-semibold text-deep text-sm">Brownout this morning?</div>
+                    <div class="text-xs text-soft">Your cashier kept ringing. No data lost.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3 (burnt-tinted card, multi-device, image right) -->
+          <article class="rounded-3xl p-8 lg:p-12 border border-cream relative overflow-hidden" style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(146,64,14,0.08) 100%)">
+            <div class="absolute top-4 left-6 text-xs font-bold font-fraunces" style="font-size:0.85rem; letter-spacing:0.15em; color:#92400E">03 / LAN SYNC</div>
+            <div class="relative grid lg:grid-cols-2 gap-10 items-center pt-6">
+              <div>
+                <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">Three cashier stations. <em class="italic accent-text">One WiFi. Zero cloud.</em></h3>
+                <p class="text-mid mb-6 max-w-md">Add devices as your shop grows. They sync over your local network — no monthly cloud bill, no data leaving your store.</p>
+                <ul class="space-y-2 text-sm text-mid">
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Phones, tablets, terminals — any Android 8+</li>
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Real-time inventory across stations</li>
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Per-cashier reports & PIN login</li>
+                </ul>
+              </div>
+              <div class="flex justify-center items-end gap-2">
+                <div class="mini-phone" style="max-width:140px; transform: rotate(-6deg)">
+                  <div class="screen"><img src="../public/Sales.jpg" alt="Sales" /></div>
+                </div>
+                <div class="mini-phone" style="max-width:180px">
+                  <div class="screen"><img src="../public/Products.jpg" alt="Products" /></div>
+                </div>
+                <div class="mini-phone" style="max-width:140px; transform: rotate(6deg)">
+                  <div class="screen"><img src="../public/EOD.jpg" alt="EOD" /></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V3 — MAGAZINE / EDITORIAL
+         Big numerals as design, asymmetric / overlapping layout
+         ============================================================ -->
+    <section id="v3" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V3 · Editorial Magazine · Display numerals + asymmetric overlap
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-16">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">— Features</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium max-w-2xl">
+            What you get when you choose <em class="accent-text italic">RetailFlow.</em>
+          </h2>
+        </div>
+
+        <!-- Row 1: image right with overlap, big "01" -->
+        <div class="relative mb-32">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 relative z-10">
+              <div class="big-numeral absolute -top-32 -left-2 select-none pointer-events-none" style="color:rgba(63,29,4,0.05)">01</div>
+              <div class="relative z-10">
+                <div class="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-4">Point of Sale</div>
+                <h3 class="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]">A checkout your<br/><em class="accent-text italic">cashier loves.</em></h3>
+                <p class="text-mid text-lg mb-6 max-w-lg">Scan a barcode, tap a payment, print the receipt. Under four seconds per transaction — and the flow feels obvious on day one.</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1.5 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Barcode</span>
+                  <span class="px-3 py-1.5 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">GCash · Maya</span>
+                  <span class="px-3 py-1.5 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Receipts</span>
+                  <span class="px-3 py-1.5 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Promos</span>
+                  <span class="px-3 py-1.5 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Hold orders</span>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-5 relative">
+              <!-- dot pattern halo -->
+              <div class="absolute -inset-8 dot-pattern opacity-40 pointer-events-none rounded-full" style="mask-image: radial-gradient(circle, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);"></div>
+              <!-- saffron glow -->
+              <div class="absolute inset-0 blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(217,119,6,0.30) 0%, transparent 65%)"></div>
+
+              <div class="relative flex justify-center">
+                <div class="relative">
+                  <div class="mini-phone" style="transform: rotate(-5deg)">
+                    <div class="screen"><img src="../public/POS.JPG" alt="POS" /></div>
+                  </div>
+
+                  <!-- Floating: "Sales today" stat -->
+                  <div class="hidden sm:flex absolute -top-3 -left-12 items-center gap-2.5 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-1" style="box-shadow: 0 15px 35px -10px rgba(63,29,4,0.25)">
+                    <div class="w-9 h-9 rounded-xl accent-bg text-white flex items-center justify-center text-base font-bold">₱</div>
+                    <div>
+                      <div class="text-[9px] text-soft uppercase tracking-wider font-semibold">Today</div>
+                      <div class="font-fraunces font-semibold text-deep text-base leading-none">₱14,250</div>
+                    </div>
+                  </div>
+
+                  <!-- Floating: "Paid" toast -->
+                  <div class="hidden sm:flex absolute -bottom-2 -right-10 items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-2" style="box-shadow: 0 12px 28px -8px rgba(63,29,4,0.22)">
+                    <div class="w-7 h-7 rounded-full secondary-bg text-white flex items-center justify-center text-xs">✓</div>
+                    <div>
+                      <div class="text-xs font-semibold text-deep leading-tight">Paid · GCash</div>
+                      <div class="text-[9px] text-soft leading-none mt-0.5">2 sec ago</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: image left with overlap, big "02" -->
+        <div class="relative mb-32">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 relative order-2 lg:order-1">
+              <!-- dot pattern halo -->
+              <div class="absolute -inset-8 dot-pattern opacity-40 pointer-events-none rounded-full" style="mask-image: radial-gradient(circle, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);"></div>
+              <!-- forest glow -->
+              <div class="absolute inset-0 blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(47,93,80,0.30) 0%, transparent 65%)"></div>
+
+              <div class="relative flex justify-center">
+                <div class="relative">
+                  <div class="mini-phone" style="transform: rotate(5deg)">
+                    <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard" /></div>
+                  </div>
+
+                  <!-- Floating: Offline status pill -->
+                  <div class="hidden sm:flex absolute -top-2 -right-8 items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-1" style="box-shadow: 0 12px 28px -8px rgba(47,93,80,0.25)">
+                    <div class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(47,93,80,0.15)">
+                      <span class="w-2 h-2 rounded-full secondary-bg"></span>
+                    </div>
+                    <span class="text-xs font-semibold text-deep">Offline · syncing</span>
+                  </div>
+
+                  <!-- Floating: Downtime stat -->
+                  <div class="hidden sm:flex absolute -bottom-3 -left-12 items-center gap-2.5 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-2" style="box-shadow: 0 15px 35px -10px rgba(47,93,80,0.20)">
+                    <div class="w-9 h-9 rounded-xl secondary-bg text-white flex items-center justify-center text-base">⚡</div>
+                    <div>
+                      <div class="text-[9px] text-soft uppercase tracking-wider font-semibold">Brownouts</div>
+                      <div class="font-fraunces font-semibold text-deep text-base leading-none">0 lost sales</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-7 relative z-10 order-1 lg:order-2">
+              <div class="big-numeral absolute -top-32 -right-2 select-none pointer-events-none" style="color:rgba(47,93,80,0.05)">02</div>
+              <div class="relative z-10">
+                <div class="text-xs uppercase tracking-[0.2em] font-bold mb-4" style="color:#2F5D50">Offline-first</div>
+                <h3 class="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]">When the WiFi drops,<br/><em class="italic" style="color:#2F5D50">you keep selling.</em></h3>
+                <p class="text-mid text-lg mb-6 max-w-lg">Local SQLite storage. Every sale, every inventory update, every report — all working without internet. Reconnect later, everything syncs.</p>
+                <div class="grid grid-cols-3 gap-4 max-w-md pt-4 border-t border-cream">
+                  <div>
+                    <div class="font-fraunces text-2xl font-semibold text-deep">100%</div>
+                    <div class="text-xs text-soft uppercase tracking-wide">Offline</div>
+                  </div>
+                  <div>
+                    <div class="font-fraunces text-2xl font-semibold text-deep">0</div>
+                    <div class="text-xs text-soft uppercase tracking-wide">Lost sales</div>
+                  </div>
+                  <div>
+                    <div class="font-fraunces text-2xl font-semibold text-deep">∞</div>
+                    <div class="text-xs text-soft uppercase tracking-wide">Brownouts ok</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: image right with multi-phone, big "03" -->
+        <div class="relative">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 relative z-10">
+              <div class="big-numeral absolute -top-32 -left-2 select-none pointer-events-none" style="color:rgba(146,64,14,0.05)">03</div>
+              <div class="relative z-10">
+                <div class="text-xs uppercase tracking-[0.2em] font-bold mb-4" style="color:#92400E">Multi-device sync</div>
+                <h3 class="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]">Three cashier stations.<br/><em class="italic accent-text">One WiFi. Zero cloud.</em></h3>
+                <p class="text-mid text-lg mb-6 max-w-lg">Add devices as your shop grows. They sync over your local network — no monthly cloud bill, no data leaving your store.</p>
+                <ul class="space-y-2 text-mid">
+                  <li class="flex items-center gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">✓</span> Any Android 8+ device</li>
+                  <li class="flex items-center gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">✓</span> Real-time inventory across stations</li>
+                  <li class="flex items-center gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">✓</span> Per-cashier PIN login & reports</li>
+                </ul>
+              </div>
+            </div>
+            <div class="lg:col-span-5 relative">
+              <!-- burnt glow -->
+              <div class="absolute inset-0 blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(146,64,14,0.25) 0%, transparent 65%)"></div>
+
+              <div class="relative flex justify-center items-end gap-1.5">
+                <div class="mini-phone" style="max-width:120px; transform: rotate(-8deg)">
+                  <div class="screen"><img src="../public/Sales.jpg" alt="Sales" /></div>
+                </div>
+                <div class="mini-phone" style="max-width:160px">
+                  <div class="screen"><img src="../public/Products.jpg" alt="Products" /></div>
+                </div>
+                <div class="mini-phone" style="max-width:120px; transform: rotate(8deg)">
+                  <div class="screen"><img src="../public/EOD.jpg" alt="EOD" /></div>
+                </div>
+
+                <!-- Floating: synced badge -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-1" style="box-shadow: 0 12px 28px -8px rgba(146,64,14,0.25)">
+                  <div class="w-6 h-6 rounded-full accent-bg text-white flex items-center justify-center text-xs">🔄</div>
+                  <span class="text-xs font-semibold text-deep">3 devices · synced</span>
+                </div>
+
+                <!-- Floating: LAN badge bottom-right -->
+                <div class="hidden sm:flex absolute -bottom-3 -right-4 items-center gap-2 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-2" style="box-shadow: 0 12px 28px -8px rgba(146,64,14,0.20)">
+                  <div class="w-7 h-7 rounded-lg tertiary-bg text-white flex items-center justify-center text-sm">📡</div>
+                  <div class="text-xs font-semibold text-deep leading-tight">Local WiFi<br/><span class="text-[9px] text-soft font-normal">No cloud</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V4 — FULL-BLEED BANDS
+         Each row gets its own full-width background color
+         ============================================================ -->
+    <section id="v4">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V4 · Full-bleed Bands · Each feature owns a colored section
+      </div>
+
+      <!-- Section header -->
+      <div class="bg-cream py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Features</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            One app. <em class="accent-text italic">Three superpowers.</em>
+          </h2>
+        </div>
+      </div>
+
+      <!-- Band 1: Cream → POS -->
+      <div class="bg-cream py-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background:rgba(217,119,6,0.18)"></div>
+        <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-white border border-cream rounded-full px-3 py-1 text-xs font-bold mb-5" style="color:#92400E">
+              <span class="accent-bg text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">01</span>
+              Point of Sale
+            </div>
+            <h3 class="font-fraunces text-4xl sm:text-5xl text-deep mb-4 leading-tight">A checkout your <em class="accent-text italic">cashier loves.</em></h3>
+            <p class="text-mid text-lg mb-6 max-w-md">Scan, tap, print. Under 4 seconds per sale, and obvious from day one.</p>
+            <div class="grid grid-cols-2 gap-2 max-w-sm">
+              <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">📷</div><div class="text-xs font-semibold text-deep">Barcode scan</div></div>
+              <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">💵</div><div class="text-xs font-semibold text-deep">Cash · GCash · Maya</div></div>
+              <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">🧾</div><div class="text-xs font-semibold text-deep">Receipts</div></div>
+              <div class="bg-white rounded-xl p-3 border border-cream"><div class="text-lg mb-0.5">🏷️</div><div class="text-xs font-semibold text-deep">Promos</div></div>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <div class="mini-phone" style="transform: rotate(-4deg)">
+              <div class="screen"><img src="../public/POS.JPG" alt="POS" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Band 2: Dark cocoa → Offline -->
+      <div class="text-white py-20 relative overflow-hidden" style="background:#1F0F02; background-image: radial-gradient(at 0% 100%, rgba(47,93,80,0.30) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(217,119,6,0.20) 0px, transparent 50%)">
+        <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div class="flex justify-center order-2 lg:order-1">
+            <div class="mini-phone" style="transform: rotate(4deg)">
+              <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard" /></div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/10 rounded-full px-3 py-1 text-xs font-bold mb-5 text-white">
+              <span class="secondary-bg text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">02</span>
+              Offline-first
+            </div>
+            <h3 class="font-fraunces text-4xl sm:text-5xl mb-4 leading-tight text-white">When the WiFi drops, <em class="italic" style="color:#FBA94C">you keep selling.</em></h3>
+            <p class="text-white/70 text-lg mb-6 max-w-md">Local SQLite storage. Every sale, every report — all working without internet. Reconnect later, everything syncs.</p>
+            <div class="grid grid-cols-3 gap-4 max-w-md pt-6 border-t border-white/10">
+              <div>
+                <div class="font-fraunces text-3xl font-semibold" style="color:#FBA94C">100%</div>
+                <div class="text-xs text-white/60 uppercase tracking-wide">Offline</div>
+              </div>
+              <div>
+                <div class="font-fraunces text-3xl font-semibold" style="color:#FBA94C">0</div>
+                <div class="text-xs text-white/60 uppercase tracking-wide">Lost sales</div>
+              </div>
+              <div>
+                <div class="font-fraunces text-3xl font-semibold" style="color:#FBA94C">∞</div>
+                <div class="text-xs text-white/60 uppercase tracking-wide">Brownouts ok</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Band 3: White → LAN sync -->
+      <div class="bg-white py-20 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background:rgba(146,64,14,0.10)"></div>
+        <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 bg-cream border border-cream rounded-full px-3 py-1 text-xs font-bold mb-5" style="color:#92400E">
+              <span class="tertiary-bg text-white w-5 h-5 rounded-full text-[10px] flex items-center justify-center">03</span>
+              Multi-device LAN sync
+            </div>
+            <h3 class="font-fraunces text-4xl sm:text-5xl text-deep mb-4 leading-tight">Three cashier stations. <em class="italic accent-text">One WiFi. Zero cloud.</em></h3>
+            <p class="text-mid text-lg mb-6 max-w-md">Add devices as your shop grows. They sync over your local network — no cloud bill, no data leaving your store.</p>
+            <ul class="space-y-2 text-mid">
+              <li class="flex items-center gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">✓</span> Any Android 8+ device</li>
+              <li class="flex items-center gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">✓</span> Real-time inventory across stations</li>
+              <li class="flex items-center gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">✓</span> Per-cashier PIN login & reports</li>
+            </ul>
+          </div>
+          <div class="flex justify-center items-end gap-2">
+            <div class="mini-phone" style="max-width:140px; transform: rotate(-6deg)">
+              <div class="screen"><img src="../public/Sales.jpg" alt="Sales" /></div>
+            </div>
+            <div class="mini-phone" style="max-width:180px">
+              <div class="screen"><img src="../public/Products.jpg" alt="Products" /></div>
+            </div>
+            <div class="mini-phone" style="max-width:140px; transform: rotate(6deg)">
+              <div class="screen"><img src="../public/EOD.jpg" alt="EOD" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Band 4: cream-deep → "and more" tile strip -->
+      <div class="bg-cream-deep py-16">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-8">
+            <p class="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-2">Plus everything else</p>
+            <h3 class="font-fraunces text-2xl text-deep">No upsells. It's all included.</h3>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div class="bg-white rounded-2xl p-5 border border-cream text-center"><div class="text-2xl mb-2">📦</div><div class="text-xs font-bold text-deep">Inventory</div></div>
+            <div class="bg-white rounded-2xl p-5 border border-cream text-center"><div class="text-2xl mb-2">↩️</div><div class="text-xs font-bold text-deep">Refunds</div></div>
+            <div class="bg-white rounded-2xl p-5 border border-cream text-center"><div class="text-2xl mb-2">🖨️</div><div class="text-xs font-bold text-deep">Receipts</div></div>
+            <div class="bg-white rounded-2xl p-5 border border-cream text-center"><div class="text-2xl mb-2">👥</div><div class="text-xs font-bold text-deep">Roles & PIN</div></div>
+            <div class="bg-white rounded-2xl p-5 border border-cream text-center"><div class="text-2xl mb-2">🏷️</div><div class="text-xs font-bold text-deep">Promo codes</div></div>
+            <div class="bg-white rounded-2xl p-5 border border-cream text-center"><div class="text-2xl mb-2">🧾</div><div class="text-xs font-bold text-deep">EOD reports</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Pick a Story Rows variation</h2>
+        <p class="text-white/60 mb-10">Same alternating-rows DNA, three different visual treatments.</p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V2 · Wrapped Cards</div>
+            <h3 class="text-lg font-bold mb-3">Each row in its own card</h3>
+            <p class="text-sm text-white/70 mb-4">Rows are visually contained — soft tinted gradients, clean small "01 / POINT OF SALE" labels in the corner. Tighter, more product-page feel.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Strong containment — easy to scan</div>
+              <div>✅ Each feature feels like a deliberate beat</div>
+              <div>⚠️ Less dramatic than full-bleed</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V3 · Editorial Magazine</div>
+            <h3 class="text-lg font-bold mb-3">Display numerals + dot-pattern halos</h3>
+            <p class="text-sm text-white/70 mb-4">Huge "01 / 02 / 03" numerals sit behind each headline as design elements. More breathing room, magazine-page feel. Asymmetric and confident.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most distinctive / brand-forward</div>
+              <div>✅ Headlines feel like article titles</div>
+              <div>⚠️ More vertical space per row</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V4 · Full-bleed Bands</div>
+            <h3 class="text-lg font-bold mb-3">Each feature gets its own colored section</h3>
+            <p class="text-sm text-white/70 mb-4">Cream → dark cocoa → white → cream-deep. Each band is edge-to-edge with strong color shifts. Apple-product-page energy. Bonus: a final tile strip catches the secondary features.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Highest visual rhythm</div>
+              <div>✅ Dark band gives the page contrast</div>
+              <div>⚠️ Heaviest section — long page</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#34D399">V4 (Full-bleed Bands)</strong> — the dark cocoa middle band breaks up the cream-heavy rest of
+            the page and makes the offline message land hard. The "plus everything else" tile strip at the end mops up the remaining
+            features without bloating the marquee rows. <strong style="color:#A78BFA">V3</strong> is the most stylish if you want the
+            page to feel like a thoughtful brand statement.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V2</strong>, <strong class="text-white">V3</strong>, or <strong class="text-white">V4</strong> — or mix ("V4's bands but use V3's big numerals inside them").
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

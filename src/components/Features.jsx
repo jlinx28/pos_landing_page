@@ -1,343 +1,585 @@
-const posSubItems = [
-  {
-    icon: (
-      <>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z"
-        />
-      </>
-    ),
-    title: "Barcode Scanner",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    ),
-    title: "Sales & Expenses",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
-      />
-    ),
-    title: "Inventory",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-      />
-    ),
-    title: "Products",
-  },
-];
-
-const items = [
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-      />
-    ),
-    title: "Full POS System",
-    desc: "Fast checkout with cart management and instant payments. Everything you need to ring up sales quickly.",
-    size: "pos",
-    span: "lg:col-span-2 lg:row-span-2",
-    gradient: "from-primary/5 to-primary/10",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z"
-      />
-    ),
-    title: "Receipt Printing",
-    desc: "PDF receipts and direct thermal printer support.",
-    size: "small",
-  },
-  {
-    icon: (
-      <>
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M6 6h.008v.008H6V6z"
-        />
-      </>
-    ),
-    title: "Promo Codes",
-    desc: "Create and apply discount codes at checkout.",
-    size: "small",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
-      />
-    ),
-    title: "Works 100% Offline",
-    desc: "No internet needed. Your POS works everywhere — even without WiFi or mobile data.",
-    size: "large",
-    span: "lg:row-span-2",
-    gradient: "from-green-50 to-green-100/50",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-      />
-    ),
-    title: "Dashboard & Analytics",
-    desc: "Real-time sales charts, revenue tracking, and performance reports at a glance.",
-    size: "large",
-    span: "lg:row-span-2",
-    gradient: "from-accent/5 to-accent/10",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
-      />
-    ),
-    title: "End-of-Day Reports",
-    desc: "Automatic daily closing with cash reconciliation.",
-    size: "small",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
-      />
-    ),
-    title: "Refund Management",
-    desc: "Process refunds with full tracking and status reports.",
-    size: "small",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
-      />
-    ),
-    title: "Multi-Device LAN Sync",
-    desc: "Sync data across devices over your local network. No cloud or internet required — perfect for multiple cashier stations.",
-    size: "large",
-    span: "lg:col-span-2 lg:row-span-2",
-    gradient: "from-violet-50 to-violet-100/50",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
-      />
-    ),
-    title: "Employee Management",
-    desc: "PIN-based login with role-based access control.",
-    size: "small",
-  },
-  {
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-      />
-    ),
-    title: "Role-Based Access",
-    desc: "Admin, Manager, and Cashier permission levels.",
-    size: "small",
-  },
-];
-
-function MiniCard({ item }) {
-  return (
-    <div className="bg-white rounded-xl p-4 border border-border hover:border-primary/20 hover:shadow-md transition-all group/mini flex flex-col items-center justify-center text-center">
-      <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-2 group-hover/mini:bg-primary group-hover/mini:text-white transition-colors duration-300">
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={1.5}
-        >
-          {item.icon}
-        </svg>
-      </div>
-      <h4 className="font-semibold text-dark text-xs">{item.title}</h4>
-    </div>
-  );
-}
-
-function PosCard({ item }) {
-  return (
-    <div
-      className={`bg-gradient-to-br ${item.gradient} rounded-2xl p-8 border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group ${item.span}`}
-    >
-      <div className="flex flex-col lg:flex-row gap-6 h-full">
-        {/* Left — title & desc */}
-        <div className="flex flex-col justify-between flex-1">
-          <div>
-            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary mb-5 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                {item.icon}
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-dark mb-3">{item.title}</h3>
-            <p className="text-sm text-text-secondary leading-relaxed">
-              {item.desc}
-            </p>
-          </div>
-        </div>
-        {/* Right — 2x2 mini cards */}
-        <div className="grid grid-cols-2 gap-2 lg:w-[45%] shrink-0">
-          {posSubItems.map((sub, i) => (
-            <MiniCard key={i} item={sub} />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function LargeCard({ item }) {
-  return (
-    <div
-      className={`bg-gradient-to-br ${item.gradient} rounded-2xl p-8 border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group flex flex-col justify-between ${item.span}`}
-    >
-      <div>
-        <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary mb-5 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={1.5}
-          >
-            {item.icon}
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-dark mb-3">{item.title}</h3>
-        <p className="text-sm text-text-secondary leading-relaxed">
-          {item.desc}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function SmallCard({ item }) {
-  return (
-    <div className="flex-1 bg-white rounded-xl p-5 border border-border hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group">
-      <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={1.5}
-        >
-          {item.icon}
-        </svg>
-      </div>
-      <h3 className="font-semibold text-dark mb-1 text-sm">{item.title}</h3>
-    </div>
-  );
-}
-
-function SmallCardPair({ items }) {
-  return (
-    <div className="flex gap-4">
-      {items.map((item, i) => (
-        <SmallCard key={i} item={item} />
-      ))}
-      {items.length === 1 && <div className="flex-1" />}
-    </div>
-  );
-}
-
 export default function Features() {
   return (
-    <section id="features" className="py-20 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-4">
-            Everything You Need to Run Your Store
-          </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            A complete point-of-sale system packed with powerful features
-            designed for Filipino retail businesses.
-          </p>
-        </div>
+    <>
+      <section id="features" className="bg-cream py-24 relative overflow-hidden">
+        {/* Big soft blobs */}
+        <div
+          className="absolute -top-40 -right-32 w-[550px] h-[550px] rounded-full blur-3xl pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(217, 119, 6, 0.2) 0%, transparent 70%)',
+          }}
+        ></div>
+        <div
+          className="absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(47, 93, 80, 0.15) 0%, transparent 70%)',
+          }}
+        ></div>
+        <div
+          className="absolute -bottom-40 right-1/4 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(146, 64, 14, 0.1) 0%, transparent 70%)',
+          }}
+        ></div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-auto">
-          {(() => {
-            const elements = [];
-            let i = 0;
-            while (i < items.length) {
-              if (items[i].size === "pos") {
-                elements.push(<PosCard key={i} item={items[i]} />);
-                i++;
-              } else if (items[i].size === "large") {
-                elements.push(<LargeCard key={i} item={items[i]} />);
-                i++;
-              } else {
-                const pair = [items[i]];
-                if (i + 1 < items.length && items[i + 1].size === "small") {
-                  pair.push(items[i + 1]);
-                  i += 2;
-                } else {
-                  i++;
-                }
-                elements.push(<SmallCardPair key={`pair-${i}`} items={pair} />);
-              }
-            }
-            return elements;
-          })()}
+        {/* Dot pattern panels */}
+        <div
+          className="absolute top-32 right-12 w-72 h-72 opacity-35 pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(rgba(146, 64, 14, 0.2) 1.2px, transparent 1.2px)',
+            backgroundSize: '22px 22px',
+            maskImage:
+              'radial-gradient(circle at top right, black 0%, transparent 70%)',
+            WebkitMaskImage:
+              'radial-gradient(circle at top right, black 0%, transparent 70%)',
+          }}
+        ></div>
+        <div
+          className="absolute bottom-32 left-12 w-64 h-64 opacity-30 pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(rgba(146, 64, 14, 0.2) 1.2px, transparent 1.2px)',
+            backgroundSize: '22px 22px',
+            maskImage:
+              'radial-gradient(circle at bottom left, black 0%, transparent 70%)',
+            WebkitMaskImage:
+              'radial-gradient(circle at bottom left, black 0%, transparent 70%)',
+          }}
+        ></div>
+
+        {/* Decorative SVG marks */}
+        <svg
+          className="absolute top-12 left-[8%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 30 Q 50 75, 100 40 T 195 50"
+            stroke="#D97706"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            fill="none"
+            opacity="0.6"
+          />
+        </svg>
+
+        <svg
+          className="absolute top-1/3 right-4 w-24 h-24 opacity-25 pointer-events-none"
+          viewBox="0 0 96 96"
+          fill="none"
+        >
+          <circle cx="48" cy="48" r="42" stroke="#D97706" strokeWidth="2" fill="none" />
+          <circle
+            cx="48"
+            cy="48"
+            r="28"
+            stroke="#D97706"
+            strokeWidth="1.5"
+            fill="none"
+            strokeDasharray="4 4"
+          />
+          <circle cx="48" cy="48" r="14" stroke="#D97706" strokeWidth="1" fill="none" />
+        </svg>
+
+        <svg
+          className="absolute top-[28%] right-[12%] w-12 h-12 opacity-40 pointer-events-none float-2"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+            fill="#92400E"
+          />
+        </svg>
+
+        <svg
+          className="absolute bottom-[35%] left-[6%] w-14 h-14 opacity-30 pointer-events-none float-1"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="6"
+            stroke="#2F5D50"
+            strokeWidth="2"
+            fill="none"
+            transform="rotate(20 28 28)"
+          />
+        </svg>
+
+        <svg
+          className="absolute top-[60%] right-[5%] w-10 h-10 opacity-50 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 4 L20 36 M4 20 L36 20"
+            stroke="#92400E"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        <svg
+          className="absolute bottom-40 left-[40%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#D97706" opacity="0.6" />
+        </svg>
+
+        <svg
+          className="absolute top-[15%] left-[35%] w-6 h-6 opacity-40 pointer-events-none"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <polygon
+            points="12,3 21,21 3,21"
+            fill="#2F5D50"
+            opacity="0.6"
+            transform="rotate(180 12 12)"
+          />
+        </svg>
+
+        {/* Wavy line bottom-right */}
+        <svg
+          className="absolute bottom-[20%] right-[15%] w-28 h-8 opacity-40 pointer-events-none"
+          viewBox="0 0 120 30"
+          fill="none"
+        >
+          <path
+            d="M5 15 Q 20 5, 35 15 T 65 15 T 95 15 T 115 15"
+            stroke="#D97706"
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
+
+        {/* Concentric dot rings mid-left */}
+        <svg
+          className="absolute top-[48%] left-[15%] w-10 h-10 opacity-40 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <circle cx="20" cy="20" r="3" fill="#92400E" />
+          <circle cx="20" cy="20" r="10" stroke="#92400E" strokeWidth="1.5" fill="none" />
+          <circle
+            cx="20"
+            cy="20"
+            r="17"
+            stroke="#92400E"
+            strokeWidth="1"
+            fill="none"
+            strokeDasharray="3 3"
+          />
+        </svg>
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          {/* Section header */}
+          <div className="mb-20 relative">
+            <svg
+              className="absolute -top-4 left-[280px] w-7 h-7 opacity-60 pointer-events-none hidden sm:block"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M14 2 L16 12 L26 14 L16 16 L14 26 L12 16 L2 14 L12 12 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <svg
+              className="absolute top-2 -right-4 w-6 h-6 opacity-50 pointer-events-none hidden lg:block"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M12 2 L13 10 L21 12 L13 14 L12 22 L11 14 L3 12 L11 10 Z"
+                fill="#2F5D50"
+              />
+            </svg>
+            <p className="text-xs uppercase tracking-widest accent-text font-bold mb-3">
+              — Features
+            </p>
+            <h2 className="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium max-w-2xl">
+              What you get when you choose <em className="accent-text italic">RetailFlow.</em>
+            </h2>
+          </div>
+
+          {/* Row 1: image right, big "01" */}
+          <div className="relative mb-32">
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 relative z-10">
+                <div
+                  className="big-numeral absolute -top-32 -left-2 select-none pointer-events-none"
+                  style={{ color: 'rgba(63, 29, 4, 0.05)' }}
+                >
+                  01
+                </div>
+                <div className="relative z-10">
+                  <div className="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-4">
+                    Point of Sale
+                  </div>
+                  <h3 className="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]">
+                    A checkout your<br />
+                    <em className="accent-text italic">cashier loves.</em>
+                  </h3>
+                  <p className="text-mid text-lg mb-6 max-w-lg">
+                    Scan a barcode, tap a payment, print the receipt. Under four seconds per
+                    transaction and the flow feels obvious on day one.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream">
+                      Barcode
+                    </span>
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream">
+                      GCash · Maya
+                    </span>
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream">
+                      Receipts
+                    </span>
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream">
+                      Promos
+                    </span>
+                    <span className="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream">
+                      Hold orders
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-5 relative">
+                <div
+                  className="absolute -inset-8 dot-pattern opacity-40 pointer-events-none rounded-full"
+                  style={{
+                    maskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+                    WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+                  }}
+                ></div>
+                <div
+                  className="absolute inset-0 blur-3xl pointer-events-none"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(217, 119, 6, 0.3) 0%, transparent 65%)',
+                  }}
+                ></div>
+                <div className="relative flex justify-center">
+                  <div className="relative">
+                    <div className="mini-phone" style={{ transform: 'rotate(-5deg)' }}>
+                      <div className="screen">
+                        <img src="/POS.JPG" alt="POS checkout screen" />
+                      </div>
+                    </div>
+                    <div
+                      className="hidden sm:flex absolute -top-3 -left-12 items-center gap-2.5 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-1"
+                      style={{ boxShadow: '0 15px 35px -10px rgba(63, 29, 4, 0.25)' }}
+                    >
+                      <div className="w-9 h-9 rounded-xl accent-bg text-white flex items-center justify-center text-base font-bold">
+                        ₱
+                      </div>
+                      <div>
+                        <div className="text-[9px] text-soft uppercase tracking-wider font-semibold">
+                          Today
+                        </div>
+                        <div className="font-fraunces font-semibold text-deep text-base leading-none">
+                          ₱14,250
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="hidden sm:flex absolute -bottom-2 -right-10 items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-2"
+                      style={{ boxShadow: '0 12px 28px -8px rgba(63, 29, 4, 0.22)' }}
+                    >
+                      <div className="w-7 h-7 rounded-full secondary-bg text-white flex items-center justify-center text-xs">
+                        ✓
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-deep leading-tight">
+                          Paid · GCash
+                        </div>
+                        <div className="text-[9px] text-soft leading-none mt-0.5">
+                          2 sec ago
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: image left, big "02" */}
+          <div className="relative mb-32">
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 relative order-2 lg:order-1">
+                <div
+                  className="absolute -inset-8 dot-pattern opacity-40 pointer-events-none rounded-full"
+                  style={{
+                    maskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+                    WebkitMaskImage: 'radial-gradient(circle, black 30%, transparent 70%)',
+                  }}
+                ></div>
+                <div
+                  className="absolute inset-0 blur-3xl pointer-events-none"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(47, 93, 80, 0.3) 0%, transparent 65%)',
+                  }}
+                ></div>
+                <div className="relative flex justify-center">
+                  <div className="relative">
+                    <div className="mini-phone" style={{ transform: 'rotate(5deg)' }}>
+                      <div className="screen">
+                        <img src="/Dashboard.jpg" alt="Dashboard analytics screen" />
+                      </div>
+                    </div>
+                    <div
+                      className="hidden sm:flex absolute -top-2 -right-8 items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-1"
+                      style={{ boxShadow: '0 12px 28px -8px rgba(47, 93, 80, 0.25)' }}
+                    >
+                      <div
+                        className="w-6 h-6 rounded-full flex items-center justify-center"
+                        style={{ background: 'rgba(47, 93, 80, 0.15)' }}
+                      >
+                        <span className="w-2 h-2 rounded-full secondary-bg"></span>
+                      </div>
+                      <span className="text-xs font-semibold text-deep">Offline · syncing</span>
+                    </div>
+                    <div
+                      className="hidden sm:flex absolute -bottom-3 -left-12 items-center gap-2.5 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-2"
+                      style={{ boxShadow: '0 15px 35px -10px rgba(47, 93, 80, 0.2)' }}
+                    >
+                      <div className="w-9 h-9 rounded-xl secondary-bg text-white flex items-center justify-center text-base">
+                        ⚡
+                      </div>
+                      <div>
+                        <div className="text-[9px] text-soft uppercase tracking-wider font-semibold">
+                          Brownouts
+                        </div>
+                        <div className="font-fraunces font-semibold text-deep text-base leading-none">
+                          0 lost sales
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="lg:col-span-7 relative z-10 order-1 lg:order-2">
+                <div
+                  className="big-numeral absolute -top-32 -right-2 select-none pointer-events-none"
+                  style={{ color: 'rgba(47, 93, 80, 0.05)' }}
+                >
+                  02
+                </div>
+                <div className="relative z-10">
+                  <div
+                    className="text-xs uppercase tracking-[0.2em] font-bold mb-4"
+                    style={{ color: '#2f5d50' }}
+                  >
+                    Offline-first
+                  </div>
+                  <h3 className="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]">
+                    When the WiFi drops,<br />
+                    <em className="italic" style={{ color: '#2f5d50' }}>
+                      you keep selling.
+                    </em>
+                  </h3>
+                  <p className="text-mid text-lg mb-6 max-w-lg">
+                    Local SQLite storage. Every sale, every inventory update, every report all
+                    working without internet. Reconnect later, everything syncs.
+                  </p>
+                  <div className="grid grid-cols-3 gap-4 max-w-md pt-4 border-t border-cream">
+                    <div>
+                      <div className="font-fraunces text-2xl font-semibold text-deep">100%</div>
+                      <div className="text-xs text-soft uppercase tracking-wide">Offline</div>
+                    </div>
+                    <div>
+                      <div className="font-fraunces text-2xl font-semibold text-deep">0</div>
+                      <div className="text-xs text-soft uppercase tracking-wide">Lost sales</div>
+                    </div>
+                    <div>
+                      <div className="font-fraunces text-2xl font-semibold text-deep">∞</div>
+                      <div className="text-xs text-soft uppercase tracking-wide">Brownouts ok</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 3: multi-phone right, big "03" */}
+          <div className="relative">
+            <div className="grid lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 relative z-10">
+                <div
+                  className="big-numeral absolute -top-32 -left-2 select-none pointer-events-none"
+                  style={{ color: 'rgba(146, 64, 14, 0.05)' }}
+                >
+                  03
+                </div>
+                <div className="relative z-10">
+                  <div
+                    className="text-xs uppercase tracking-[0.2em] font-bold mb-4"
+                    style={{ color: '#92400e' }}
+                  >
+                    Multi-device sync
+                  </div>
+                  <h3 className="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]">
+                    Three cashier stations.<br />
+                    <em className="italic accent-text">One WiFi. Zero cloud.</em>
+                  </h3>
+                  <p className="text-mid text-lg mb-6 max-w-lg">
+                    Add devices as your shop grows. They sync over your local network, no monthly
+                    cloud bill and no data leaving your store.
+                  </p>
+                  <ul className="space-y-2 text-mid">
+                    <li className="flex items-center gap-3">
+                      <span className="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">
+                        ✓
+                      </span>
+                      Any Android 8+ device
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <span className="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">
+                        ✓
+                      </span>
+                      Real-time inventory across stations
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <span className="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs">
+                        ✓
+                      </span>
+                      Per-cashier PIN login & reports
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="lg:col-span-5 relative">
+                <div
+                  className="absolute inset-0 blur-3xl pointer-events-none"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(146, 64, 14, 0.25) 0%, transparent 65%)',
+                  }}
+                ></div>
+                <div className="relative flex justify-center items-end gap-1.5">
+                  <div
+                    className="mini-phone"
+                    style={{ maxWidth: '120px', transform: 'rotate(-8deg)' }}
+                  >
+                    <div className="screen">
+                      <img src="/Sales.jpg" alt="Sales history" />
+                    </div>
+                  </div>
+                  <div className="mini-phone" style={{ maxWidth: '160px' }}>
+                    <div className="screen">
+                      <img src="/Products.jpg" alt="Products catalog" />
+                    </div>
+                  </div>
+                  <div
+                    className="mini-phone"
+                    style={{ maxWidth: '120px', transform: 'rotate(8deg)' }}
+                  >
+                    <div className="screen">
+                      <img src="/EOD.jpg" alt="End-of-day report" />
+                    </div>
+                  </div>
+                  <div
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-1"
+                    style={{ boxShadow: '0 12px 28px -8px rgba(146, 64, 14, 0.25)' }}
+                  >
+                    <div className="w-6 h-6 rounded-full accent-bg text-white flex items-center justify-center text-xs">
+                      🔄
+                    </div>
+                    <span className="text-xs font-semibold text-deep">3 devices · synced</span>
+                  </div>
+                  <div
+                    className="hidden sm:flex absolute -bottom-3 -right-4 items-center gap-2 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-2"
+                    style={{ boxShadow: '0 12px 28px -8px rgba(146, 64, 14, 0.2)' }}
+                  >
+                    <div className="w-7 h-7 rounded-lg tertiary-bg text-white flex items-center justify-center text-sm">
+                      📡
+                    </div>
+                    <div className="text-xs font-semibold text-deep leading-tight">
+                      Local WiFi
+                      <br />
+                      <span className="text-[9px] text-soft font-normal">No cloud</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* PLUS EVERYTHING ELSE */}
+      <section className="bg-white border-y border-cream py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10 relative">
+            <svg
+              className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full w-8 h-8 opacity-50 pointer-events-none"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M16 2 L18 14 L30 16 L18 18 L16 30 L14 18 L2 16 L14 14 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <p className="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-2">
+              Plus everything else
+            </p>
+            <h3 className="font-fraunces text-2xl sm:text-3xl text-deep">
+              No upsells. It's all included.
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {[
+              { icon: '📦', title: 'Inventory', sub: 'Stock & alerts', num: '07', tone: 'accent', blob: 'rgba(217, 119, 6, 0.3)', bg: 'accent-bg', shadow: 'rgba(217, 119, 6, 0.4)', textCls: 'accent-text', textColor: null },
+              { icon: '↩️', title: 'Refunds', sub: 'Full audit trail', num: '08', tone: 'secondary', blob: 'rgba(47, 93, 80, 0.25)', bg: 'secondary-bg', shadow: 'rgba(47, 93, 80, 0.4)', textCls: 'secondary-text', textColor: null },
+              { icon: '🖨️', title: 'Receipts', sub: 'PDF + thermal', num: '09', tone: 'tertiary', blob: 'rgba(146, 64, 14, 0.25)', bg: 'tertiary-bg', shadow: 'rgba(146, 64, 14, 0.4)', textCls: '', textColor: '#92400e' },
+              { icon: '👥', title: 'Roles & PIN', sub: 'Per-cashier access', num: '10', tone: 'accent', blob: 'rgba(217, 119, 6, 0.3)', bg: 'accent-bg', shadow: 'rgba(217, 119, 6, 0.4)', textCls: 'accent-text', textColor: null },
+              { icon: '🏷️', title: 'Promo codes', sub: 'Discounts & VAT', num: '11', tone: 'secondary', blob: 'rgba(47, 93, 80, 0.25)', bg: 'secondary-bg', shadow: 'rgba(47, 93, 80, 0.4)', textCls: 'secondary-text', textColor: null },
+              { icon: '🧾', title: 'EOD reports', sub: 'Auto cash count', num: '12', tone: 'tertiary', blob: 'rgba(146, 64, 14, 0.25)', bg: 'tertiary-bg', shadow: 'rgba(146, 64, 14, 0.4)', textCls: '', textColor: '#92400e' },
+            ].map((card) => (
+              <article
+                key={card.num}
+                className="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+              >
+                <div
+                  className="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                  style={{ background: card.blob }}
+                ></div>
+                <div className="relative flex items-start justify-between mb-3">
+                  <div
+                    className={`w-10 h-10 rounded-xl ${card.bg} text-white flex items-center justify-center text-lg shadow-md`}
+                    style={{ boxShadow: `0 6px 14px -4px ${card.shadow}` }}
+                  >
+                    {card.icon}
+                  </div>
+                  <span
+                    className={`text-[10px] font-mono ${card.textCls} font-bold opacity-60`}
+                    style={card.textColor ? { color: card.textColor } : undefined}
+                  >
+                    {card.num}
+                  </span>
+                </div>
+                <h4 className="font-fraunces text-base text-deep leading-tight">
+                  {card.title}
+                </h4>
+                <p className="text-[11px] text-soft mt-0.5">{card.sub}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

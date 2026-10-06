@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — App Preview (Round 2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .tertiary-bg { background-color: #92400E; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      .mini-phone {
+        position: relative;
+        background: linear-gradient(160deg, #2A1810 0%, #1A0E04 40%, #0F0700 75%, #050200 100%);
+        border-radius: 28px;
+        padding: 5px;
+        max-width: 240px;
+        box-shadow:
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          inset 0 1px 0 rgba(255,255,255,0.14),
+          inset 0 -1px 1px rgba(0,0,0,0.35),
+          0 0 0 0.5px rgba(63,29,4,0.50),
+          0 4px 8px -2px rgba(63,29,4,0.22),
+          0 20px 40px -12px rgba(63,29,4,0.42);
+      }
+      .mini-phone .screen { border-radius: 24px; overflow: hidden; background: #000; position: relative; }
+      .mini-phone .screen img { display:block; width:100%; }
+
+      .big-phone {
+        position: relative;
+        background: linear-gradient(160deg, #2A1810 0%, #1A0E04 40%, #0F0700 75%, #050200 100%);
+        border-radius: 36px;
+        padding: 6px;
+        box-shadow:
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          inset 0 1.5px 0 rgba(255,255,255,0.14),
+          inset 0 -1.5px 2px rgba(0,0,0,0.35),
+          0 0 0 0.5px rgba(63,29,4,0.50),
+          0 30px 60px -15px rgba(63,29,4,0.50),
+          0 50px 90px -30px rgba(217,119,6,0.20);
+      }
+      .big-phone .screen { border-radius: 30px; overflow: hidden; background: #000; position: relative; }
+      .big-phone .screen img { display: block; width: 100%; }
+
+      @keyframes float-soft {
+        0%, 100% { transform: translateY(0) }
+        50% { transform: translateY(-6px) }
+      }
+      .float-1 { animation: float-soft 5s ease-in-out infinite; }
+      .float-2 { animation: float-soft 6s ease-in-out infinite .8s; }
+      .float-3 { animation: float-soft 7s ease-in-out infinite 1.6s; }
+
+      @keyframes orbit-rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .orbit-ring { animation: orbit-rotate 60s linear infinite; }
+      .orbit-ring > * { animation: orbit-rotate 60s linear infinite reverse; }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold" style="color:#3F1D04">RetailFlow POS</span>
+          <span class="text-xs" style="color:#8C6B47">— App Preview (Round 2)</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v5" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium" style="color:#6B4423">V5 · Hybrid</a>
+          <a href="#v6" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium" style="color:#6B4423">V6 · Pop-outs</a>
+          <a href="#v7" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium" style="color:#6B4423">V7 · Orbit</a>
+          <a href="#v8" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium" style="color:#6B4423">V8 · Triptych</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V5 — HYBRID (Coverflow + side annotations)
+         ============================================================ -->
+    <section id="v5" class="text-white py-20 relative overflow-hidden" style="background:#1F0F02; background-image: radial-gradient(at 50% 0%, rgba(217,119,6,0.20) 0px, transparent 50%), radial-gradient(at 50% 100%, rgba(47,93,80,0.15) 0px, transparent 50%);">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V5 · Hybrid · Coverflow + side annotations (best of V2 + V3)
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 mt-6">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#FBA94C">App preview</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-white leading-tight font-medium">
+            Designed for <em class="italic" style="color:#FBA94C">speed and clarity.</em>
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+
+          <!-- Left annotation -->
+          <div class="lg:col-span-3 space-y-4">
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:translate-x-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-7 h-7 rounded-full accent-bg text-white text-xs font-bold flex items-center justify-center">1</span>
+                <h4 class="font-fraunces text-sm text-white">Quick search</h4>
+              </div>
+              <p class="text-xs text-white/60">Type or scan — products show in &lt;200ms.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-7 h-7 rounded-full secondary-bg text-white text-xs font-bold flex items-center justify-center">2</span>
+                <h4 class="font-fraunces text-sm text-white">Category chips</h4>
+              </div>
+              <p class="text-xs text-white/60">Tap to filter. Designed for thumbs.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:translate-x-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-7 h-7 rounded-full tertiary-bg text-white text-xs font-bold flex items-center justify-center">3</span>
+                <h4 class="font-fraunces text-sm text-white">Big touch targets</h4>
+              </div>
+              <p class="text-xs text-white/60">No accidental taps. 80px+ per card.</p>
+            </div>
+          </div>
+
+          <!-- Center coverflow -->
+          <div class="lg:col-span-6 relative flex items-center justify-center">
+            <div class="hidden md:block opacity-45 brightness-90" style="transform: translateX(-30px) translateY(8px) scale(0.78);">
+              <div class="mini-phone" style="max-width: 140px;">
+                <div class="screen"><img src="../public/Sales.jpg" alt="Sales"/></div>
+              </div>
+            </div>
+            <div class="relative z-10 mx-2">
+              <div class="absolute -inset-10 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse, rgba(217,119,6,0.40) 0%, transparent 65%)"></div>
+              <div class="big-phone relative" style="max-width: 230px;">
+                <div class="screen"><img src="../public/POS.JPG" alt="POS"/></div>
+              </div>
+              <div class="text-center mt-4">
+                <h3 class="font-fraunces text-xl text-white">Point of Sale</h3>
+                <p class="text-xs text-white/50 mt-1">Active screen · tap to switch</p>
+              </div>
+            </div>
+            <div class="hidden md:block opacity-45 brightness-90" style="transform: translateX(30px) translateY(8px) scale(0.78);">
+              <div class="mini-phone" style="max-width: 140px;">
+                <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard"/></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right annotation -->
+          <div class="lg:col-span-3 space-y-4">
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:-translate-x-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-7 h-7 rounded-full accent-bg text-white text-xs font-bold flex items-center justify-center">4</span>
+                <h4 class="font-fraunces text-sm text-white">Live cart</h4>
+              </div>
+              <p class="text-xs text-white/60">Cart updates as you add. Total visible.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-7 h-7 rounded-full secondary-bg text-white text-xs font-bold flex items-center justify-center">5</span>
+                <h4 class="font-fraunces text-sm text-white">Tap to checkout</h4>
+              </div>
+              <p class="text-xs text-white/60">One tap to total. One more to mark paid.</p>
+            </div>
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:-translate-x-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-7 h-7 rounded-full tertiary-bg text-white text-xs font-bold flex items-center justify-center">6</span>
+                <h4 class="font-fraunces text-sm text-white">Bottom nav</h4>
+              </div>
+              <p class="text-xs text-white/60">POS · Products · Expenses · Dashboard.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination + screen names -->
+        <div class="mt-10 flex flex-col items-center gap-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-white/30"></span>
+            <span class="w-2 h-2 rounded-full bg-white/30"></span>
+            <span class="h-2 w-8 rounded-full" style="background:#FBA94C"></span>
+            <span class="w-2 h-2 rounded-full bg-white/30"></span>
+            <span class="w-2 h-2 rounded-full bg-white/30"></span>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-2 max-w-3xl">
+            <button class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition">Expenses</button>
+            <button class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition">Sales</button>
+            <button class="px-3 py-1.5 rounded-full text-xs accent-bg text-white font-bold">Point of Sale</button>
+            <button class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition">Dashboard</button>
+            <button class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition">EOD</button>
+            <button class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition">Products</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V6 — FEATURE POP-OUTS (extracted UI close-ups)
+         ============================================================ -->
+    <section id="v6" class="text-white py-20 relative overflow-hidden" style="background:#1F0F02; background-image: radial-gradient(at 30% 50%, rgba(217,119,6,0.15) 0px, transparent 50%), radial-gradient(at 70% 50%, rgba(47,93,80,0.15) 0px, transparent 50%);">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V6 · Feature Pop-outs · UI elements extracted as floating cards
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 mt-6">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#FBA94C">App preview</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-white leading-tight font-medium">
+            See the details that <em class="italic" style="color:#FBA94C">make it work.</em>
+          </h2>
+        </div>
+
+        <!-- Phone with pop-out elements -->
+        <div class="relative h-[640px] flex items-center justify-center max-w-5xl mx-auto">
+
+          <!-- Center phone -->
+          <div class="relative z-20">
+            <div class="absolute -inset-12 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse, rgba(217,119,6,0.35) 0%, transparent 65%)"></div>
+            <div class="big-phone relative" style="max-width: 270px;">
+              <div class="screen"><img src="../public/POS.JPG" alt="POS"/></div>
+            </div>
+          </div>
+
+          <!-- Pop-out: Search bar (top-left) -->
+          <div class="absolute top-[8%] left-[2%] z-30 float-1 max-w-[260px]">
+            <div class="bg-white rounded-2xl p-4 shadow-2xl" style="box-shadow: 0 25px 50px -15px rgba(0,0,0,0.5)">
+              <div class="text-[10px] uppercase tracking-wider accent-text font-bold mb-2">Search bar</div>
+              <div class="flex items-center gap-2 bg-slate-100 rounded-xl px-3 py-2">
+                <span class="text-slate-400">🔍</span>
+                <span class="text-slate-700 text-sm">Search product...</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Type or scan — &lt;200ms response.</p>
+            </div>
+            <svg class="absolute top-1/2 -right-12 w-12 h-8 hidden lg:block" viewBox="0 0 50 30" fill="none">
+              <path d="M2 15 Q 25 5 48 15" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+              <circle cx="48" cy="15" r="3" fill="#FBA94C"/>
+            </svg>
+          </div>
+
+          <!-- Pop-out: Category chips (mid-left) -->
+          <div class="absolute top-[40%] left-[1%] z-30 float-2 max-w-[240px]">
+            <div class="bg-white rounded-2xl p-4 shadow-2xl" style="box-shadow: 0 25px 50px -15px rgba(0,0,0,0.5)">
+              <div class="text-[10px] uppercase tracking-wider font-bold mb-2" style="color:#2F5D50">Category chips</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-orange-100 text-orange-700 text-[10px] font-semibold">Clothing</span>
+                <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 text-[10px] font-semibold">Electronics</span>
+                <span class="px-2.5 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-semibold">Groceries</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Tap to filter. Thumb-friendly.</p>
+            </div>
+            <svg class="absolute top-1/2 -right-12 w-12 h-8 hidden lg:block" viewBox="0 0 50 30" fill="none">
+              <path d="M2 15 Q 25 25 48 15" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+              <circle cx="48" cy="15" r="3" fill="#FBA94C"/>
+            </svg>
+          </div>
+
+          <!-- Pop-out: Cart button (bottom-left) -->
+          <div class="absolute bottom-[10%] left-[8%] z-30 float-3 max-w-[200px]">
+            <div class="bg-white rounded-2xl p-4 shadow-2xl" style="box-shadow: 0 25px 50px -15px rgba(0,0,0,0.5)">
+              <div class="text-[10px] uppercase tracking-wider font-bold mb-2" style="color:#92400E">Floating cart</div>
+              <div class="inline-flex items-center gap-2 bg-blue-100 rounded-full pl-2 pr-3 py-1.5">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center">3</span>
+                <span class="text-blue-700 text-sm font-semibold">Cart (3)</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Always visible. One tap to total.</p>
+            </div>
+          </div>
+
+          <!-- Pop-out: Product card (top-right) -->
+          <div class="absolute top-[10%] right-[2%] z-30 float-2 max-w-[200px]">
+            <div class="bg-white rounded-2xl p-4 shadow-2xl" style="box-shadow: 0 25px 50px -15px rgba(0,0,0,0.5)">
+              <div class="text-[10px] uppercase tracking-wider accent-text font-bold mb-2">Product card</div>
+              <div class="bg-slate-100 rounded-xl p-3">
+                <div class="w-full h-12 rounded-md bg-orange-200 mb-2"></div>
+                <div class="text-xs font-semibold text-slate-700">Bath Towel</div>
+                <div class="text-xs accent-text font-bold">₱299.00</div>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">80px+ targets. Big & bright.</p>
+            </div>
+            <svg class="absolute top-1/2 -left-12 w-12 h-8 hidden lg:block" viewBox="0 0 50 30" fill="none">
+              <path d="M48 15 Q 25 5 2 15" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+              <circle cx="2" cy="15" r="3" fill="#FBA94C"/>
+            </svg>
+          </div>
+
+          <!-- Pop-out: Bottom nav (mid-right) -->
+          <div class="absolute top-[42%] right-[1%] z-30 float-1 max-w-[240px]">
+            <div class="bg-white rounded-2xl p-4 shadow-2xl" style="box-shadow: 0 25px 50px -15px rgba(0,0,0,0.5)">
+              <div class="text-[10px] uppercase tracking-wider font-bold mb-2" style="color:#2F5D50">Bottom navigation</div>
+              <div class="flex items-center justify-around bg-slate-50 rounded-xl py-2 px-1">
+                <div class="text-center"><div class="text-base">🛒</div><div class="text-[8px] accent-text font-bold">POS</div></div>
+                <div class="text-center"><div class="text-base opacity-40">📦</div><div class="text-[8px] text-slate-400">Products</div></div>
+                <div class="text-center"><div class="text-base opacity-40">💰</div><div class="text-[8px] text-slate-400">Expenses</div></div>
+                <div class="text-center"><div class="text-base opacity-40">📊</div><div class="text-[8px] text-slate-400">Dashboard</div></div>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Always reachable. Never hidden.</p>
+            </div>
+          </div>
+
+          <!-- Pop-out: Status bar (bottom-right) -->
+          <div class="absolute bottom-[12%] right-[8%] z-30 float-3 max-w-[200px]">
+            <div class="bg-white rounded-2xl p-4 shadow-2xl" style="box-shadow: 0 25px 50px -15px rgba(0,0,0,0.5)">
+              <div class="text-[10px] uppercase tracking-wider font-bold mb-2" style="color:#92400E">Offline indicator</div>
+              <div class="inline-flex items-center gap-1.5 bg-amber-100 px-2 py-1 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+                <span class="text-[10px] text-amber-700 font-semibold">Offline · syncing</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">You always know your sync state.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other screens at bottom -->
+        <div class="mt-12 pt-8 border-t border-white/10">
+          <p class="text-xs uppercase tracking-widest text-white/50 font-bold mb-4 text-center">Other screens</p>
+          <div class="flex items-center justify-center gap-3 flex-wrap">
+            <button class="px-4 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-semibold hover:bg-white/20">Dashboard</button>
+            <button class="px-4 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-semibold hover:bg-white/20">Sales</button>
+            <button class="px-4 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-semibold hover:bg-white/20">Products</button>
+            <button class="px-4 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-semibold hover:bg-white/20">Expenses</button>
+            <button class="px-4 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-semibold hover:bg-white/20">EOD reports</button>
+            <button class="px-4 py-1.5 rounded-full bg-white/10 text-white/70 text-xs font-semibold hover:bg-white/20">More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V7 — ORBITAL HUB (phone center, screens orbit around)
+         ============================================================ -->
+    <section id="v7" class="text-white py-20 relative overflow-hidden" style="background:#1F0F02; background-image: radial-gradient(at 50% 50%, rgba(217,119,6,0.18) 0px, transparent 60%);">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        V7 · Orbital Hub · Phone center, screens orbit around
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 mt-6">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#FBA94C">App preview</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-white leading-tight font-medium">
+            One app. <em class="italic" style="color:#FBA94C">Everything you need.</em>
+          </h2>
+        </div>
+
+        <!-- Orbital scene -->
+        <div class="relative aspect-square max-w-[700px] mx-auto">
+          <!-- Concentric ring backdrop -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 700 700">
+            <circle cx="350" cy="350" r="320" stroke="#FBA94C" stroke-width="1" stroke-dasharray="4 6" opacity="0.20"/>
+            <circle cx="350" cy="350" r="240" stroke="#FBA94C" stroke-width="1" stroke-dasharray="4 6" opacity="0.30"/>
+            <circle cx="350" cy="350" r="160" stroke="#FBA94C" stroke-width="1" stroke-dasharray="4 6" opacity="0.40"/>
+
+            <!-- Curved connectors from center to each orbiter -->
+            <path d="M 350 350 Q 350 200 350 80" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 500 200 620 130" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 580 350 660 350" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 500 500 620 570" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 350 500 350 620" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 200 500 80 570" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 120 350 40 350" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+            <path d="M 350 350 Q 200 200 80 130" stroke="#FBA94C" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.40" fill="none"/>
+          </svg>
+
+          <!-- Center glow -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(217,119,6,0.40) 0%, transparent 70%)"></div>
+
+          <!-- Center phone -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+            <div class="big-phone" style="max-width: 200px;">
+              <div class="screen"><img src="../public/POS.JPG" alt="POS"/></div>
+            </div>
+            <p class="text-center mt-3 text-xs font-bold uppercase tracking-wider" style="color:#FBA94C">— Hub</p>
+          </div>
+
+          <!-- Orbiter: Top -->
+          <div class="absolute left-1/2 top-0 -translate-x-1/2 z-20 float-1">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">Dashboard</p>
+          </div>
+
+          <!-- Orbiter: Top-right -->
+          <div class="absolute right-[8%] top-[15%] z-20 float-2">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/Sales.jpg" alt="Sales"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">Sales</p>
+          </div>
+
+          <!-- Orbiter: Right -->
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 z-20 float-3">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/Products.jpg" alt="Products"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">Products</p>
+          </div>
+
+          <!-- Orbiter: Bottom-right -->
+          <div class="absolute right-[8%] bottom-[15%] z-20 float-1">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/EOD.jpg" alt="EOD"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">EOD</p>
+          </div>
+
+          <!-- Orbiter: Bottom -->
+          <div class="absolute left-1/2 bottom-0 -translate-x-1/2 z-20 float-2">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/Expenses.jpg" alt="Expenses"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">Expenses</p>
+          </div>
+
+          <!-- Orbiter: Bottom-left -->
+          <div class="absolute left-[8%] bottom-[15%] z-20 float-3">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/More.jpg" alt="More"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">More</p>
+          </div>
+
+          <!-- Orbiter: Left -->
+          <div class="absolute left-0 top-1/2 -translate-y-1/2 z-20 float-1">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/Sales.jpg" alt="Refunds"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">Refunds</p>
+          </div>
+
+          <!-- Orbiter: Top-left -->
+          <div class="absolute left-[8%] top-[15%] z-20 float-2">
+            <div class="mini-phone" style="max-width: 100px;">
+              <div class="screen"><img src="../public/Products.jpg" alt="Inventory"/></div>
+            </div>
+            <p class="text-center text-[10px] text-white/70 mt-1.5 font-semibold">Inventory</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V8 — TRIPTYCH STORIES (3 phones, 3 stories of a day)
+         ============================================================ -->
+    <section id="v8" class="text-white py-20 relative overflow-hidden" style="background:#1F0F02; background-image: radial-gradient(at 0% 0%, rgba(217,119,6,0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(47,93,80,0.15) 0px, transparent 50%);">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V8 · Triptych Stories · 3 phones, 3 moments in a day
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 mt-6">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#FBA94C">App preview · A day with RetailFlow</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-white leading-tight font-medium">
+            From <em class="italic" style="color:#FBA94C">opening</em> to <em class="italic" style="color:#FBA94C">end-of-day.</em>
+          </h2>
+          <p class="mt-4 text-white/60">One app. Three moments. Same simplicity throughout.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6 lg:gap-4 max-w-5xl mx-auto">
+
+          <!-- Morning · POS -->
+          <article class="text-center">
+            <div class="text-xs uppercase tracking-[0.2em] font-bold mb-2" style="color:#FBA94C">— 8:00 AM · Opening</div>
+            <h3 class="font-fraunces text-2xl text-white mb-1">Ring up the first sale.</h3>
+            <p class="text-sm text-white/60 mb-6">Open the app. Tap a product. Total. Paid. The whole flow takes seconds.</p>
+            <div class="relative inline-block">
+              <div class="absolute -inset-6 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse, rgba(217,119,6,0.35) 0%, transparent 65%)"></div>
+              <div class="big-phone relative" style="max-width: 200px;">
+                <div class="screen"><img src="../public/POS.JPG" alt="POS"/></div>
+              </div>
+            </div>
+            <div class="mt-6 inline-flex items-center gap-2 bg-white/5 backdrop-blur border border-white/10 rounded-full px-3 py-1.5">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#FBA94C"></span>
+              <span class="text-xs text-white/70 font-semibold">Point of Sale</span>
+            </div>
+          </article>
+
+          <!-- Midday · Dashboard -->
+          <article class="text-center lg:translate-y-8">
+            <div class="text-xs uppercase tracking-[0.2em] font-bold mb-2" style="color:#FBA94C">— 1:00 PM · Lunch rush</div>
+            <h3 class="font-fraunces text-2xl text-white mb-1">Check how the day's going.</h3>
+            <p class="text-sm text-white/60 mb-6">A quick glance at sales, top products, busiest hour. No spreadsheets.</p>
+            <div class="relative inline-block">
+              <div class="absolute -inset-6 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse, rgba(47,93,80,0.30) 0%, transparent 65%)"></div>
+              <div class="big-phone relative" style="max-width: 200px;">
+                <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard"/></div>
+              </div>
+            </div>
+            <div class="mt-6 inline-flex items-center gap-2 bg-white/5 backdrop-blur border border-white/10 rounded-full px-3 py-1.5">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#FBA94C"></span>
+              <span class="text-xs text-white/70 font-semibold">Dashboard</span>
+            </div>
+          </article>
+
+          <!-- Evening · EOD -->
+          <article class="text-center lg:translate-y-16">
+            <div class="text-xs uppercase tracking-[0.2em] font-bold mb-2" style="color:#FBA94C">— 9:00 PM · Closing</div>
+            <h3 class="font-fraunces text-2xl text-white mb-1">Close the day in one tap.</h3>
+            <p class="text-sm text-white/60 mb-6">Auto cash reconciliation. Print, save, done. No counting at midnight.</p>
+            <div class="relative inline-block">
+              <div class="absolute -inset-6 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse, rgba(146,64,14,0.30) 0%, transparent 65%)"></div>
+              <div class="big-phone relative" style="max-width: 200px;">
+                <div class="screen"><img src="../public/EOD.jpg" alt="EOD"/></div>
+              </div>
+            </div>
+            <div class="mt-6 inline-flex items-center gap-2 bg-white/5 backdrop-blur border border-white/10 rounded-full px-3 py-1.5">
+              <span class="w-1.5 h-1.5 rounded-full" style="background:#FBA94C"></span>
+              <span class="text-xs text-white/70 font-semibold">EOD Report</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Other screens at bottom -->
+        <div class="mt-20 pt-10 border-t border-white/10 text-center">
+          <p class="text-sm text-white/60">
+            <span class="font-fraunces italic">Plus</span>
+            Sales · Products · Expenses · Refunds · and 6 more screens.
+            <a class="font-semibold ml-1 hover:underline" style="color:#FBA94C">See all screens →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Round 2 — pick a direction</h2>
+        <p class="text-white/60 mb-10">Building on what you liked about V2 and V3.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V5 · Hybrid</div>
+            <h3 class="text-lg font-bold mb-3">Coverflow + side annotations</h3>
+            <p class="text-sm text-white/70 mb-4">Literal merge of V2 and V3 — coverflow center spotlight with neighboring phones, plus 6 numbered annotation cards on the sides. Pagination + screen-name strip below.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Best of both worlds</div>
+              <div>✅ Most informationally dense</div>
+              <div>⚠️ Busiest section — lots happening</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V6 · Pop-outs</div>
+            <h3 class="text-lg font-bold mb-3">UI elements extracted as floating cards</h3>
+            <p class="text-sm text-white/70 mb-4">Big phone center, 6 floating "pop-out" cards around it — each shows a real UI element (search bar, category chips, cart button, product card, bottom nav, offline indicator) with description. Dashed connector lines.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most product-detail-focused</div>
+              <div>✅ Shows actual UI in close-up</div>
+              <div>⚠️ Densest visual — needs space</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V7 · Orbital</div>
+            <h3 class="text-lg font-bold mb-3">Phone hub, 8 screens orbit around</h3>
+            <p class="text-sm text-white/70 mb-4">POS phone in the center as the "hub," 8 small screens orbit around it on concentric dashed rings. Curved dashed connectors from center to each. Most diagrammatic / brand-forward.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most visually distinctive</div>
+              <div>✅ Conveys "all-in-one" at a glance</div>
+              <div>⚠️ Needs square space — mobile-tricky</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">V8 · Triptych</div>
+            <h3 class="text-lg font-bold mb-3">3 phones, 3 moments in a day</h3>
+            <p class="text-sm text-white/70 mb-4">"8AM Opening · 1PM Lunch rush · 9PM Closing" — three big phones in a row, each with a story title and screen description. Phones rise on a step (translateY) for visual rhythm. Most narrative.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Tells a story (a full day)</div>
+              <div>✅ Each phone has clear context</div>
+              <div>⚠️ Only 3 screens shown (rest in footer note)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#34D399">V6 (Pop-outs)</strong> — most original; competitors use carousels and grids, nobody extracts UI elements as floating annotations like this. <strong style="color:#A78BFA">V7 (Orbital)</strong> if you want maximum visual distinctiveness. <strong style="color:#F59E0B">V8 (Triptych)</strong> if you want this section to tell a narrative.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V5</strong>, <strong class="text-white">V6</strong>, <strong class="text-white">V7</strong>, or <strong class="text-white">V8</strong> — or "more" if none of these landed.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

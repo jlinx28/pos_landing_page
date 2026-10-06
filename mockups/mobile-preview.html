@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Mobile Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body { font-family: 'Inter', system-ui, sans-serif; background: #1a1a1a; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      /* Phone frame */
+      .phone-frame {
+        width: 390px;
+        height: 800px;
+        border-radius: 44px;
+        background: #111;
+        padding: 12px;
+        box-shadow:
+          0 0 0 2px #2a2a2a,
+          0 30px 60px -15px rgba(0,0,0,0.6),
+          0 50px 100px -30px rgba(217,119,6,0.15);
+        position: relative;
+        flex-shrink: 0;
+      }
+      .phone-frame::before {
+        content: '';
+        position: absolute;
+        top: 18px; left: 50%;
+        transform: translateX(-50%);
+        width: 110px; height: 24px;
+        background: #000;
+        border-radius: 14px;
+        z-index: 10;
+      }
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        overflow: hidden;
+        background: #FBEFD9;
+      }
+      .phone-screen iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      .phone-label {
+        text-align: center;
+        margin-top: 16px;
+        color: rgba(255,255,255,0.6);
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .phone-label strong { color: #FBA94C; font-weight: 600; }
+
+      /* Scrollbar in iframes — hide in WebKit */
+      iframe::-webkit-scrollbar { display: none; }
+    </style>
+  </head>
+  <body class="text-white">
+
+    <!-- Header bar -->
+    <nav class="sticky top-0 z-40 bg-black/80 backdrop-blur border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold">RetailFlow POS</span>
+          <span class="text-xs text-white/50">— Mobile preview (390 × 800)</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <a href="full-page.html" class="px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/20">Open desktop view ↗</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro -->
+    <div class="max-w-5xl mx-auto px-6 pt-12 pb-6 text-center">
+      <h1 class="font-fraunces text-3xl sm:text-4xl mb-3">Mobile preview</h1>
+      <p class="text-sm text-white/60 max-w-xl mx-auto">
+        Three iPhone-sized frames, each scrolled to a different part of the page. Scroll inside each phone independently — they're live, not screenshots.
+      </p>
+    </div>
+
+    <!-- Phones row -->
+    <div class="px-6 pb-20">
+      <div class="flex flex-wrap justify-center gap-10 mt-8">
+
+        <div>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <iframe src="full-page.html#top" title="Mobile view — top / hero"></iframe>
+            </div>
+          </div>
+          <div class="phone-label"><strong>Hero & Features</strong> · scroll down</div>
+        </div>
+
+        <div>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <iframe src="full-page.html#industries" title="Mobile view — industries / screenshots"></iframe>
+            </div>
+          </div>
+          <div class="phone-label"><strong>Industries → App preview</strong> · scroll down</div>
+        </div>
+
+        <div>
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <iframe src="full-page.html#pricing" title="Mobile view — pricing / FAQ"></iframe>
+            </div>
+          </div>
+          <div class="phone-label"><strong>Pricing → FAQ → Footer</strong> · scroll down</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tip strip -->
+    <div class="bg-white/5 border-t border-white/10 py-10">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <p class="text-sm text-white/70">
+          <strong class="text-white">Tip:</strong> if frames look blank for a second, give them a moment to load Tailwind CDN + Google Fonts.
+          For a true touch-screen test, open <a class="underline text-orange-300 hover:text-orange-200" href="full-page.html">full-page.html</a> on your phone (or DevTools → device toolbar).
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Features Section Variants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      .bg-cream      { background-color: #FBEFD9; }
+      .text-deep     { color: #3F1D04; }
+      .text-mid      { color: #6B4423; }
+      .text-soft     { color: #8C6B47; }
+      .accent-bg     { background-color: #D97706; }
+      .accent-text   { color: #D97706; }
+      .secondary-bg  { background-color: #2F5D50; }
+      .tertiary-bg   { background-color: #92400E; }
+      .border-cream  { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Phone frame for variant B */
+      .mini-phone {
+        position: relative;
+        background: linear-gradient(180deg, #1F0F02, #0a0500);
+        border-radius: 32px;
+        padding: 7px;
+        box-shadow:
+          inset 0 0 0 1.5px rgba(255,255,255,0.06),
+          inset 0 1px 0 rgba(255,255,255,0.10),
+          0 25px 50px -15px rgba(63,29,4,0.45);
+        max-width: 240px;
+      }
+      .mini-phone::before {
+        content:''; position:absolute; top:5px; left:50%; transform:translateX(-50%);
+        width:40px; height:3px; background:rgba(255,255,255,0.08); border-radius:2px;
+      }
+      .mini-phone .screen {
+        border-radius: 24px;
+        overflow: hidden;
+      }
+      .mini-phone .screen img { display:block; width:100%; }
+
+      /* Variant C uniform-grid hover */
+      .grid-card { transition: transform .2s, box-shadow .2s, border-color .2s; }
+      .grid-card:hover { transform: translateY(-3px); border-color:#D97706; box-shadow: 0 15px 30px -10px rgba(63,29,4,0.20); }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— Features section variants</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#a" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">A · Tabs</a>
+          <a href="#b" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">B · Story rows</a>
+          <a href="#c" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">C · Icon grid</a>
+          <a href="#d" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">D · Magazine</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         VARIANT A — TABBED SHOWCASE
+         ============================================================ -->
+    <section id="a" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        Variant A · Tabbed Showcase · Stripe / Linear-style preview pane
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Features</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Everything you need to <em class="accent-text italic">run the store.</em>
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-6">
+          <!-- Tab list -->
+          <div class="lg:col-span-4 space-y-2">
+            <button class="w-full text-left p-4 rounded-2xl bg-white border-2 transition flex items-start gap-3" style="border-color:#D97706; box-shadow: 0 10px 25px -10px rgba(217,119,6,0.20)">
+              <div class="w-10 h-10 rounded-xl accent-bg text-white flex items-center justify-center text-lg shrink-0">🛒</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">Full POS System</div>
+                <div class="text-xs text-soft mt-0.5">Cart, scan, payments — under 4s</div>
+              </div>
+            </button>
+            <button class="w-full text-left p-4 rounded-2xl bg-white border border-cream hover:border-orange-300 transition flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl secondary-bg text-white flex items-center justify-center text-lg shrink-0">📴</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">100% Offline</div>
+                <div class="text-xs text-soft mt-0.5">Works through brownouts</div>
+              </div>
+            </button>
+            <button class="w-full text-left p-4 rounded-2xl bg-white border border-cream hover:border-orange-300 transition flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl tertiary-bg text-white flex items-center justify-center text-lg shrink-0">🔄</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">Multi-device LAN sync</div>
+                <div class="text-xs text-soft mt-0.5">Cashier stations on one WiFi</div>
+              </div>
+            </button>
+            <button class="w-full text-left p-4 rounded-2xl bg-white border border-cream hover:border-orange-300 transition flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl accent-bg text-white flex items-center justify-center text-lg shrink-0">📦</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">Inventory tracking</div>
+                <div class="text-xs text-soft mt-0.5">Stock, alerts, history</div>
+              </div>
+            </button>
+            <button class="w-full text-left p-4 rounded-2xl bg-white border border-cream hover:border-orange-300 transition flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl secondary-bg text-white flex items-center justify-center text-lg shrink-0">📊</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">EOD reports</div>
+                <div class="text-xs text-soft mt-0.5">Auto cash reconciliation</div>
+              </div>
+            </button>
+            <button class="w-full text-left p-4 rounded-2xl bg-white border border-cream hover:border-orange-300 transition flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl tertiary-bg text-white flex items-center justify-center text-lg shrink-0">👥</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">Roles & PIN login</div>
+                <div class="text-xs text-soft mt-0.5">Admin / Manager / Cashier</div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Preview pane -->
+          <div class="lg:col-span-8 bg-white rounded-3xl border border-cream p-8 lg:p-10 relative overflow-hidden" style="box-shadow: 0 25px 50px -15px rgba(63,29,4,0.10)">
+            <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl" style="background:rgba(217,119,6,0.15)"></div>
+            <div class="relative grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="inline-flex items-center gap-2 accent-text bg-orange-50 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                  <span class="w-1.5 h-1.5 rounded-full accent-bg"></span> Active feature
+                </div>
+                <h3 class="font-fraunces text-3xl text-deep mb-3">Full POS System</h3>
+                <p class="text-mid mb-5">Fast cart management, barcode scanning, instant payments. Everything your cashier needs to ring up a sale in under four seconds.</p>
+                <ul class="space-y-2 text-sm text-mid">
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Barcode scanner support (USB & Bluetooth)</li>
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Cash, GCash, Maya, card</li>
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Promo codes & discounts</li>
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Hold orders & split bills</li>
+                  <li class="flex items-center gap-2"><span class="accent-text">✓</span> Print or PDF receipts</li>
+                </ul>
+              </div>
+              <div class="flex justify-center">
+                <div class="mini-phone">
+                  <div class="screen">
+                    <img src="../public/POS.JPG" alt="POS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VARIANT B — STORY ROWS (alternating image+text)
+         ============================================================ -->
+    <section id="b" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        Variant B · Story Rows · Alternating image + text, immersive
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Features</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Built for the way <em class="accent-text italic">you actually work.</em>
+          </h2>
+        </div>
+
+        <!-- Row 1: image left -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+          <div class="flex justify-center order-2 lg:order-1">
+            <div class="mini-phone" style="transform: rotate(-4deg)">
+              <div class="screen"><img src="../public/POS.JPG" alt="POS" /></div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="text-xs uppercase tracking-widest accent-text font-bold mb-3">01 · Point of Sale</div>
+            <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">A checkout your <em class="accent-text italic">cashier loves.</em></h3>
+            <p class="text-mid mb-5">Scan a barcode, tap a payment method, print the receipt. The whole flow feels obvious — even on day one.</p>
+            <div class="grid grid-cols-2 gap-3 max-w-md">
+              <div class="bg-cream rounded-xl p-3 border border-cream">
+                <div class="text-xl mb-1">📷</div>
+                <div class="text-xs font-semibold text-deep">Barcode scan</div>
+              </div>
+              <div class="bg-cream rounded-xl p-3 border border-cream">
+                <div class="text-xl mb-1">💵</div>
+                <div class="text-xs font-semibold text-deep">Cash · GCash · Maya</div>
+              </div>
+              <div class="bg-cream rounded-xl p-3 border border-cream">
+                <div class="text-xl mb-1">🧾</div>
+                <div class="text-xs font-semibold text-deep">Receipt printing</div>
+              </div>
+              <div class="bg-cream rounded-xl p-3 border border-cream">
+                <div class="text-xl mb-1">🏷️</div>
+                <div class="text-xs font-semibold text-deep">Promos & discounts</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: text left, image right -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+          <div>
+            <div class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#2F5D50">02 · Truly Offline</div>
+            <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">When the WiFi drops, <em class="italic" style="color:#2F5D50">you keep selling.</em></h3>
+            <p class="text-mid mb-5">Local SQLite storage means every sale, every inventory update, every report works without an internet connection. When you reconnect, everything syncs.</p>
+            <div class="flex items-center gap-4 p-4 bg-cream rounded-2xl border border-cream max-w-md">
+              <div class="w-12 h-12 rounded-full secondary-bg text-white flex items-center justify-center text-xl">📴</div>
+              <div>
+                <div class="font-semibold text-deep text-sm">Brownout this morning?</div>
+                <div class="text-xs text-soft">Your cashier kept ringing. No data lost.</div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <div class="mini-phone" style="transform: rotate(4deg)">
+              <div class="screen"><img src="../public/Dashboard.jpg" alt="Dashboard" /></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: image left -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 flex justify-center">
+            <div class="relative flex items-end gap-3">
+              <div class="mini-phone" style="max-width:160px; transform: rotate(-6deg)">
+                <div class="screen"><img src="../public/Sales.jpg" alt="Sales" /></div>
+              </div>
+              <div class="mini-phone" style="max-width:200px">
+                <div class="screen"><img src="../public/Products.jpg" alt="Products" /></div>
+              </div>
+              <div class="mini-phone" style="max-width:160px; transform: rotate(6deg)">
+                <div class="screen"><img src="../public/EOD.jpg" alt="EOD" /></div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="text-xs uppercase tracking-widest font-bold mb-3" style="color:#92400E">03 · Multi-device LAN sync</div>
+            <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">Three cashier stations. <em class="italic accent-text">One WiFi. Zero cloud.</em></h3>
+            <p class="text-mid mb-5">Add devices as your shop grows. They sync over your local network — no monthly cloud bill, no data leaving your store.</p>
+            <ul class="space-y-2 text-sm text-mid">
+              <li class="flex items-center gap-2"><span class="accent-text">✓</span> Phones, tablets, terminals — any Android 8+</li>
+              <li class="flex items-center gap-2"><span class="accent-text">✓</span> Real-time inventory across stations</li>
+              <li class="flex items-center gap-2"><span class="accent-text">✓</span> Per-cashier reports & PIN login</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VARIANT C — UNIFORM ICON GRID
+         ============================================================ -->
+    <section id="c" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        Variant C · Uniform Icon Grid · Clean, scannable, max SEO
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Features</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Every tool your store <em class="accent-text italic">actually needs.</em>
+          </h2>
+          <p class="mt-4 text-mid">No bloat. No upsells. Just the essentials, done well.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl accent-bg text-white flex items-center justify-center text-xl mb-4">🛒</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Full POS System</h3>
+            <p class="text-sm text-mid">Fast cart, barcode scanning, instant payments. Under 4 seconds per sale.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl secondary-bg text-white flex items-center justify-center text-xl mb-4">📴</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Works 100% Offline</h3>
+            <p class="text-sm text-mid">SQLite-backed local storage. Sells through brownouts and dead WiFi.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl tertiary-bg text-white flex items-center justify-center text-xl mb-4">🔄</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Multi-device LAN sync</h3>
+            <p class="text-sm text-mid">Multiple cashier stations on the same WiFi. No cloud bill.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl accent-bg text-white flex items-center justify-center text-xl mb-4">📦</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Inventory tracking</h3>
+            <p class="text-sm text-mid">Stock levels, low-stock alerts, full history per product.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl secondary-bg text-white flex items-center justify-center text-xl mb-4">📊</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">EOD reports</h3>
+            <p class="text-sm text-mid">Auto cash reconciliation at the end of every shift.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl tertiary-bg text-white flex items-center justify-center text-xl mb-4">↩️</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Refund management</h3>
+            <p class="text-sm text-mid">Process returns with full audit trail and status reports.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl accent-bg text-white flex items-center justify-center text-xl mb-4">🖨️</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Receipt printing</h3>
+            <p class="text-sm text-mid">PDF receipts and direct ESC/POS thermal printer support.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl secondary-bg text-white flex items-center justify-center text-xl mb-4">👥</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Roles & PIN login</h3>
+            <p class="text-sm text-mid">Admin, Manager, and Cashier permissions per device.</p>
+          </article>
+          <article class="grid-card bg-white p-7 rounded-2xl border border-cream">
+            <div class="w-12 h-12 rounded-xl tertiary-bg text-white flex items-center justify-center text-xl mb-4">🏷️</div>
+            <h3 class="font-fraunces text-xl text-deep mb-2">Promo codes & tax</h3>
+            <p class="text-sm text-mid">Custom discounts, VAT settings, automated rounding.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VARIANT D — MAGAZINE / EDITORIAL
+         ============================================================ -->
+    <section id="d" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        Variant D · Magazine / Editorial · Hero spotlight + secondary cards
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="flex flex-col sm:flex-row items-end justify-between mb-12 gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Features</p>
+            <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium max-w-xl">
+              The complete toolkit, in one <em class="accent-text italic">simple app.</em>
+            </h2>
+          </div>
+          <a class="text-sm font-semibold accent-text hover:underline">See full feature list →</a>
+        </div>
+
+        <!-- Hero feature card -->
+        <article class="rounded-3xl overflow-hidden mb-6 relative" style="background: linear-gradient(135deg, #FBEFD9 0%, #FFFFFF 100%); border:1px solid #F5DEB3">
+          <div class="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl" style="background:rgba(217,119,6,0.18)"></div>
+          <div class="relative grid lg:grid-cols-12 gap-8 p-8 lg:p-12 items-center">
+            <div class="lg:col-span-7">
+              <div class="inline-flex items-center gap-2 bg-white rounded-full px-3 py-1 text-xs font-bold mb-4 border border-cream" style="color:#92400E">
+                <span class="w-1.5 h-1.5 rounded-full accent-bg"></span> Most-loved feature
+              </div>
+              <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">
+                A POS that <em class="accent-text italic">never quits</em> on you.
+              </h3>
+              <p class="text-mid text-lg mb-6 max-w-lg">Brownout? Dead signal? Router rebooting? RetailFlow keeps ringing up sales the entire time. Local SQLite storage means zero dependence on the internet.</p>
+              <div class="grid grid-cols-3 gap-4 max-w-md">
+                <div>
+                  <div class="font-fraunces text-2xl font-semibold text-deep">100%</div>
+                  <div class="text-xs text-soft uppercase tracking-wide">Offline ready</div>
+                </div>
+                <div>
+                  <div class="font-fraunces text-2xl font-semibold text-deep">&lt;4s</div>
+                  <div class="text-xs text-soft uppercase tracking-wide">Per sale</div>
+                </div>
+                <div>
+                  <div class="font-fraunces text-2xl font-semibold text-deep">3+</div>
+                  <div class="text-xs text-soft uppercase tracking-wide">Devices</div>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="mini-phone" style="transform: rotate(-4deg)">
+                <div class="screen"><img src="../public/POS.JPG" alt="POS" /></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Two secondary cards -->
+        <div class="grid lg:grid-cols-2 gap-6 mb-6">
+          <article class="bg-cream rounded-3xl p-8 border border-cream relative overflow-hidden">
+            <div class="w-12 h-12 rounded-xl secondary-bg text-white flex items-center justify-center text-xl mb-4">🔄</div>
+            <h3 class="font-fraunces text-2xl text-deep mb-2">Multi-device LAN sync</h3>
+            <p class="text-mid mb-5">Run multiple cashier stations on the same WiFi. No cloud subscription, no data leaving your store.</p>
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-14 rounded-lg bg-white border-2 border-cream"></div>
+              <span class="text-soft text-lg">↔</span>
+              <div class="w-12 h-16 rounded-lg bg-white border-2" style="border-color:#2F5D50"></div>
+              <span class="text-soft text-lg">↔</span>
+              <div class="w-10 h-14 rounded-lg bg-white border-2 border-cream"></div>
+            </div>
+          </article>
+          <article class="bg-cream rounded-3xl p-8 border border-cream relative overflow-hidden">
+            <div class="w-12 h-12 rounded-xl tertiary-bg text-white flex items-center justify-center text-xl mb-4">📊</div>
+            <h3 class="font-fraunces text-2xl text-deep mb-2">Real-time analytics</h3>
+            <p class="text-mid mb-5">Sales charts, top products, busiest hours. Know your business at a glance.</p>
+            <div class="flex items-end gap-1.5 h-16">
+              <div class="w-3 rounded-sm" style="height:30%; background:rgba(217,119,6,0.30)"></div>
+              <div class="w-3 rounded-sm" style="height:55%; background:rgba(217,119,6,0.50)"></div>
+              <div class="w-3 rounded-sm" style="height:40%; background:rgba(217,119,6,0.40)"></div>
+              <div class="w-3 rounded-sm" style="height:75%; background:rgba(217,119,6,0.70)"></div>
+              <div class="w-3 rounded-sm" style="height:90%; background:#D97706"></div>
+              <div class="w-3 rounded-sm" style="height:65%; background:rgba(217,119,6,0.65)"></div>
+              <div class="w-3 rounded-sm" style="height:80%; background:rgba(217,119,6,0.80)"></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Bottom small icon strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div class="bg-cream rounded-2xl p-5 border border-cream text-center">
+            <div class="text-2xl mb-2">📦</div>
+            <div class="text-xs font-bold text-deep">Inventory</div>
+          </div>
+          <div class="bg-cream rounded-2xl p-5 border border-cream text-center">
+            <div class="text-2xl mb-2">↩️</div>
+            <div class="text-xs font-bold text-deep">Refunds</div>
+          </div>
+          <div class="bg-cream rounded-2xl p-5 border border-cream text-center">
+            <div class="text-2xl mb-2">🖨️</div>
+            <div class="text-xs font-bold text-deep">Receipts</div>
+          </div>
+          <div class="bg-cream rounded-2xl p-5 border border-cream text-center">
+            <div class="text-2xl mb-2">👥</div>
+            <div class="text-xs font-bold text-deep">Roles & PIN</div>
+          </div>
+          <div class="bg-cream rounded-2xl p-5 border border-cream text-center">
+            <div class="text-2xl mb-2">🏷️</div>
+            <div class="text-xs font-bold text-deep">Promo codes</div>
+          </div>
+          <div class="bg-cream rounded-2xl p-5 border border-cream text-center">
+            <div class="text-2xl mb-2">🧾</div>
+            <div class="text-xs font-bold text-deep">EOD reports</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Side-by-side comparison</h2>
+        <p class="text-white/60 mb-10">Quick read on the trade-offs of each features layout.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">Variant A</div>
+            <h3 class="text-lg font-bold mb-3">Tabbed Showcase</h3>
+            <p class="text-sm text-white/70 mb-4">One feature in focus, others a click away. Premium, app-like feel.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Compact — saves vertical space</div>
+              <div>✅ Feels interactive & modern</div>
+              <div>⚠️ Requires JS for tab switching</div>
+              <div>⚠️ Hidden content = lower SEO weight</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">Variant B</div>
+            <h3 class="text-lg font-bold mb-3">Story Rows</h3>
+            <p class="text-sm text-white/70 mb-4">Each marquee feature gets a full row with imagery. Immersive, narrative.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ High visual impact</div>
+              <div>✅ Each feature gets full attention</div>
+              <div>⚠️ Long page — lots of scrolling</div>
+              <div>⚠️ Best for 4–6 features, not 10</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">Variant C</div>
+            <h3 class="text-lg font-bold mb-3">Uniform Icon Grid</h3>
+            <p class="text-sm text-white/70 mb-4">Equal-weight cards in a 3-column grid. Clean, no surprises.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Best for SEO (all content visible, crawlable)</div>
+              <div>✅ Easy to scan</div>
+              <div>✅ Handles 9–12 features comfortably</div>
+              <div>⚠️ Less visual hierarchy / drama</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">Variant D</div>
+            <h3 class="text-lg font-bold mb-3">Magazine / Editorial</h3>
+            <p class="text-sm text-white/70 mb-4">Hero feature spotlight, two medium cards, strip of secondary chips. Editorial weight.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Strong visual hierarchy</div>
+              <div>✅ Showcases your "killer feature"</div>
+              <div>✅ Works for many features without bloat</div>
+              <div>⚠️ Slightly more design effort to maintain</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#A78BFA">Variant D (Magazine)</strong> — strongest hierarchy, gets your "offline POS" superpower top billing,
+            and still surfaces everything else without becoming a wall of cards. Add semantic markup and it's SEO-equivalent to Variant C.
+            If you want pure scannability and zero JS, go <strong style="color:#F59E0B">C</strong>.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply with <strong class="text-white">A</strong>, <strong class="text-white">B</strong>, <strong class="text-white">C</strong>, or <strong class="text-white">D</strong> — or mix ("D's hero + C's grid below it").
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

@@ -1,201 +1,223 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const screens = [
-  {
-    title: "Point of Sale",
-    desc: "Fast checkout with barcode scanning",
-    image: "/POS.JPG",
-  },
-  {
-    title: "Products",
-    desc: "Manage your entire catalog",
-    image: "/Products.jpg",
-  },
-  {
-    title: "Expenses",
-    desc: "Track and manage all expenses",
-    image: "/Expenses.jpg",
-  },
-  {
-    title: "Dashboard",
-    desc: "Sales analytics at a glance",
-    image: "/Dashboard.jpg",
-  },
-
-  {
-    title: "Sales History",
-    desc: "Complete transaction records",
-    image: "/Sales.jpg",
-  },
-  {
-    title: "EOD Reports",
-    desc: "Daily closing summaries",
-    image: "/EOD.jpg",
-  },
-
-  {
-    title: "More Features",
-    desc: "Everything your store needs",
-    image: "/More.jpg",
-  },
+const SCREENS = [
+  { label: 'Expenses', src: '/Expenses.jpg' },
+  { label: 'Sales', src: '/Sales.jpg' },
+  { label: 'Point of Sale', src: '/POS.JPG' },
+  { label: 'Dashboard', src: '/Dashboard.jpg' },
+  { label: 'EOD reports', src: '/EOD.jpg' },
+  { label: 'Products', src: '/Products.jpg' },
+  { label: 'More', src: '/More.jpg' },
 ];
 
 export default function Screenshots() {
-  const [active, setActive] = useState(0);
-
-  const prev = () => setActive((i) => (i === 0 ? screens.length - 1 : i - 1));
-  const next = () => setActive((i) => (i === screens.length - 1 ? 0 : i + 1));
-
-  const getOffset = (i) => {
-    let diff = i - active;
-    // Wrap around for circular feel
-    if (diff > Math.floor(screens.length / 2)) diff -= screens.length;
-    if (diff < -Math.floor(screens.length / 2)) diff += screens.length;
-    return diff;
-  };
+  const [active, setActive] = useState(2);
+  const N = SCREENS.length;
+  const current = SCREENS[active];
+  const prev = SCREENS[(active - 1 + N) % N];
+  const next = SCREENS[(active + 1) % N];
 
   return (
-    <section id="screenshots" className="py-20 bg-dark overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            See It In Action
+    <section
+      id="screenshots"
+      className="dark-section text-white py-24 relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-14 max-w-2xl mx-auto">
+          <p
+            className="text-xs uppercase tracking-widest font-bold mb-3"
+            style={{ color: '#fba94c' }}
+          >
+            App preview
+          </p>
+          <h2 className="font-fraunces text-4xl sm:text-5xl text-white leading-tight font-medium">
+            Designed for{' '}
+            <em className="italic" style={{ color: '#fba94c' }}>
+              speed and clarity.
+            </em>
           </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            A clean, intuitive interface designed for speed and ease of use.
+          <p className="mt-4 text-lg text-white/70">
+            Built for the cashier who's been on shift for six hours. Big targets, instant
+            feedback, no learning curve.
           </p>
         </div>
-      </div>
 
-      <div className="relative h-[580px] sm:h-[640px]">
-        {/* Prev button */}
-        <button
-          onClick={prev}
-          className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-colors"
-          aria-label="Previous"
-        >
-          <svg
-            className="w-5 h-5 sm:w-6 sm:h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
-          </svg>
-        </button>
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
+          {/* Left annotations */}
+          <div className="lg:col-span-3 space-y-4">
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:translate-x-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-7 h-7 rounded-full accent-bg text-white text-xs font-bold flex items-center justify-center">
+                  1
+                </span>
+                <h4 className="font-fraunces text-sm text-white">Quick search</h4>
+              </div>
+              <p className="text-xs text-white/60">
+                Type or scan — products show in &lt;200ms.
+              </p>
+            </div>
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-7 h-7 rounded-full secondary-bg text-white text-xs font-bold flex items-center justify-center">
+                  2
+                </span>
+                <h4 className="font-fraunces text-sm text-white">Category chips</h4>
+              </div>
+              <p className="text-xs text-white/60">Tap to filter. Designed for thumbs.</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:translate-x-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-7 h-7 rounded-full tertiary-bg text-white text-xs font-bold flex items-center justify-center">
+                  3
+                </span>
+                <h4 className="font-fraunces text-sm text-white">Big touch targets</h4>
+              </div>
+              <p className="text-xs text-white/60">No accidental taps. 80px+ per card.</p>
+            </div>
+          </div>
 
-        {/* Slides */}
-        <div className="relative w-full h-full flex items-start justify-center">
-          {screens.map((s, i) => {
-            const offset = getOffset(i);
-            const absOffset = Math.abs(offset);
-            const isCenter = offset === 0;
-
-            const width = isCenter
-              ? 280
-              : absOffset === 1
-                ? 200
-                : absOffset === 2
-                  ? 150
-                  : 120;
-            const spacing = isCenter ? 0 : offset * 150;
-
-            return (
-              <div
-                key={i}
-                onClick={() => setActive(i)}
-                className="absolute cursor-pointer"
-                style={{
-                  width,
-                  transform: `translateX(${spacing}px) scale(${isCenter ? 1 : absOffset === 1 ? 0.92 : absOffset === 2 ? 0.8 : 0.7})`,
-                  opacity:
-                    absOffset > 3
-                      ? 0
-                      : isCenter
-                        ? 1
-                        : absOffset === 1
-                          ? 0.55
-                          : absOffset === 2
-                            ? 0.3
-                            : 0.15,
-                  zIndex: 10 - absOffset,
-                  filter: isCenter ? "none" : "brightness(0.6)",
-                  transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                  pointerEvents: absOffset > 3 ? "none" : "auto",
-                }}
-              >
-                <div
-                  className="rounded-[2rem] border-4 overflow-hidden shadow-2xl"
-                  style={{
-                    aspectRatio: "9/19",
-                    borderColor: isCenter ? "#1E88E5" : "#374151",
-                  }}
-                >
-                  <img
-                    src={s.image}
-                    alt={s.title}
-                    className="w-full h-full object-cover object-top"
-                    draggable={false}
-                  />
-                </div>
-                <div
-                  className="text-center mt-4"
-                  style={{
-                    opacity: isCenter ? 1 : 0,
-                    transition: "opacity 0.4s ease",
-                  }}
-                >
-                  <h4 className="font-semibold text-white text-base">
-                    {s.title}
-                  </h4>
-                  <p className="text-sm text-white/50 mt-1">{s.desc}</p>
+          {/* Center coverflow row */}
+          <div className="lg:col-span-6 relative flex items-center justify-center">
+            {/* Left fading phone */}
+            <div
+              className="hidden md:block opacity-45 brightness-90 cursor-pointer"
+              style={{ transform: 'translateX(-30px) translateY(8px) scale(0.78)' }}
+              onClick={() => setActive((active - 1 + N) % N)}
+            >
+              <div style={{ width: '160px' }}>
+                <div className="phone-frame relative">
+                  <span className="speaker"></span>
+                  <span className="camera"></span>
+                  <span className="btn-vol-up"></span>
+                  <span className="btn-vol-down"></span>
+                  <span className="btn-power"></span>
+                  <div className="screen">
+                    <img src={prev.src} alt={prev.label} />
+                  </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+
+            {/* Center spotlight phone */}
+            <div className="relative z-10 mx-2">
+              <div
+                className="absolute -inset-10 rounded-full blur-3xl pointer-events-none"
+                style={{
+                  background:
+                    'radial-gradient(ellipse, rgba(217, 119, 6, 0.4) 0%, transparent 65%)',
+                }}
+              ></div>
+              <div style={{ width: '230px' }} className="relative">
+                <div className="phone-frame relative">
+                  <span className="speaker"></span>
+                  <span className="camera"></span>
+                  <span className="btn-vol-up"></span>
+                  <span className="btn-vol-down"></span>
+                  <span className="btn-power"></span>
+                  <div className="screen">
+                    <img src={current.src} alt={current.label} />
+                  </div>
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <h3 className="font-fraunces text-xl text-white">{current.label}</h3>
+                <p className="text-xs text-white/50 mt-1">Active screen · tap to switch</p>
+              </div>
+            </div>
+
+            {/* Right fading phone */}
+            <div
+              className="hidden md:block opacity-45 brightness-90 cursor-pointer"
+              style={{ transform: 'translateX(30px) translateY(8px) scale(0.78)' }}
+              onClick={() => setActive((active + 1) % N)}
+            >
+              <div style={{ width: '160px' }}>
+                <div className="phone-frame relative">
+                  <span className="speaker"></span>
+                  <span className="camera"></span>
+                  <span className="btn-vol-up"></span>
+                  <span className="btn-vol-down"></span>
+                  <span className="btn-power"></span>
+                  <div className="screen">
+                    <img src={next.src} alt={next.label} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right annotations */}
+          <div className="lg:col-span-3 space-y-4">
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:-translate-x-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-7 h-7 rounded-full accent-bg text-white text-xs font-bold flex items-center justify-center">
+                  4
+                </span>
+                <h4 className="font-fraunces text-sm text-white">Live cart</h4>
+              </div>
+              <p className="text-xs text-white/60">Cart updates as you add. Total visible.</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-7 h-7 rounded-full secondary-bg text-white text-xs font-bold flex items-center justify-center">
+                  5
+                </span>
+                <h4 className="font-fraunces text-sm text-white">Tap to checkout</h4>
+              </div>
+              <p className="text-xs text-white/60">
+                One tap to total. One more to mark paid.
+              </p>
+            </div>
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:-translate-x-4">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-7 h-7 rounded-full tertiary-bg text-white text-xs font-bold flex items-center justify-center">
+                  6
+                </span>
+                <h4 className="font-fraunces text-sm text-white">Bottom nav</h4>
+              </div>
+              <p className="text-xs text-white/60">
+                POS · Products · Expenses · Dashboard.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Next button */}
-        <button
-          onClick={next}
-          className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-colors"
-          aria-label="Next"
-        >
-          <svg
-            className="w-5 h-5 sm:w-6 sm:h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Dots */}
-      <div className="flex justify-center gap-2 mt-4">
-        {screens.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === active
-                ? "w-6 bg-primary"
-                : "w-2 bg-white/30 hover:bg-white/50"
-            }`}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
+        {/* Pagination + screen quick-jump strip */}
+        <div className="mt-12 flex flex-col items-center gap-4">
+          <div className="flex items-center gap-2">
+            {SCREENS.map((s, i) =>
+              i === active ? (
+                <span
+                  key={s.label}
+                  className="h-2 w-8 rounded-full"
+                  style={{ background: '#fba94c' }}
+                ></span>
+              ) : (
+                <button
+                  key={s.label}
+                  onClick={() => setActive(i)}
+                  className="w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition"
+                  aria-label={`Show ${s.label}`}
+                ></button>
+              )
+            )}
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl">
+            {SCREENS.map((s, i) => (
+              <button
+                key={s.label}
+                onClick={() => setActive(i)}
+                className={
+                  i === active
+                    ? 'px-3 py-1.5 rounded-full text-xs accent-bg text-white font-bold'
+                    : 'px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition'
+                }
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

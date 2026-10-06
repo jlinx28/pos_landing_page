@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — FAQ Variants Round 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+      .font-caveat { font-family: 'Caveat', cursive; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+      .bg-cream { background-color: #FBEFD9; }
+      .bg-cream-deep { background-color: #F5E4C2; }
+      .text-deep { color: #3F1D04; }
+      .text-mid { color: #6B4423; }
+      .text-soft { color: #8C6B47; }
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .secondary-text { color: #2F5D50; }
+      .tertiary-bg { background-color: #92400E; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Sticky note */
+      .sticky-note {
+        box-shadow:
+          0 1px 1px rgba(0,0,0,0.10),
+          0 8px 20px -8px rgba(63,29,4,0.20),
+          inset 0 -8px 12px -8px rgba(0,0,0,0.08);
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+      .sticky-note:hover {
+        transform: rotate(0deg) translateY(-4px) !important;
+        box-shadow:
+          0 1px 1px rgba(0,0,0,0.10),
+          0 18px 40px -10px rgba(63,29,4,0.30);
+        z-index: 30;
+      }
+
+      /* Side-scroll deck */
+      .scroll-snap {
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+      }
+      .scroll-snap > * { scroll-snap-align: start; }
+      .scroll-snap::-webkit-scrollbar { height: 6px; }
+      .scroll-snap::-webkit-scrollbar-track { background: rgba(146,64,14,0.05); border-radius: 3px; }
+      .scroll-snap::-webkit-scrollbar-thumb { background: rgba(217,119,6,0.40); border-radius: 3px; }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— FAQ variants (Round 2)</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v5" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V5 · Editorial</a>
+          <a href="#v6" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V6 · Sticky Notes</a>
+          <a href="#v7" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V7 · Deck</a>
+          <a href="#v8" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V8 · Bento</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V5 — EDITORIAL OPEN (all answers always visible, magazine feel)
+         ============================================================ -->
+    <section id="v5" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V5 · Editorial Open · All answers visible, magazine-style read
+      </div>
+      <div class="max-w-3xl mx-auto px-6 py-20">
+        <div class="mb-12">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">— Frequently asked</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Everything you'd want to <em class="accent-text italic">ask first.</em>
+          </h2>
+        </div>
+
+        <div class="space-y-12">
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">01</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Does it really work without internet?</h3>
+              <p class="text-sm text-mid leading-relaxed">Yes. All transactions, inventory updates, and reports are stored locally on the device using SQLite. Internet is only needed for license activation and (optionally) cloud backups. Multi-device sync uses your local WiFi — no cloud required.</p>
+            </div>
+          </article>
+
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">02</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">What devices does it run on?</h3>
+              <p class="text-sm text-mid leading-relaxed">Any Android phone or tablet running Android 8 or newer. Most cheap tablets work fine — you don't need expensive hardware.</p>
+            </div>
+          </article>
+
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">03</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Can I use my barcode scanner & printer?</h3>
+              <p class="text-sm text-mid leading-relaxed">Yes. RetailFlow supports USB and Bluetooth barcode scanners, plus most ESC/POS thermal printers (58mm and 80mm).</p>
+            </div>
+          </article>
+
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">04</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">How do I pay?</h3>
+              <p class="text-sm text-mid leading-relaxed mb-2">GCash, Maya, or bank transfer. Pay monthly or buy a lifetime license. We send you an activation key — no credit card needed.</p>
+              <div class="flex gap-2 mt-2">
+                <span class="px-2.5 py-0.5 bg-cream rounded text-[10px] font-bold text-deep border border-cream">GCash</span>
+                <span class="px-2.5 py-0.5 bg-cream rounded text-[10px] font-bold text-deep border border-cream">Maya</span>
+                <span class="px-2.5 py-0.5 bg-cream rounded text-[10px] font-bold text-deep border border-cream">Bank transfer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">05</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">What happens if I cancel?</h3>
+              <p class="text-sm text-mid leading-relaxed">Your data stays on your device. You can export everything to CSV at any time. No lock-in.</p>
+            </div>
+          </article>
+
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">06</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Is my data safe?</h3>
+              <p class="text-sm text-mid leading-relaxed">Yes. Data lives on your device — we never see it. Optional encrypted local backups to USB or LAN drive. No cloud means no breach risk on our end.</p>
+            </div>
+          </article>
+
+          <article class="grid grid-cols-12 gap-4">
+            <div class="col-span-2">
+              <div class="font-fraunces text-4xl text-deep/20 font-semibold leading-none">07</div>
+            </div>
+            <div class="col-span-10">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Do you offer training and support?</h3>
+              <p class="text-sm text-mid leading-relaxed">Yes. Email and Messenger support on all plans. Pro and Custom get priority support and optional on-site setup (Custom only).</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-cream text-center">
+          <p class="text-sm text-mid">More questions? <a class="font-semibold accent-text hover:underline">Send us a message →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V6 — STICKY NOTES (colored notes pinned to a board)
+         ============================================================ -->
+    <section id="v6" class="bg-cream-deep relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V6 · Sticky Notes · Colorful notes pinned to a corkboard
+      </div>
+      <!-- Cork-board texture (subtle) -->
+      <div class="absolute inset-0 opacity-30 pointer-events-none" style="background-image: radial-gradient(rgba(146,64,14,0.30) 1.2px, transparent 1.2px); background-size: 18px 18px;"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">FAQ</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Quick answers, <em class="accent-text italic">stuck up.</em>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+          <!-- Note 1: Saffron -->
+          <article class="sticky-note p-5 relative" style="background: #FED7AA; transform: rotate(-2deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #D97706 0%, #92400E 100%); box-shadow: 0 2px 4px rgba(146,64,14,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">Does it work without internet?</h3>
+            <p class="text-xs text-deep/80 leading-snug">Yes — all data stored locally with SQLite. Brownouts can't stop you. Sync happens when you reconnect.</p>
+          </article>
+
+          <!-- Note 2: Forest tint -->
+          <article class="sticky-note p-5 relative" style="background: #C7DEDA; transform: rotate(2deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #2F5D50 0%, #1F3D33 100%); box-shadow: 0 2px 4px rgba(31,61,51,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">What devices does it run on?</h3>
+            <p class="text-xs text-deep/80 leading-snug">Any Android 8+ phone or tablet. Cheap tablets work fine — no expensive hardware needed.</p>
+          </article>
+
+          <!-- Note 3: Burnt -->
+          <article class="sticky-note p-5 relative" style="background: #FBE3D0; transform: rotate(-3deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #92400E 0%, #5C2810 100%); box-shadow: 0 2px 4px rgba(92,40,16,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">Can I use my scanner & printer?</h3>
+            <p class="text-xs text-deep/80 leading-snug">Yes. USB & Bluetooth scanners + ESC/POS thermal printers (58mm/80mm).</p>
+          </article>
+
+          <!-- Note 4: Saffron -->
+          <article class="sticky-note p-5 relative" style="background: #FED7AA; transform: rotate(3deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #D97706 0%, #92400E 100%); box-shadow: 0 2px 4px rgba(146,64,14,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">How do I pay?</h3>
+            <p class="text-xs text-deep/80 leading-snug mb-2">GCash, Maya, or bank transfer. Monthly or lifetime — your call.</p>
+            <div class="flex gap-1">
+              <span class="px-1.5 py-0.5 bg-white/60 rounded text-[9px] font-bold text-deep">GCash</span>
+              <span class="px-1.5 py-0.5 bg-white/60 rounded text-[9px] font-bold text-deep">Maya</span>
+              <span class="px-1.5 py-0.5 bg-white/60 rounded text-[9px] font-bold text-deep">Bank</span>
+            </div>
+          </article>
+
+          <!-- Note 5: Forest tint -->
+          <article class="sticky-note p-5 relative" style="background: #C7DEDA; transform: rotate(-2deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #2F5D50 0%, #1F3D33 100%); box-shadow: 0 2px 4px rgba(31,61,51,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">What if I cancel?</h3>
+            <p class="text-xs text-deep/80 leading-snug">Your data stays on your device. Export to CSV anytime. No lock-in.</p>
+          </article>
+
+          <!-- Note 6: Burnt -->
+          <article class="sticky-note p-5 relative" style="background: #FBE3D0; transform: rotate(2deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #92400E 0%, #5C2810 100%); box-shadow: 0 2px 4px rgba(92,40,16,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">Is my data safe?</h3>
+            <p class="text-xs text-deep/80 leading-snug">Data lives on your device — we never see it. Encrypted local backups to USB or LAN.</p>
+          </article>
+
+          <!-- Note 7: Saffron -->
+          <article class="sticky-note p-5 relative" style="background: #FED7AA; transform: rotate(-3deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #D97706 0%, #92400E 100%); box-shadow: 0 2px 4px rgba(146,64,14,0.50)"></div>
+            <h3 class="font-fraunces text-base text-deep mb-2">Do you offer training & support?</h3>
+            <p class="text-xs text-deep/80 leading-snug">Email + Messenger support on all plans. Pro/Custom get priority support.</p>
+          </article>
+
+          <!-- Note 8: "Ask another" -->
+          <article class="sticky-note p-5 relative flex flex-col items-center justify-center text-center" style="background: #C7DEDA; transform: rotate(2deg)">
+            <div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #2F5D50 0%, #1F3D33 100%); box-shadow: 0 2px 4px rgba(31,61,51,0.50)"></div>
+            <div class="font-caveat text-2xl text-deep mb-2 leading-tight">Got another?</div>
+            <p class="text-xs text-deep/80 mb-3">Pin it to our wall — we'll answer.</p>
+            <a class="bg-deep text-white px-4 py-1.5 rounded-full text-xs font-bold" style="background:#3F1D04">Ask away →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V7 — SIDE-SCROLL DECK (horizontal swipe cards)
+         ============================================================ -->
+    <section id="v7" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        V7 · Side-scroll Deck · Horizontal swipe through Q&A cards
+      </div>
+
+      <div class="py-20">
+        <div class="max-w-7xl mx-auto px-6 mb-10">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">FAQ</p>
+              <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium max-w-xl">
+                Swipe through the <em class="accent-text italic">common ones.</em>
+              </h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="w-10 h-10 rounded-full bg-cream border border-cream flex items-center justify-center text-deep text-sm font-bold hover:bg-cream-deep">←</button>
+              <button class="w-10 h-10 rounded-full accent-bg text-white flex items-center justify-center text-sm font-bold">→</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll container -->
+        <div class="scroll-snap flex gap-5 overflow-x-auto px-6 pb-6 max-w-7xl mx-auto">
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">01 / 07</div>
+            <div class="text-3xl mb-3">📡</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">Does it really work without internet?</h3>
+            <p class="text-sm text-mid leading-snug">Yes. All transactions and inventory stored locally with SQLite. Multi-device sync over your WiFi — no cloud required.</p>
+          </article>
+
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">02 / 07</div>
+            <div class="text-3xl mb-3">📱</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">What devices does it run on?</h3>
+            <p class="text-sm text-mid leading-snug">Any Android 8+ phone or tablet. Cheap tablets work fine — no expensive hardware needed.</p>
+          </article>
+
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">03 / 07</div>
+            <div class="text-3xl mb-3">🖨️</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">Can I use my scanner & printer?</h3>
+            <p class="text-sm text-mid leading-snug">Yes. USB & Bluetooth scanners. ESC/POS thermal printers (58mm/80mm).</p>
+          </article>
+
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">04 / 07</div>
+            <div class="text-3xl mb-3">💸</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">How do I pay?</h3>
+            <p class="text-sm text-mid leading-snug mb-3">GCash, Maya, or bank transfer. Monthly or lifetime.</p>
+            <div class="flex gap-1">
+              <span class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream">GCash</span>
+              <span class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream">Maya</span>
+              <span class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream">Bank</span>
+            </div>
+          </article>
+
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">05 / 07</div>
+            <div class="text-3xl mb-3">🚪</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">What if I cancel?</h3>
+            <p class="text-sm text-mid leading-snug">Your data stays on your device. Export to CSV anytime. No lock-in.</p>
+          </article>
+
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">06 / 07</div>
+            <div class="text-3xl mb-3">🔒</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">Is my data safe?</h3>
+            <p class="text-sm text-mid leading-snug">Data lives on your device — we never see it. Encrypted backups to USB or LAN. No cloud breach risk.</p>
+          </article>
+
+          <article class="bg-cream rounded-3xl p-6 border border-cream w-[320px] shrink-0 relative">
+            <div class="absolute top-4 right-4 text-[10px] font-mono accent-text font-bold uppercase tracking-wider opacity-60">07 / 07</div>
+            <div class="text-3xl mb-3">🛟</div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">Training & support?</h3>
+            <p class="text-sm text-mid leading-snug">Email & Messenger support on all plans. Pro/Custom get priority support.</p>
+          </article>
+
+          <!-- Final CTA card -->
+          <article class="rounded-3xl p-6 w-[320px] shrink-0 relative text-white flex flex-col justify-center" style="background: linear-gradient(135deg,#D97706,#92400E); box-shadow: 0 25px 50px -15px rgba(217,119,6,0.40)">
+            <div class="text-3xl mb-3">💬</div>
+            <h3 class="font-fraunces text-lg mb-2">Got another question?</h3>
+            <p class="text-sm opacity-90 mb-4">Send us a message and we'll answer within an hour.</p>
+            <a class="bg-white text-deep px-4 py-2 rounded-full text-sm font-bold inline-flex items-center gap-2 self-start">Talk to us →</a>
+          </article>
+        </div>
+
+        <!-- Pagination dots -->
+        <div class="flex items-center justify-center gap-2 mt-6">
+          <span class="h-2 w-8 rounded-full accent-bg"></span>
+          <span class="w-2 h-2 rounded-full bg-cream border border-cream"></span>
+          <span class="w-2 h-2 rounded-full bg-cream border border-cream"></span>
+          <span class="w-2 h-2 rounded-full bg-cream border border-cream"></span>
+          <span class="w-2 h-2 rounded-full bg-cream border border-cream"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V8 — BENTO MOSAIC (mixed-size cards)
+         ============================================================ -->
+    <section id="v8" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V8 · Bento Mosaic · Featured big card + smaller varied cards
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">FAQ</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            The questions <em class="accent-text italic">we hear most.</em>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4 auto-rows-[160px]">
+
+          <!-- Featured: offline question (big) -->
+          <article class="col-span-12 lg:col-span-7 lg:row-span-2 rounded-3xl p-8 relative overflow-hidden text-white flex flex-col justify-end" style="background: linear-gradient(135deg, #D97706 0%, #92400E 100%)">
+            <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(white 1.2px, transparent 1.2px); background-size: 22px 22px;"></div>
+            <div class="absolute top-6 right-6 text-7xl opacity-90">📡</div>
+            <div class="absolute top-6 left-6 bg-white/20 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Most asked</div>
+            <div class="relative">
+              <h3 class="font-fraunces text-2xl mb-3">Does it really work without internet?</h3>
+              <p class="text-sm opacity-90 max-w-md">Yes. All transactions, inventory, and reports are stored locally via SQLite. Multi-device sync uses your local WiFi — no cloud required. Brownouts can't stop your sales.</p>
+            </div>
+          </article>
+
+          <!-- Devices -->
+          <article class="col-span-12 sm:col-span-6 lg:col-span-5 lg:row-span-1 rounded-3xl p-6 bg-white border border-cream relative">
+            <div class="absolute top-4 right-4 text-3xl">📱</div>
+            <h3 class="font-fraunces text-base text-deep mb-1.5 max-w-[80%]">What devices does it run on?</h3>
+            <p class="text-xs text-mid leading-snug">Any Android 8+ phone or tablet. Cheap tablets work fine.</p>
+          </article>
+
+          <!-- Hardware -->
+          <article class="col-span-6 lg:col-span-5 lg:row-span-1 rounded-3xl p-6 bg-white border border-cream relative">
+            <div class="absolute top-4 right-4 text-3xl">🖨️</div>
+            <h3 class="font-fraunces text-base text-deep mb-1.5 max-w-[80%]">Scanner & printer?</h3>
+            <p class="text-xs text-mid leading-snug">USB/Bluetooth scanners + ESC/POS printers (58mm/80mm).</p>
+          </article>
+
+          <!-- Pay (medium with chips) -->
+          <article class="col-span-12 sm:col-span-6 lg:col-span-5 lg:row-span-1 rounded-3xl p-6 relative" style="background: linear-gradient(135deg, rgba(47,93,80,0.10) 0%, rgba(47,93,80,0.04) 100%); border: 1px solid #F5DEB3">
+            <div class="absolute top-4 right-4 text-3xl">💸</div>
+            <h3 class="font-fraunces text-base text-deep mb-1.5 max-w-[70%]">How do I pay?</h3>
+            <p class="text-xs text-mid leading-snug mb-2">GCash, Maya, or bank transfer.</p>
+            <div class="flex gap-1">
+              <span class="px-1.5 py-0.5 bg-white rounded text-[9px] font-bold text-deep border border-cream">GCash</span>
+              <span class="px-1.5 py-0.5 bg-white rounded text-[9px] font-bold text-deep border border-cream">Maya</span>
+              <span class="px-1.5 py-0.5 bg-white rounded text-[9px] font-bold text-deep border border-cream">Bank</span>
+            </div>
+          </article>
+
+          <!-- Cancel -->
+          <article class="col-span-6 lg:col-span-3 rounded-3xl p-5 bg-white border border-cream">
+            <div class="text-2xl mb-2">🚪</div>
+            <h3 class="font-fraunces text-sm text-deep mb-1">What if I cancel?</h3>
+            <p class="text-xs text-mid">No lock-in. Export anytime.</p>
+          </article>
+
+          <!-- Security -->
+          <article class="col-span-6 lg:col-span-4 rounded-3xl p-5 bg-white border border-cream relative">
+            <div class="text-2xl mb-2">🔒</div>
+            <h3 class="font-fraunces text-sm text-deep mb-1">Is my data safe?</h3>
+            <p class="text-xs text-mid">Local-only. Optional encrypted USB/LAN backups.</p>
+          </article>
+
+          <!-- Support -->
+          <article class="col-span-12 lg:col-span-5 rounded-3xl p-5 bg-white border border-cream relative">
+            <div class="flex items-start gap-3">
+              <div class="text-2xl">🛟</div>
+              <div class="flex-1">
+                <h3 class="font-fraunces text-sm text-deep mb-1">Training & support?</h3>
+                <p class="text-xs text-mid">Email + Messenger on all plans. Pro/Custom get priority + on-site setup option.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- "Ask another" CTA -->
+          <article class="col-span-12 lg:col-span-7 rounded-3xl p-6 border-2 border-dashed border-cream flex items-center justify-between gap-4 bg-cream-deep/30">
+            <div>
+              <h3 class="font-fraunces text-base text-deep mb-1">Got a question we missed?</h3>
+              <p class="text-xs text-mid">We reply within an hour, usually faster.</p>
+            </div>
+            <a class="shrink-0 accent-bg text-white px-4 py-2 rounded-full text-sm font-semibold">Ask away →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Round 2 — pick a fresh FAQ direction</h2>
+        <p class="text-white/60 mb-10">Different from the V1–V4 set.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V5 · Editorial Open</div>
+            <h3 class="text-lg font-bold mb-3">All answers visible, magazine-style</h3>
+            <p class="text-sm text-white/70 mb-4">No accordion. Each Q is a numbered "01 / 02 / 03" article-style section with the answer right below. Big ghost numerals on the left. Reads like a magazine FAQ column.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Best SEO (everything indexed)</div>
+              <div>✅ Most readable / scannable</div>
+              <div>⚠️ Longer scroll for many Qs</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V6 · Sticky Notes</div>
+            <h3 class="text-lg font-bold mb-3">Pinned sticky notes on a corkboard</h3>
+            <p class="text-sm text-white/70 mb-4">8 colored sticky notes (saffron / forest tint / burnt) at slight rotations, each with a circular "pushpin" at top. Final note is "Got another?" in handwritten Caveat font. Subtle dot pattern bg = corkboard.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most charming/distinctive</div>
+              <div>✅ Echoes Polaroid style if you used it</div>
+              <div>⚠️ Slightly less serious tone</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V7 · Deck</div>
+            <h3 class="text-lg font-bold mb-3">Horizontal swipe-through cards</h3>
+            <p class="text-sm text-white/70 mb-4">8 cards with snap-scrolling on horizontal axis. Each card has icon + Q + A + "01 / 07" pagination tag. Final card is a saffron CTA "Got another? Talk to us." Prev/next buttons + dot pagination.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most kinetic / mobile-friendly</div>
+              <div>✅ Compact vertical footprint</div>
+              <div>⚠️ Off-screen Qs less SEO-weighted</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">V8 · Bento Mosaic</div>
+            <h3 class="text-lg font-bold mb-3">Mixed-size bento with featured Q</h3>
+            <p class="text-sm text-white/70 mb-4">Big featured "Most asked" card (offline question) in saffron. Smaller cards for other Qs in white + a forest-tinted "Pay" card with chips. Final dashed-border CTA. Strong hierarchy.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Strong visual hierarchy</div>
+              <div>✅ Featured Q gets star treatment</div>
+              <div>✅ Cohesive with Industries V4 / Features mosaic</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#F59E0B">V8 (Bento)</strong> — featured "Most asked" card lets you anchor the offline value prop one more time, and the mosaic style is consistent with patterns used elsewhere on the page. <strong style="color:#34D399">V6 (Sticky Notes)</strong> if you want maximum playfulness. <strong style="color:#FB923C">V5 (Editorial)</strong> for the cleanest read & best SEO.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V5</strong>, <strong class="text-white">V6</strong>, <strong class="text-white">V7</strong>, or <strong class="text-white">V8</strong> — or "more".
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Final Direction (V2 layout · V3 palette)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,400;9..144,1,500;9..144,1,600;9..144,1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      /* Saffron & Cocoa palette (V3) */
+      .bg-cream      { background-color: #FBEFD9; }
+      .text-deep     { color: #3F1D04; }
+      .text-mid      { color: #6B4423; }
+      .text-soft     { color: #8C6B47; }
+      .accent-bg     { background-color: #D97706; }
+      .accent-bg:hover { background-color: #B45309; }
+      .accent-text   { color: #D97706; }
+      .secondary-bg  { background-color: #2F5D50; }
+      .secondary-text{ color: #2F5D50; }
+      .border-cream  { border-color: #F5DEB3; }
+
+      .hero-mesh {
+        background-color: #FBEFD9;
+        background-image:
+          radial-gradient(at 100% 0%, rgba(217,119,6,0.20) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, rgba(47,93,80,0.10) 0px, transparent 50%),
+          radial-gradient(at 50% 50%, rgba(146,64,14,0.05) 0px, transparent 60%);
+      }
+
+      .label-pill { position: sticky; top: 0; z-index: 30; }
+    </style>
+  </head>
+  <body class="text-deep">
+
+    <!-- Tag -->
+    <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#92400E">
+      Final Direction · V2 layout × V3 palette · Saffron + Cocoa + Forest Green
+    </div>
+
+    <!-- Sub-navbar -->
+    <header class="border-b" style="border-color: rgba(146,64,14,0.10); background:#FBEFD9">
+      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-md" style="background: linear-gradient(135deg,#D97706,#92400E)"></div>
+          <span class="font-bold text-deep font-fraunces text-lg">RetailFlow</span>
+        </div>
+        <div class="hidden md:flex items-center gap-7 text-sm text-mid">
+          <a class="hover:opacity-70">Features</a>
+          <a class="hover:opacity-70">Pricing</a>
+          <a class="hover:opacity-70">Stories</a>
+          <a class="hover:opacity-70">Help</a>
+        </div>
+        <a class="text-sm font-semibold accent-bg text-white px-5 py-2 rounded-full transition">Start free trial</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero-mesh">
+      <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-1.5 text-xs font-semibold mb-6 shadow-sm border-cream" style="color:#92400E">
+            <span class="w-1.5 h-1.5 rounded-full secondary-bg"></span>
+            Made for Philippine retail
+          </div>
+
+          <h1 class="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-deep leading-[1.02] font-medium">
+            The POS that <em class="accent-text italic">never quits</em> on you.
+          </h1>
+
+          <p class="mt-6 text-lg text-mid max-w-lg">
+            Sell through brownouts. Sync across cashiers without internet. Close the day in
+            one tap. RetailFlow is the offline-first POS built for Filipino retail.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a class="accent-bg text-white px-6 py-3.5 rounded-full font-semibold transition shadow-lg" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.35)">Start 14-day free trial</a>
+            <a class="px-6 py-3.5 rounded-full font-semibold text-deep hover:bg-white/60 border border-cream">Watch the demo →</a>
+          </div>
+
+          <div class="mt-8 flex items-center gap-4 text-sm text-soft">
+            <div class="flex -space-x-2">
+              <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#D97706"></div>
+              <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#92400E"></div>
+              <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#2F5D50"></div>
+              <div class="w-8 h-8 rounded-full border-2 border-white" style="background:#7C2D12"></div>
+            </div>
+            <span><strong class="text-deep">1,200+</strong> Filipino businesses · 4.9★ rating</span>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full blur-2xl" style="background:rgba(217,119,6,0.40)"></div>
+          <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-full blur-2xl" style="background:rgba(47,93,80,0.30)"></div>
+          <div class="relative bg-white rounded-3xl p-3 shadow-2xl border border-cream" style="box-shadow: 0 25px 50px -12px rgba(63,29,4,0.30)">
+            <img src="../public/POS.JPG" alt="POS" class="rounded-2xl w-full" />
+          </div>
+          <div class="absolute -top-4 -right-4 text-white text-xs font-extrabold px-3 py-2 rounded-full shadow-lg secondary-bg" style="transform: rotate(8deg)">
+            ₱199/month
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature strip -->
+      <div class="max-w-7xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl p-6 border shadow-sm bg-white border-cream">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 accent-bg text-white">⚡</div>
+          <h3 class="font-bold text-deep mb-1 font-fraunces text-xl">Lightning checkout</h3>
+          <p class="text-sm text-mid">Scan, total, paid — under 4 seconds per transaction.</p>
+        </div>
+        <div class="rounded-2xl p-6 border shadow-sm bg-white border-cream">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 secondary-bg text-white">📴</div>
+          <h3 class="font-bold text-deep mb-1 font-fraunces text-xl">Truly offline</h3>
+          <p class="text-sm text-mid">Local SQLite storage. Brownouts can't stop the sale.</p>
+        </div>
+        <div class="rounded-2xl p-6 border shadow-sm bg-white border-cream">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3 text-white" style="background:#92400E">📱</div>
+          <h3 class="font-bold text-deep mb-1 font-fraunces text-xl">Multi-device LAN sync</h3>
+          <p class="text-sm text-mid">Phones, tablets, terminals — all on one local WiFi.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Quick palette legend ===== -->
+    <section class="bg-white border-t border-cream py-12">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="font-fraunces text-2xl text-deep mb-6">Palette tokens</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <div class="h-20 rounded-lg border border-cream" style="background:#FBEFD9"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Cream</strong> · #FBEFD9</div>
+            <div class="text-xs text-soft">Background</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg" style="background:#D97706"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Saffron</strong> · #D97706</div>
+            <div class="text-xs text-soft">Primary accent · CTA</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg" style="background:#2F5D50"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Forest</strong> · #2F5D50</div>
+            <div class="text-xs text-soft">Secondary accent</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg" style="background:#3F1D04"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Cocoa</strong> · #3F1D04</div>
+            <div class="text-xs text-soft">Headline text</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg" style="background:#6B4423"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Cocoa-mid</strong> · #6B4423</div>
+            <div class="text-xs text-soft">Body text</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg" style="background:#92400E"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Burnt</strong> · #92400E</div>
+            <div class="text-xs text-soft">Tertiary · 3rd icon</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg border border-cream" style="background:#F5DEB3"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">Sand</strong> · #F5DEB3</div>
+            <div class="text-xs text-soft">Borders, dividers</div>
+          </div>
+          <div>
+            <div class="h-20 rounded-lg border border-cream" style="background:#FFFFFF"></div>
+            <div class="mt-2 text-xs"><strong class="text-deep">White</strong> · #FFFFFF</div>
+            <div class="text-xs text-soft">Cards, surfaces</div>
+          </div>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-6 text-sm text-mid">
+          <div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">Typography</h3>
+            <ul class="space-y-1">
+              <li>• <strong>Headlines:</strong> Fraunces (warm modern serif, italic for accent words)</li>
+              <li>• <strong>Body & UI:</strong> Inter (system-friendly sans)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-fraunces text-lg text-deep mb-2">Personality</h3>
+            <ul class="space-y-1">
+              <li>• Warm but not cute — refined, grounded</li>
+              <li>• English-first; "Filipino" comes through palette + photography, not Tagalog</li>
+              <li>• Forest green keeps saffron from feeling overly rustic</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 p-5 bg-cream rounded-xl border border-cream text-sm text-mid">
+          <strong class="text-deep">Approve to lock this direction?</strong>
+          Reply <strong class="text-deep">approved</strong> and I'll write the full design spec
+          (all sections — Hero, Features, Industries, Screenshots, Pricing, FAQ, Testimonials, Contact, Footer)
+          plus the SEO foundation (semantic HTML, JSON-LD, sitemap/robots, OG tags, prerendering plan).
+          Or tell me what to tweak.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

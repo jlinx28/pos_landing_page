@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Testimonials Variants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&family=Caveat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+      .font-caveat { font-family: 'Caveat', cursive; }
+
+      .bg-cream { background-color: #FBEFD9; }
+      .bg-cream-deep { background-color: #F5E4C2; }
+      .text-deep { color: #3F1D04; }
+      .text-mid { color: #6B4423; }
+      .text-soft { color: #8C6B47; }
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .secondary-text { color: #2F5D50; }
+      .tertiary-bg { background-color: #92400E; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Marquee */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .marquee { animation: marquee 50s linear infinite; }
+      .marquee-track { display: flex; gap: 1.25rem; width: max-content; }
+
+      /* Polaroid effect */
+      .polaroid {
+        background: white;
+        padding: 12px 12px 36px 12px;
+        box-shadow:
+          0 1px 1px rgba(0,0,0,0.10),
+          0 8px 20px -8px rgba(63,29,4,0.20),
+          0 20px 40px -15px rgba(63,29,4,0.18);
+        transition: transform .25s ease, box-shadow .25s ease;
+      }
+      .polaroid:hover {
+        transform: rotate(0deg) translateY(-4px) !important;
+        box-shadow:
+          0 1px 1px rgba(0,0,0,0.10),
+          0 25px 50px -12px rgba(63,29,4,0.30);
+        z-index: 30;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— Testimonials variants</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v1" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V1 · Spotlight</a>
+          <a href="#v2" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V2 · Marquee</a>
+          <a href="#v3" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V3 · Polaroid</a>
+          <a href="#v4" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V4 · Industry</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V1 — FEATURED SPOTLIGHT + STATS
+         ============================================================ -->
+    <section id="v1" class="bg-cream relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V1 · Featured Spotlight + Stats · One big quote with hero stats
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Loved by owners</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Real stores. Real <em class="accent-text italic">peace of mind.</em>
+          </h2>
+        </div>
+
+        <!-- Hero featured testimonial -->
+        <div class="relative max-w-5xl mx-auto bg-white rounded-3xl p-8 lg:p-12 border border-cream mb-8" style="box-shadow: 0 25px 50px -15px rgba(63,29,4,0.15)">
+          <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl pointer-events-none" style="background:rgba(217,119,6,0.20)"></div>
+          <div class="absolute top-6 left-8 font-fraunces text-8xl accent-text opacity-20 leading-none">"</div>
+
+          <div class="relative grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 relative">
+              <div class="accent-text text-2xl mb-4">★★★★★</div>
+              <blockquote class="font-fraunces text-2xl sm:text-3xl text-deep leading-snug mb-6">
+                "Brownout for two hours and we kept selling. The next morning everything synced. <em class="italic accent-text">I don't know how I ran the store before this.</em>"
+              </blockquote>
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold text-white" style="background:#D97706">A</div>
+                <div>
+                  <div class="font-fraunces font-semibold text-deep">Aling Nena</div>
+                  <div class="text-sm text-soft">Sari-sari store · Quezon City · 8 years running</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 grid grid-cols-3 lg:grid-cols-1 gap-4 lg:border-l lg:border-cream lg:pl-8">
+              <div class="text-center lg:text-left">
+                <div class="font-fraunces text-3xl text-deep">1,200+</div>
+                <div class="text-xs uppercase tracking-widest text-soft font-bold mt-1">Active stores</div>
+              </div>
+              <div class="text-center lg:text-left">
+                <div class="font-fraunces text-3xl text-deep">4.9★</div>
+                <div class="text-xs uppercase tracking-widest text-soft font-bold mt-1">Owner rating</div>
+              </div>
+              <div class="text-center lg:text-left">
+                <div class="font-fraunces text-3xl text-deep">₱42M</div>
+                <div class="text-xs uppercase tracking-widest text-soft font-bold mt-1">Monthly volume</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary 3-up strip -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <article class="bg-white rounded-2xl p-5 border border-cream">
+            <div class="accent-text text-base mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Three cashier stations sync over WiFi. Game changer for our kainan."</blockquote>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center" style="background:#2F5D50">M</div>
+              <div class="text-xs"><strong class="text-deep">Mark Reyes</strong> · Cebu</div>
+            </div>
+          </article>
+          <article class="bg-white rounded-2xl p-5 border border-cream">
+            <div class="accent-text text-base mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Setup took 10 minutes. My cashier learned it in one shift."</blockquote>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center" style="background:#92400E">J</div>
+              <div class="text-xs"><strong class="text-deep">Joana Cruz</strong> · Davao</div>
+            </div>
+          </article>
+          <article class="bg-white rounded-2xl p-5 border border-cream">
+            <div class="accent-text text-base mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Stylist commissions tracked auto. Saves 4 hours every Sunday."</blockquote>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center" style="background:#C2410C">E</div>
+              <div class="text-xs"><strong class="text-deep">Kuya Erwin</strong> · Manila</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V2 — AUTO-SCROLLING MARQUEE
+         ============================================================ -->
+    <section id="v2" class="bg-white relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V2 · Marquee · Two rows auto-scrolling in opposite directions
+      </div>
+
+      <div class="py-20">
+        <div class="max-w-3xl mx-auto px-6 text-center mb-12">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Loved by owners</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            <em class="accent-text italic">1,200+ owners</em> can't be wrong.
+          </h2>
+          <p class="mt-4 text-mid">A continuous stream of feedback from real Filipino businesses.</p>
+        </div>
+
+        <!-- Marquee row 1 -->
+        <div class="overflow-hidden mb-4 relative">
+          <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+          <div class="marquee-track marquee">
+            <!-- Cards (then duplicated for seamless loop) -->
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Brownout for two hours and we kept selling. Next morning everything synced."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#D97706">A</div><div><strong class="text-deep">Aling Nena</strong> · Sari-sari, QC</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Three cashier stations sync over WiFi. No cloud setup. Game changer."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">M</div><div><strong class="text-deep">Mark Reyes</strong> · Restaurant, Cebu</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Setup took 10 minutes. My cashier learned it in one shift."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">J</div><div><strong class="text-deep">Joana Cruz</strong> · Bakery, Davao</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Stylist commissions tracked auto. Saves 4 hours every Sunday."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#C2410C">E</div><div><strong class="text-deep">Kuya Erwin</strong> · Salon, Manila</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Expiry alerts saved us from selling expired stock. Paid for the year."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">L</div><div><strong class="text-deep">Ate Lina</strong> · Botica, Iloilo</div></div>
+            </article>
+
+            <!-- duplicate for seamless loop -->
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Brownout for two hours and we kept selling. Next morning everything synced."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#D97706">A</div><div><strong class="text-deep">Aling Nena</strong> · Sari-sari, QC</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Three cashier stations sync over WiFi. No cloud setup. Game changer."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">M</div><div><strong class="text-deep">Mark Reyes</strong> · Restaurant, Cebu</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Setup took 10 minutes. My cashier learned it in one shift."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">J</div><div><strong class="text-deep">Joana Cruz</strong> · Bakery, Davao</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Stylist commissions tracked auto. Saves 4 hours every Sunday."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#C2410C">E</div><div><strong class="text-deep">Kuya Erwin</strong> · Salon, Manila</div></div>
+            </article>
+            <article class="bg-cream rounded-2xl p-5 border border-cream w-[340px] shrink-0">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">"Expiry alerts saved us from selling expired stock. Paid for the year."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">L</div><div><strong class="text-deep">Ate Lina</strong> · Botica, Iloilo</div></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Marquee row 2 (reverse direction, dark cards) -->
+        <div class="overflow-hidden relative">
+          <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+          <div class="marquee-track marquee" style="animation-direction: reverse; animation-duration: 60s">
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"Variants for size and color finally make sense. Our SKUs are clean."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">R</div><div><strong>Rica Mendoza</strong> · Boutique, Makati</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"Hindi na kami nag-iipon ng resibo sa box. Lahat nasa app na."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#D97706">F</div><div><strong>Fely Castro</strong> · Carinderia, Bulacan</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"My morning rush dropped from 12 mins per customer to under 4. Real."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">P</div><div><strong>Paolo Tan</strong> · Café, BGC</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"₱99/month is a joke vs the cloud POS we used. Zero regrets switching."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">T</div><div><strong>Tito Ben</strong> · Convenience, Pasig</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"BIR-friendly receipts. The ate sa accounting loves it."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#C2410C">G</div><div><strong>Glenn Aquino</strong> · Pharmacy, Baguio</div></div>
+            </article>
+
+            <!-- Duplicate -->
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"Variants for size and color finally make sense. Our SKUs are clean."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">R</div><div><strong>Rica Mendoza</strong> · Boutique, Makati</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"Hindi na kami nag-iipon ng resibo sa box. Lahat nasa app na."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#D97706">F</div><div><strong>Fely Castro</strong> · Carinderia, Bulacan</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"My morning rush dropped from 12 mins per customer to under 4. Real."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">P</div><div><strong>Paolo Tan</strong> · Café, BGC</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"₱99/month is a joke vs the cloud POS we used. Zero regrets switching."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">T</div><div><strong>Tito Ben</strong> · Convenience, Pasig</div></div>
+            </article>
+            <article class="rounded-2xl p-5 w-[340px] shrink-0 text-white" style="background:#3F1D04">
+              <div class="text-base mb-2" style="color:#FBA94C">★★★★★</div>
+              <blockquote class="text-white/80 text-sm leading-snug mb-3">"BIR-friendly receipts. The ate sa accounting loves it."</blockquote>
+              <div class="flex items-center gap-2 text-xs"><div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#C2410C">G</div><div><strong>Glenn Aquino</strong> · Pharmacy, Baguio</div></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <div class="inline-flex items-center gap-3 bg-cream rounded-full px-5 py-2 border border-cream">
+            <div class="flex items-center gap-1 accent-text font-bold text-sm">★★★★★</div>
+            <span class="text-sm text-deep font-semibold">4.9 / 5</span>
+            <span class="text-xs text-soft">· 1,200+ owners</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V3 — POLAROID WALL (handwritten, casual, scattered)
+         ============================================================ -->
+    <section id="v3" class="bg-cream-deep relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        V3 · Polaroid Wall · Scattered tilted cards with handwritten quotes
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Loved by owners</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            From real <em class="accent-text italic">tindahans, kainans, and salons.</em>
+          </h2>
+        </div>
+
+        <div class="relative h-[680px] max-w-5xl mx-auto">
+
+          <!-- Polaroid 1: top-left, tilted -->
+          <article class="polaroid absolute left-0 top-0 w-[260px]" style="transform: rotate(-6deg)">
+            <div class="aspect-square rounded-sm flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #D97706 0%, #92400E 100%)">
+              <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(white 1.5px, transparent 1.5px); background-size: 18px 18px;"></div>
+              <div class="text-7xl relative z-10">🏪</div>
+            </div>
+            <div class="font-caveat text-xl text-deep mt-3 leading-tight">"Brownout but tuloy ang benta. Salamat!"</div>
+            <div class="text-[10px] text-soft mt-1 font-mono">— Aling Nena · QC</div>
+          </article>
+
+          <!-- Polaroid 2: top-right -->
+          <article class="polaroid absolute right-0 top-4 w-[260px]" style="transform: rotate(5deg)">
+            <div class="aspect-square rounded-sm flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #2F5D50 0%, #1F3D33 100%)">
+              <div class="absolute inset-0 opacity-25" style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+              <div class="text-7xl relative z-10">🍜</div>
+            </div>
+            <div class="font-caveat text-xl text-deep mt-3 leading-tight">"3 cashiers, 1 WiFi, no cloud. Lupit."</div>
+            <div class="text-[10px] text-soft mt-1 font-mono">— Mark Reyes · Cebu</div>
+          </article>
+
+          <!-- Polaroid 3: top-mid -->
+          <article class="polaroid absolute left-1/2 top-12 w-[240px] -translate-x-1/2" style="transform: translateX(-50%) rotate(-3deg); z-index: 5;">
+            <div class="aspect-square rounded-sm flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #92400E 0%, #5C2810 100%)">
+              <div class="absolute inset-0 opacity-30" style="background-image: repeating-linear-gradient(45deg, white 0, white 2px, transparent 2px, transparent 14px);"></div>
+              <div class="text-7xl relative z-10">☕</div>
+            </div>
+            <div class="font-caveat text-xl text-deep mt-3 leading-tight">"Morning rush from 12 min to 4. Real."</div>
+            <div class="text-[10px] text-soft mt-1 font-mono">— Paolo Tan · BGC</div>
+          </article>
+
+          <!-- Polaroid 4: middle-left -->
+          <article class="polaroid absolute left-[14%] top-[44%] w-[250px]" style="transform: rotate(7deg)">
+            <div class="aspect-square rounded-sm flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #C2410C 0%, #7C2D12 100%)">
+              <div class="absolute inset-0 opacity-25" style="background-image: radial-gradient(white 1.5px, transparent 1.5px); background-size: 20px 20px;"></div>
+              <div class="text-7xl relative z-10">💈</div>
+            </div>
+            <div class="font-caveat text-xl text-deep mt-3 leading-tight">"Stylist commissions auto. 4 hrs saved every Sunday."</div>
+            <div class="text-[10px] text-soft mt-1 font-mono">— Kuya Erwin · Manila</div>
+          </article>
+
+          <!-- Polaroid 5: middle-right -->
+          <article class="polaroid absolute right-[14%] top-[46%] w-[250px]" style="transform: rotate(-5deg)">
+            <div class="aspect-square rounded-sm flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #2F5D50 0%, #92400E 100%)">
+              <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(white 1px, transparent 1px); background-size: 16px 16px;"></div>
+              <div class="text-7xl relative z-10">💊</div>
+            </div>
+            <div class="font-caveat text-xl text-deep mt-3 leading-tight">"Expiry alerts saved us from a big loss."</div>
+            <div class="text-[10px] text-soft mt-1 font-mono">— Ate Lina · Iloilo</div>
+          </article>
+
+          <!-- Polaroid 6: bottom-mid -->
+          <article class="polaroid absolute left-1/2 bottom-0 w-[260px] -translate-x-1/2" style="transform: translateX(-50%) rotate(4deg)">
+            <div class="aspect-square rounded-sm flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, #92400E 0%, #D97706 100%)">
+              <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(white 1.5px, transparent 1.5px); background-size: 18px 18px;"></div>
+              <div class="text-7xl relative z-10">🥖</div>
+            </div>
+            <div class="font-caveat text-xl text-deep mt-3 leading-tight">"Setup 10 minutes. Cashier learned in 1 shift."</div>
+            <div class="text-[10px] text-soft mt-1 font-mono">— Joana Cruz · Davao</div>
+          </article>
+
+          <!-- Push pin decoration -->
+          <div class="absolute left-1/2 top-2 -translate-x-1/2 z-50 w-3 h-3 rounded-full" style="background: radial-gradient(circle at 30% 30%, #D97706 0%, #92400E 100%); box-shadow: 0 4px 8px rgba(146,64,14,0.40)"></div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a class="inline-flex items-center gap-2 text-sm font-semibold accent-text hover:underline">Read more stories →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V4 — INDUSTRY-TAGGED MAGAZINE (1 featured + tagged grid)
+         ============================================================ -->
+    <section id="v4" class="bg-white relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V4 · Industry-tagged · Each quote labeled by business type
+      </div>
+      <div class="relative max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Loved by owners</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Real stories. <em class="accent-text italic">Real businesses.</em>
+          </h2>
+        </div>
+
+        <!-- Featured large card -->
+        <article class="bg-cream rounded-3xl p-8 lg:p-10 border border-cream mb-6 grid lg:grid-cols-12 gap-8 items-center relative overflow-hidden">
+          <div class="absolute top-4 left-6 inline-flex items-center gap-2 bg-white px-3 py-1 rounded-full border border-cream">
+            <span class="text-base">🏪</span>
+            <span class="text-xs font-bold text-deep">Sari-sari & convenience</span>
+          </div>
+
+          <div class="lg:col-span-8 mt-8">
+            <div class="accent-text text-2xl mb-3">★★★★★</div>
+            <blockquote class="font-fraunces text-2xl sm:text-3xl text-deep leading-snug mb-5">
+              "Brownout for two hours and we kept selling. Next morning everything synced. <em class="italic accent-text">I don't know how I ran the store before this.</em>"
+            </blockquote>
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full text-white text-lg font-bold flex items-center justify-center" style="background:#D97706">A</div>
+              <div>
+                <div class="font-fraunces font-semibold text-deep">Aling Nena</div>
+                <div class="text-xs text-soft">Quezon City · 8 yrs running</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 grid grid-cols-3 lg:grid-cols-1 gap-4 lg:border-l lg:border-cream lg:pl-6">
+            <div class="text-center lg:text-left">
+              <div class="font-fraunces text-2xl text-deep">3 yrs</div>
+              <div class="text-[10px] uppercase tracking-widest text-soft font-bold mt-1">Using RetailFlow</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="font-fraunces text-2xl text-deep">+38%</div>
+              <div class="text-[10px] uppercase tracking-widest text-soft font-bold mt-1">Sales tracked</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="font-fraunces text-2xl text-deep">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-soft font-bold mt-1">Lost sales</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Grid of tagged smaller cards -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <article class="bg-cream rounded-2xl p-5 border border-cream relative">
+            <div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-cream mb-3 text-[10px] font-bold text-deep">
+              <span>🍜</span> Restaurants
+            </div>
+            <div class="accent-text text-sm mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Three cashier stations sync over WiFi. Game changer for our kainan."</blockquote>
+            <div class="flex items-center gap-2 text-xs">
+              <div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">M</div>
+              <div><strong class="text-deep">Mark Reyes</strong> · Cebu</div>
+            </div>
+          </article>
+
+          <article class="bg-cream rounded-2xl p-5 border border-cream relative">
+            <div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-cream mb-3 text-[10px] font-bold text-deep">
+              <span>☕</span> Cafés & bakeries
+            </div>
+            <div class="accent-text text-sm mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Morning rush dropped from 12 min to under 4 per customer. Real."</blockquote>
+            <div class="flex items-center gap-2 text-xs">
+              <div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">P</div>
+              <div><strong class="text-deep">Paolo Tan</strong> · BGC</div>
+            </div>
+          </article>
+
+          <article class="bg-cream rounded-2xl p-5 border border-cream relative">
+            <div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-cream mb-3 text-[10px] font-bold text-deep">
+              <span>💈</span> Salons & barbers
+            </div>
+            <div class="accent-text text-sm mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Stylist commissions tracked auto. Saves 4 hours every Sunday."</blockquote>
+            <div class="flex items-center gap-2 text-xs">
+              <div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#C2410C">E</div>
+              <div><strong class="text-deep">Kuya Erwin</strong> · Manila</div>
+            </div>
+          </article>
+
+          <article class="bg-cream rounded-2xl p-5 border border-cream relative">
+            <div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-cream mb-3 text-[10px] font-bold text-deep">
+              <span>💊</span> Pharmacies
+            </div>
+            <div class="accent-text text-sm mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Expiry alerts saved us from selling expired stock. Paid for the year."</blockquote>
+            <div class="flex items-center gap-2 text-xs">
+              <div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#2F5D50">L</div>
+              <div><strong class="text-deep">Ate Lina</strong> · Iloilo</div>
+            </div>
+          </article>
+
+          <article class="bg-cream rounded-2xl p-5 border border-cream relative">
+            <div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-cream mb-3 text-[10px] font-bold text-deep">
+              <span>👗</span> Boutiques
+            </div>
+            <div class="accent-text text-sm mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Variants for size and color finally make sense. Our SKUs are clean."</blockquote>
+            <div class="flex items-center gap-2 text-xs">
+              <div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#92400E">R</div>
+              <div><strong class="text-deep">Rica Mendoza</strong> · Makati</div>
+            </div>
+          </article>
+
+          <article class="bg-cream rounded-2xl p-5 border border-cream relative">
+            <div class="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-cream mb-3 text-[10px] font-bold text-deep">
+              <span>🥖</span> Bakeries
+            </div>
+            <div class="accent-text text-sm mb-2">★★★★★</div>
+            <blockquote class="text-mid text-sm leading-snug mb-3">"Setup took 10 minutes. My cashier learned it in one shift."</blockquote>
+            <div class="flex items-center gap-2 text-xs">
+              <div class="w-7 h-7 rounded-full text-white font-bold flex items-center justify-center text-xs" style="background:#D97706">J</div>
+              <div><strong class="text-deep">Joana Cruz</strong> · Davao</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Pick a Testimonials direction</h2>
+        <p class="text-white/60 mb-10">Same reviews, four different presentations.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V1 · Spotlight + Stats</div>
+            <h3 class="text-lg font-bold mb-3">One hero quote + stats panel</h3>
+            <p class="text-sm text-white/70 mb-4">Big featured testimonial in a white card with hero stats sidebar (1,200+ stores · 4.9★ · ₱42M monthly). Then a 3-up strip of secondary quotes below.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Strong trust-building (stats prominent)</div>
+              <div>✅ Best for converting skeptics</div>
+              <div>⚠️ Featured story dominates</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V2 · Marquee</div>
+            <h3 class="text-lg font-bold mb-3">Two rows auto-scrolling</h3>
+            <p class="text-sm text-white/70 mb-4">10+ testimonials in two infinite-scrolling rows (top: cream, bottom: dark cocoa, opposite directions). Edge fades. Bottom 4.9 / 5 · 1,200+ owners pill.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most kinetic / alive</div>
+              <div>✅ Conveys "many testimonials" instantly</div>
+              <div>⚠️ Quotes hard to read while moving</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V3 · Polaroid Wall</div>
+            <h3 class="text-lg font-bold mb-3">Scattered tilted polaroids</h3>
+            <p class="text-sm text-white/70 mb-4">6 polaroid-style cards scattered at various rotations, each with a colored "photo" (gradient + emoji + pattern) and handwritten-style Caveat font quote. Push pin decoration on top. Hover lifts card.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most charming / brand-defining</div>
+              <div>✅ Warm, hand-crafted feel</div>
+              <div>⚠️ Hand font readability varies</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">V4 · Industry-tagged</div>
+            <h3 class="text-lg font-bold mb-3">Each quote labeled by industry</h3>
+            <p class="text-sm text-white/70 mb-4">1 featured big card with industry pill (🏪 Sari-sari) + 3-stat sidebar (3 yrs / +38% / 0 lost sales). Plus 6 smaller cards each tagged by industry (🍜 ☕ 💈 💊 👗 🥖). Connects to your Industries section.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Reinforces "fits every business"</div>
+              <div>✅ Prospects find their type fast</div>
+              <div>⚠️ Most structured, least playful</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#A78BFA">V3 (Polaroid Wall)</strong> — most original and on-brand for the warm Filipino feel; nobody's POS site does this. <strong style="color:#F59E0B">V4 (Industry-tagged)</strong> if you want it to reinforce the Industries section above. <strong style="color:#FB923C">V1 (Spotlight)</strong> if conversion through trust signals is the priority.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V1</strong>, <strong class="text-white">V2</strong>, <strong class="text-white">V3</strong>, or <strong class="text-white">V4</strong>.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

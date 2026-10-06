@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Industries Section Variants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,500;9..144,1,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', system-ui, sans-serif; background: #FBEFD9; color: #3F1D04; }
+      .font-fraunces { font-family: 'Fraunces', serif; }
+
+      .bg-cream { background-color: #FBEFD9; }
+      .text-deep { color: #3F1D04; }
+      .text-mid { color: #6B4423; }
+      .text-soft { color: #8C6B47; }
+      .accent-bg { background-color: #D97706; }
+      .accent-text { color: #D97706; }
+      .secondary-bg { background-color: #2F5D50; }
+      .secondary-text { color: #2F5D50; }
+      .tertiary-bg { background-color: #92400E; }
+      .border-cream { border-color: #F5DEB3; }
+
+      .label-pill { position: sticky; top: 56px; z-index: 30; }
+
+      /* Phone frame (carried over) */
+      .mini-phone {
+        position: relative;
+        background: linear-gradient(160deg, #2A1810 0%, #1A0E04 40%, #0F0700 75%, #050200 100%);
+        border-radius: 28px;
+        padding: 5px;
+        max-width: 240px;
+        box-shadow:
+          inset 0 0 0 1px rgba(255,255,255,0.06),
+          inset 0 1px 0 rgba(255,255,255,0.14),
+          inset 0 -1px 1px rgba(0,0,0,0.35),
+          0 0 0 0.5px rgba(63,29,4,0.50),
+          0 4px 8px -2px rgba(63,29,4,0.22),
+          0 20px 40px -12px rgba(63,29,4,0.42);
+      }
+      .mini-phone .screen {
+        border-radius: 24px; overflow: hidden;
+        background: #000;
+      }
+      .mini-phone .screen img { display:block; width:100%; }
+
+      /* Pattern fills for imagery */
+      .pattern-dots {
+        background-image: radial-gradient(rgba(255,255,255,0.25) 1.5px, transparent 1.5px);
+        background-size: 18px 18px;
+      }
+      .pattern-grid {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.12) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+      .pattern-diag {
+        background-image: repeating-linear-gradient(45deg,
+          rgba(255,255,255,0.10) 0,
+          rgba(255,255,255,0.10) 2px,
+          transparent 2px,
+          transparent 12px);
+      }
+
+      .showcase-card {
+        transition: transform .3s, box-shadow .3s;
+      }
+      .showcase-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 30px 50px -20px rgba(63,29,4,0.30);
+      }
+      .showcase-card:hover .showcase-emoji {
+        transform: scale(1.1) rotate(-4deg);
+      }
+      .showcase-emoji {
+        transition: transform .4s ease;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- =========================== TOP NAV =========================== -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold text-deep">RetailFlow POS</span>
+          <span class="text-xs text-soft">— Industries section variants</span>
+        </div>
+        <div class="flex items-center gap-1 text-xs sm:text-sm">
+          <a href="#v1" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V1 · Showcase Cards</a>
+          <a href="#v2" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V2 · Tabbed</a>
+          <a href="#v3" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V3 · Story rows</a>
+          <a href="#v4" class="px-3 py-1.5 rounded-md hover:bg-cream font-medium text-mid">V4 · Mosaic</a>
+          <a href="#summary" class="px-3 py-1.5 rounded-md accent-bg text-white font-medium">Compare</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         V1 — SHOWCASE CARDS (image-driven, lifestyle)
+         ============================================================ -->
+    <section id="v1" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center accent-bg">
+        V1 · Showcase Cards · Big visual top, copy below — lifestyle / magazine
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            Built for the <em class="accent-text italic">businesses</em> that built our towns.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          <article class="showcase-card bg-white rounded-3xl overflow-hidden border border-cream cursor-pointer">
+            <div class="relative h-48 overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #D97706 0%, #92400E 100%)">
+              <div class="absolute inset-0 pattern-dots opacity-40"></div>
+              <div class="showcase-emoji text-7xl relative z-10">🏪</div>
+              <div class="absolute top-3 left-3 bg-white/20 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Most popular</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Sari-sari & convenience</h3>
+              <p class="text-sm text-mid">Quick-scan checkout, low-stock alerts, daily cash count. Replace the notebook for good.</p>
+            </div>
+          </article>
+
+          <article class="showcase-card bg-white rounded-3xl overflow-hidden border border-cream cursor-pointer">
+            <div class="relative h-48 overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #2F5D50 0%, #1F3D33 100%)">
+              <div class="absolute inset-0 pattern-grid opacity-30"></div>
+              <div class="showcase-emoji text-7xl relative z-10">🍜</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Restaurants & kainan</h3>
+              <p class="text-sm text-mid">Table management, kitchen display, split bills. From carinderia to full-service.</p>
+            </div>
+          </article>
+
+          <article class="showcase-card bg-white rounded-3xl overflow-hidden border border-cream cursor-pointer">
+            <div class="relative h-48 overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #92400E 0%, #5C2810 100%)">
+              <div class="absolute inset-0 pattern-diag opacity-40"></div>
+              <div class="showcase-emoji text-7xl relative z-10">☕</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Cafés & bakeries</h3>
+              <p class="text-sm text-mid">Menu modifiers, fast morning rush, custom receipts. Built for high-volume mornings.</p>
+            </div>
+          </article>
+
+          <article class="showcase-card bg-white rounded-3xl overflow-hidden border border-cream cursor-pointer">
+            <div class="relative h-48 overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #C2410C 0%, #7C2D12 100%)">
+              <div class="absolute inset-0 pattern-dots opacity-40"></div>
+              <div class="showcase-emoji text-7xl relative z-10">💈</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Salons & barbershops</h3>
+              <p class="text-sm text-mid">Service-based billing, stylist commissions, walk-in tracking.</p>
+            </div>
+          </article>
+
+          <article class="showcase-card bg-white rounded-3xl overflow-hidden border border-cream cursor-pointer">
+            <div class="relative h-48 overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #2F5D50 0%, #92400E 100%)">
+              <div class="absolute inset-0 pattern-grid opacity-25"></div>
+              <div class="showcase-emoji text-7xl relative z-10">💊</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Pharmacies & boticas</h3>
+              <p class="text-sm text-mid">Batch & expiry tracking, prescription notes, controlled-item logging.</p>
+            </div>
+          </article>
+
+          <article class="showcase-card bg-white rounded-3xl overflow-hidden border border-cream cursor-pointer">
+            <div class="relative h-48 overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #92400E 0%, #D97706 100%)">
+              <div class="absolute inset-0 pattern-diag opacity-30"></div>
+              <div class="showcase-emoji text-7xl relative z-10">👗</div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-fraunces text-xl text-deep mb-2">Boutiques & retail</h3>
+              <p class="text-sm text-mid">Variant SKUs (size, color), barcode labels, seasonal promos.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V2 — TABBED INDUSTRY SHOWCASE (interactive · with abstracts)
+         ============================================================ -->
+    <section id="v2" class="bg-cream relative overflow-hidden">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center secondary-bg">
+        V2 · Tabbed Showcase · With abstract background decoration
+      </div>
+
+      <!-- ===== Abstract background layer ===== -->
+      <!-- Big soft blobs -->
+      <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(217,119,6,0.22) 0%, transparent 70%)"></div>
+      <div class="absolute top-1/3 -right-40 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(47,93,80,0.18) 0%, transparent 70%)"></div>
+      <div class="absolute -bottom-32 left-1/3 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(circle, rgba(146,64,14,0.12) 0%, transparent 70%)"></div>
+
+      <!-- Dot pattern panels with radial mask -->
+      <div class="absolute top-12 left-8 w-72 h-72 dot-pattern opacity-40 pointer-events-none" style="background-image: radial-gradient(rgba(146,64,14,0.20) 1.2px, transparent 1.2px); background-size: 22px 22px; mask-image: radial-gradient(circle at top left, black 0%, transparent 70%); -webkit-mask-image: radial-gradient(circle at top left, black 0%, transparent 70%);"></div>
+      <div class="absolute bottom-12 right-8 w-64 h-64 dot-pattern opacity-35 pointer-events-none" style="background-image: radial-gradient(rgba(146,64,14,0.20) 1.2px, transparent 1.2px); background-size: 22px 22px; mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%); -webkit-mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);"></div>
+
+      <!-- Decorative SVG marks scattered -->
+      <svg class="absolute top-16 right-[15%] w-32 h-16 opacity-50 pointer-events-none" viewBox="0 0 200 80" fill="none">
+        <path d="M5 60 Q 50 5, 100 40 T 195 30" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+      </svg>
+
+      <svg class="absolute top-1/2 left-4 w-20 h-20 opacity-30 pointer-events-none" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="34" stroke="#2F5D50" stroke-width="2" fill="none"/>
+        <circle cx="40" cy="40" r="22" stroke="#2F5D50" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
+        <circle cx="40" cy="40" r="10" stroke="#2F5D50" stroke-width="1" fill="none"/>
+      </svg>
+
+      <svg class="absolute bottom-32 left-12 w-12 h-12 opacity-50 pointer-events-none" viewBox="0 0 48 48" fill="none">
+        <path d="M24 6 L24 42 M6 24 L42 24" stroke="#92400E" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+
+      <svg class="absolute top-32 left-[42%] w-16 h-16 opacity-40 pointer-events-none" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L38 25 L60 25 L42 37 L48 60 L32 46 L16 60 L22 37 L4 25 L26 25 Z" fill="#D97706" opacity="0.7"/>
+      </svg>
+
+      <svg class="absolute bottom-20 right-[20%] w-14 h-14 opacity-35 pointer-events-none" viewBox="0 0 56 56" fill="none">
+        <rect x="8" y="8" width="40" height="40" rx="8" stroke="#92400E" stroke-width="2" fill="none" transform="rotate(15 28 28)"/>
+      </svg>
+
+      <svg class="absolute top-[55%] right-6 w-10 h-10 opacity-40 pointer-events-none" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="3" fill="#2F5D50"/>
+        <circle cx="20" cy="20" r="10" stroke="#2F5D50" stroke-width="1.5" fill="none"/>
+        <circle cx="20" cy="20" r="17" stroke="#2F5D50" stroke-width="1" fill="none" stroke-dasharray="3 3"/>
+      </svg>
+
+      <!-- Triangle confetti -->
+      <svg class="absolute top-24 left-[28%] w-8 h-8 opacity-50 pointer-events-none" viewBox="0 0 32 32" fill="none">
+        <polygon points="16,4 28,28 4,28" fill="#92400E" opacity="0.6"/>
+      </svg>
+      <svg class="absolute bottom-40 right-[35%] w-6 h-6 opacity-40 pointer-events-none" viewBox="0 0 24 24" fill="none">
+        <polygon points="12,3 21,21 3,21" fill="#2F5D50" opacity="0.5" transform="rotate(180 12 12)"/>
+      </svg>
+
+      <!-- Wavy line -->
+      <svg class="absolute top-[40%] left-[10%] w-24 h-8 opacity-40 pointer-events-none" viewBox="0 0 100 30" fill="none">
+        <path d="M5 15 Q 15 5, 25 15 T 45 15 T 65 15 T 85 15 T 95 15" stroke="#92400E" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+
+      <!-- ===== Content ===== -->
+      <div class="relative max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12 max-w-2xl mx-auto relative">
+          <!-- decorative sparkle behind heading -->
+          <svg class="absolute -top-6 -left-8 w-8 h-8 opacity-60 pointer-events-none" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2 L18 14 L30 16 L18 18 L16 30 L14 18 L2 16 L14 14 Z" fill="#D97706"/>
+          </svg>
+          <svg class="absolute -bottom-4 -right-6 w-6 h-6 opacity-50 pointer-events-none" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2 L13 10 L21 12 L13 14 L12 22 L11 14 L3 12 L11 10 Z" fill="#2F5D50"/>
+          </svg>
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            See how RetailFlow works for <em class="accent-text italic">your kind of business.</em>
+          </h2>
+        </div>
+
+        <!-- Tab chips -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10 relative">
+          <button class="bg-white border-2 px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md" style="border-color:#D97706; color:#3F1D04; box-shadow: 0 8px 20px -6px rgba(217,119,6,0.30)">
+            <span>🏪</span> Sari-sari
+          </button>
+          <button class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300">
+            <span>🍜</span> Restaurants
+          </button>
+          <button class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300">
+            <span>☕</span> Cafés & bakeries
+          </button>
+          <button class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300">
+            <span>💈</span> Salons
+          </button>
+          <button class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300">
+            <span>💊</span> Pharmacies
+          </button>
+          <button class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300">
+            <span>👗</span> Boutiques
+          </button>
+        </div>
+
+        <!-- Preview pane (active: Sari-sari) — wrapped in decorative ring -->
+        <div class="relative">
+          <!-- Decorative outer ring around preview pane -->
+          <div class="absolute -inset-4 rounded-[2rem] border-2 border-dashed pointer-events-none opacity-25" style="border-color: #D97706"></div>
+          <!-- Corner accent dots -->
+          <div class="absolute -top-2 -left-2 w-4 h-4 rounded-full accent-bg shadow-lg z-10"></div>
+          <div class="absolute -top-2 -right-2 w-4 h-4 rounded-full secondary-bg shadow-lg z-10"></div>
+          <div class="absolute -bottom-2 -left-2 w-4 h-4 rounded-full tertiary-bg shadow-lg z-10"></div>
+          <div class="absolute -bottom-2 -right-2 w-4 h-4 rounded-full accent-bg shadow-lg z-10"></div>
+
+          <div class="bg-white rounded-3xl border border-cream p-8 lg:p-12 relative overflow-hidden" style="box-shadow: 0 25px 50px -15px rgba(63,29,4,0.15)">
+            <!-- Inner abstract glows -->
+            <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl pointer-events-none" style="background:rgba(217,119,6,0.20)"></div>
+            <div class="absolute -bottom-20 -left-20 w-56 h-56 rounded-full blur-3xl pointer-events-none" style="background:rgba(47,93,80,0.12)"></div>
+
+            <!-- Inner dot pattern (subtle) -->
+            <div class="absolute top-0 right-0 w-48 h-48 opacity-25 pointer-events-none" style="background-image: radial-gradient(rgba(146,64,14,0.30) 1px, transparent 1px); background-size: 16px 16px; mask-image: radial-gradient(circle at top right, black 0%, transparent 70%); -webkit-mask-image: radial-gradient(circle at top right, black 0%, transparent 70%);"></div>
+
+            <!-- Inner decorative SVG marks -->
+            <svg class="absolute top-6 left-6 w-10 h-10 opacity-40 pointer-events-none" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="#D97706" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+              <circle cx="20" cy="20" r="3" fill="#D97706"/>
+            </svg>
+            <svg class="absolute bottom-6 right-6 w-12 h-12 opacity-35 pointer-events-none" viewBox="0 0 48 48" fill="none">
+              <path d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z" fill="#2F5D50"/>
+            </svg>
+
+            <div class="relative grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7">
+                <div class="flex items-center gap-3 mb-5">
+                  <div class="relative w-14 h-14 rounded-2xl accent-bg text-white flex items-center justify-center text-3xl shadow-lg" style="box-shadow: 0 10px 25px -5px rgba(217,119,6,0.40)">
+                    🏪
+                    <!-- Decorative ring around icon -->
+                    <div class="absolute -inset-1.5 rounded-2xl border-2 border-dashed pointer-events-none" style="border-color: rgba(217,119,6,0.40)"></div>
+                  </div>
+                  <div>
+                    <div class="text-xs uppercase tracking-widest accent-text font-bold">Sari-sari & convenience</div>
+                    <div class="text-xs text-soft mt-0.5">~620 stores using RetailFlow</div>
+                  </div>
+                </div>
+                <h3 class="font-fraunces text-3xl text-deep mb-4 leading-tight">Replace the <em class="accent-text italic">notebook</em> for good.</h3>
+                <p class="text-mid mb-6">Quick checkout for high-volume foot traffic. Track inventory and tubo without spreadsheets. Brownout-proof so the store keeps running.</p>
+                <ul class="space-y-2.5 text-sm text-mid mb-6">
+                  <li class="flex items-start gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span> Quick-scan checkout (under 4 sec per sale)</li>
+                  <li class="flex items-start gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span> Low-stock alerts so you never run out of bestsellers</li>
+                  <li class="flex items-start gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span> Daily cash count + EOD report (no more counting at midnight)</li>
+                  <li class="flex items-start gap-3"><span class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5">✓</span> Multi-cashier on one WiFi (busy nights covered)</li>
+                </ul>
+                <a class="inline-flex items-center gap-2 text-sm font-semibold accent-text hover:underline">Read sari-sari case study →</a>
+              </div>
+              <div class="lg:col-span-5 relative flex justify-center">
+                <!-- Decorative concentric rings behind phone -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 400" fill="none">
+                  <circle cx="150" cy="200" r="140" stroke="#D97706" stroke-width="1" stroke-dasharray="3 5" opacity="0.30"/>
+                  <circle cx="150" cy="200" r="100" stroke="#D97706" stroke-width="1" stroke-dasharray="3 5" opacity="0.40"/>
+                </svg>
+                <!-- Saffron glow -->
+                <div class="absolute inset-4 rounded-full blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(217,119,6,0.30) 0%, transparent 65%)"></div>
+
+                <div class="relative">
+                  <div class="mini-phone" style="transform: rotate(-4deg)">
+                    <div class="screen"><img src="../public/POS.JPG" alt="POS" /></div>
+                  </div>
+
+                  <!-- Floating mini stat -->
+                  <div class="absolute -top-3 -left-10 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 flex items-center gap-2 z-20">
+                    <div class="w-8 h-8 rounded-lg accent-bg text-white flex items-center justify-center text-sm font-bold">₱</div>
+                    <div>
+                      <div class="text-[9px] text-soft uppercase tracking-wider font-semibold">Today</div>
+                      <div class="font-fraunces font-semibold text-deep text-sm leading-none">₱14,250</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom decorative dotted line / underline -->
+        <div class="mt-16 flex items-center justify-center gap-4">
+          <div class="h-px w-24 bg-gradient-to-r from-transparent to-cream-deep" style="background: linear-gradient(to right, transparent, #F5DEB3)"></div>
+          <span class="text-xs text-soft uppercase tracking-widest font-bold">Switch tabs above to explore</span>
+          <div class="h-px w-24" style="background: linear-gradient(to left, transparent, #F5DEB3)"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V3 — EDITORIAL STORY ROWS (echoes Features V3)
+         ============================================================ -->
+    <section id="v3" class="bg-white">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center" style="background:#3F1D04">
+        V3 · Story Rows · Editorial — top 3 industries get full rows, rest in tile strip
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-16">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">— Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium max-w-2xl">
+            Made for the <em class="accent-text italic">businesses</em> that built our towns.
+          </h2>
+        </div>
+
+        <!-- Row 1: Sari-sari -->
+        <div class="grid lg:grid-cols-12 gap-10 items-center mb-20">
+          <div class="lg:col-span-7">
+            <div class="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-3">— Sari-sari & convenience</div>
+            <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">For the <em class="accent-text italic">corner-store</em> that's always open.</h3>
+            <p class="text-mid mb-5 max-w-lg">Quick-scan checkout for high-volume foot traffic. Track inventory and tubo without spreadsheets. Brownout-proof so the store keeps running.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Low-stock alerts</span>
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Daily cash count</span>
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Multi-cashier</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex justify-center relative">
+            <div class="absolute inset-0 blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(217,119,6,0.25) 0%, transparent 65%)"></div>
+            <div class="relative h-64 w-64 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #D97706 0%, #92400E 100%)">
+              <div class="absolute inset-0 rounded-full pattern-dots opacity-40"></div>
+              <div class="text-9xl relative z-10">🏪</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Restaurants (image left) -->
+        <div class="grid lg:grid-cols-12 gap-10 items-center mb-20">
+          <div class="lg:col-span-5 flex justify-center relative order-2 lg:order-1">
+            <div class="absolute inset-0 blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(47,93,80,0.25) 0%, transparent 65%)"></div>
+            <div class="relative h-64 w-64 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #2F5D50 0%, #1F3D33 100%)">
+              <div class="absolute inset-0 rounded-full pattern-grid opacity-30"></div>
+              <div class="text-9xl relative z-10">🍜</div>
+            </div>
+          </div>
+          <div class="lg:col-span-7 order-1 lg:order-2">
+            <div class="text-xs uppercase tracking-[0.2em] font-bold mb-3" style="color:#2F5D50">— Restaurants & kainan</div>
+            <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">From <em class="italic" style="color:#2F5D50">carinderia</em> to full-service kitchen.</h3>
+            <p class="text-mid mb-5 max-w-lg">Table management with status tracking. Kitchen display so orders never get lost. Split bills, modifiers, and a checkout that survives the lunch rush.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Table tracking</span>
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Kitchen display</span>
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Split bills</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Cafés & bakeries -->
+        <div class="grid lg:grid-cols-12 gap-10 items-center mb-16">
+          <div class="lg:col-span-7">
+            <div class="text-xs uppercase tracking-[0.2em] font-bold mb-3" style="color:#92400E">— Cafés & bakeries</div>
+            <h3 class="font-fraunces text-3xl sm:text-4xl text-deep mb-4 leading-tight">Built for the <em class="italic" style="color:#92400E">morning rush.</em></h3>
+            <p class="text-mid mb-5 max-w-lg">Menu modifiers, fast checkout, custom receipts. Designed for the high-volume mornings when every second at the counter matters.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Menu modifiers</span>
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Custom receipts</span>
+              <span class="px-3 py-1 bg-cream rounded-full text-xs font-semibold text-deep border border-cream">Speed mode</span>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex justify-center relative">
+            <div class="absolute inset-0 blur-3xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(146,64,14,0.25) 0%, transparent 65%)"></div>
+            <div class="relative h-64 w-64 rounded-full flex items-center justify-center" style="background: linear-gradient(135deg, #92400E 0%, #5C2810 100%)">
+              <div class="absolute inset-0 rounded-full pattern-diag opacity-40"></div>
+              <div class="text-9xl relative z-10">☕</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- "More industries" tile strip -->
+        <div class="pt-10 border-t border-cream">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-4 text-center">— Plus</p>
+          <div class="grid grid-cols-3 gap-3 max-w-2xl mx-auto">
+            <div class="bg-cream rounded-2xl p-4 border border-cream text-center">
+              <div class="text-3xl mb-2">💈</div>
+              <div class="text-xs font-bold text-deep">Salons & barbers</div>
+            </div>
+            <div class="bg-cream rounded-2xl p-4 border border-cream text-center">
+              <div class="text-3xl mb-2">💊</div>
+              <div class="text-xs font-bold text-deep">Pharmacies</div>
+            </div>
+            <div class="bg-cream rounded-2xl p-4 border border-cream text-center">
+              <div class="text-3xl mb-2">👗</div>
+              <div class="text-xs font-bold text-deep">Boutiques</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         V4 — INDUSTRY MOSAIC (asymmetric bento)
+         ============================================================ -->
+    <section id="v4" class="bg-cream">
+      <div class="label-pill text-white text-xs font-semibold uppercase tracking-wider px-4 py-2 text-center tertiary-bg">
+        V4 · Mosaic · One featured industry, mixed-size cards for the rest
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14 max-w-2xl mx-auto">
+          <p class="text-xs uppercase tracking-widest accent-text font-bold mb-3">Industries</p>
+          <h2 class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium">
+            One app. <em class="accent-text italic">Many kinds of stores.</em>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4 auto-rows-[200px]">
+
+          <!-- Featured: Sari-sari (big) -->
+          <article class="col-span-12 md:col-span-8 row-span-2 rounded-3xl p-8 relative overflow-hidden text-white flex flex-col justify-end" style="background: linear-gradient(135deg, #D97706 0%, #92400E 100%)">
+            <div class="absolute inset-0 pattern-dots opacity-25"></div>
+            <div class="absolute top-6 right-6 text-9xl opacity-90">🏪</div>
+            <div class="absolute top-6 left-6 bg-white/20 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">⭐ Most popular</div>
+            <div class="relative">
+              <div class="text-xs uppercase tracking-[0.2em] font-bold mb-2 opacity-80">Sari-sari & convenience</div>
+              <h3 class="font-fraunces text-3xl mb-2">Replace the notebook for good.</h3>
+              <p class="text-sm opacity-90 max-w-md">Quick checkout, low-stock alerts, daily cash count. Brownout-proof so the store never closes.</p>
+              <div class="flex gap-2 mt-4">
+                <span class="px-3 py-1 bg-white/15 backdrop-blur rounded-full text-xs font-semibold">620+ stores</span>
+                <span class="px-3 py-1 bg-white/15 backdrop-blur rounded-full text-xs font-semibold">Top use case</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Restaurants (medium tall) -->
+          <article class="col-span-12 md:col-span-4 row-span-2 rounded-3xl p-6 relative overflow-hidden text-white flex flex-col justify-end" style="background: linear-gradient(180deg, #2F5D50 0%, #1F3D33 100%)">
+            <div class="absolute inset-0 pattern-grid opacity-25"></div>
+            <div class="absolute top-4 right-4 text-7xl opacity-80">🍜</div>
+            <div class="relative">
+              <div class="text-[10px] uppercase tracking-[0.2em] font-bold mb-1 opacity-80">Restaurants & kainan</div>
+              <h3 class="font-fraunces text-xl mb-2">Tables, kitchen, split bills.</h3>
+              <p class="text-xs opacity-90">From carinderia to full-service.</p>
+            </div>
+          </article>
+
+          <!-- Cafés (medium wide) -->
+          <article class="col-span-12 md:col-span-6 rounded-3xl p-6 relative overflow-hidden text-white" style="background: linear-gradient(135deg, #92400E 0%, #5C2810 100%)">
+            <div class="absolute inset-0 pattern-diag opacity-30"></div>
+            <div class="absolute right-6 top-1/2 -translate-y-1/2 text-7xl opacity-80">☕</div>
+            <div class="relative max-w-[60%]">
+              <div class="text-[10px] uppercase tracking-[0.2em] font-bold mb-1 opacity-80">Cafés & bakeries</div>
+              <h3 class="font-fraunces text-xl mb-2">For the morning rush.</h3>
+              <p class="text-xs opacity-90">Menu modifiers, custom receipts, fast checkout.</p>
+            </div>
+          </article>
+
+          <!-- Salons (small) -->
+          <article class="col-span-6 md:col-span-3 rounded-3xl p-5 relative overflow-hidden bg-white border border-cream flex flex-col justify-between">
+            <div class="text-4xl">💈</div>
+            <div>
+              <h3 class="font-fraunces text-base text-deep mb-1">Salons & barbers</h3>
+              <p class="text-xs text-mid">Service billing, commissions.</p>
+            </div>
+          </article>
+
+          <!-- Pharmacies (small) -->
+          <article class="col-span-6 md:col-span-3 rounded-3xl p-5 relative overflow-hidden bg-white border border-cream flex flex-col justify-between">
+            <div class="text-4xl">💊</div>
+            <div>
+              <h3 class="font-fraunces text-base text-deep mb-1">Pharmacies</h3>
+              <p class="text-xs text-mid">Batch & expiry tracking.</p>
+            </div>
+          </article>
+
+          <!-- Boutiques (medium) -->
+          <article class="col-span-12 md:col-span-6 rounded-3xl p-6 relative overflow-hidden bg-white border border-cream">
+            <div class="flex items-center gap-5 h-full">
+              <div class="text-6xl shrink-0">👗</div>
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.2em] font-bold mb-1 accent-text">Boutiques & retail</div>
+                <h3 class="font-fraunces text-xl text-deep mb-1">Variant SKUs, barcodes, promos.</h3>
+                <p class="text-xs text-mid">Size, color, season — all handled.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- "Don't see yours?" CTA -->
+          <article class="col-span-12 md:col-span-6 rounded-3xl p-6 relative overflow-hidden border-2 border-dashed border-cream flex items-center justify-between gap-4">
+            <div>
+              <h3 class="font-fraunces text-xl text-deep mb-1">Don't see your industry?</h3>
+              <p class="text-xs text-mid">RetailFlow is flexible enough for most retail. Talk to us.</p>
+            </div>
+            <a class="shrink-0 accent-bg text-white px-4 py-2 rounded-full text-sm font-semibold">Contact us →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SUMMARY
+         ============================================================ -->
+    <section id="summary" class="bg-slate-900 text-white py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-2">Pick an Industries variant</h2>
+        <p class="text-white/60 mb-10">All four use the same palette and content — different layouts and tones.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#FB923C">V1 · Showcase Cards</div>
+            <h3 class="text-lg font-bold mb-3">Lifestyle / magazine</h3>
+            <p class="text-sm text-white/70 mb-4">Each card has a big colored panel up top with the industry emoji + pattern, copy below. Hover scales the emoji. Clean, photogenic.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Most visual</div>
+              <div>✅ Easy to add real photos later</div>
+              <div>⚠️ Equal weight — no hero industry</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#34D399">V2 · Tabbed Showcase</div>
+            <h3 class="text-lg font-bold mb-3">Pick → see how it works</h3>
+            <p class="text-sm text-white/70 mb-4">Industry chips at top, big preview pane with phone mockup, description, bullet list. App-like, premium.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Compact (one card visible)</div>
+              <div>✅ Strong feature-detail per industry</div>
+              <div>⚠️ Hidden content = lower SEO weight</div>
+              <div>⚠️ Needs JS for tab switching</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#A78BFA">V3 · Story Rows</div>
+            <h3 class="text-lg font-bold mb-3">Editorial alternating rows</h3>
+            <p class="text-sm text-white/70 mb-4">Top 3 industries get full alternating rows with circular emoji "stamps" + colored glows. The other 3 sit in a small tile strip at the bottom. Echoes the Features V3 style for cohesion.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Cohesive with locked-in Features design</div>
+              <div>✅ Clear hierarchy — top 3 vs rest</div>
+              <div>⚠️ Long section</div>
+            </div>
+          </div>
+
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <div class="text-xs uppercase tracking-widest font-bold mb-2" style="color:#F59E0B">V4 · Mosaic</div>
+            <h3 class="text-lg font-bold mb-3">Asymmetric bento</h3>
+            <p class="text-sm text-white/70 mb-4">Featured "Sari-sari" gets a 2x2 hero card with stats. Restaurants gets a tall card. Others fill smaller spots. Final tile is a "Don't see yours?" CTA — clever conversion play.</p>
+            <div class="text-xs text-white/50 space-y-1">
+              <div>✅ Strong visual hierarchy</div>
+              <div>✅ Showcases your top use case</div>
+              <div>✅ "Don't see yours?" CTA captures longtail</div>
+              <div>⚠️ Feels like a different visual language vs Features V3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-gradient-to-r from-orange-500/10 to-amber-500/10 border border-white/10 rounded-xl">
+          <p class="text-sm text-white/80">
+            <strong class="text-white">My pick:</strong>
+            <strong style="color:#A78BFA">V3 (Story Rows)</strong> — same visual DNA as your locked Features section, so the page reads cohesively. Top 3 industries get the spotlight, the other 3 get a clean tile-strip mention. <strong style="color:#F59E0B">V4 (Mosaic)</strong> is a strong second if you want a different visual rhythm to break up the row-after-row pattern.
+          </p>
+        </div>
+
+        <div class="mt-8 text-center text-white/40 text-xs">
+          Reply <strong class="text-white">V1</strong>, <strong class="text-white">V2</strong>, <strong class="text-white">V3</strong>, or <strong class="text-white">V4</strong> — or mix.
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

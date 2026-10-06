@@ -1,0 +1,4601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetailFlow POS — Full Landing Page Mockup</title>
+    <meta
+      name="description"
+      content="The offline-first point of sale built for Filipino retail. Sell through brownouts, sync without internet, and run your store from any device."
+    />
+
+    <!-- Open Graph (preview) -->
+    <meta
+      property="og:title"
+      content="RetailFlow POS — Offline-first POS for Filipino Retail"
+    />
+    <meta
+      property="og:description"
+      content="Sell through brownouts. Sync without internet. Built for Filipino businesses."
+    />
+    <meta property="og:type" content="website" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,400;9..144,1,500;9..144,1,600;9..144,1,700&family=Caveat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        background: #fbefd9;
+        color: #3f1d04;
+      }
+      .font-fraunces {
+        font-family: "Fraunces", serif;
+      }
+      .font-caveat {
+        font-family: "Caveat", cursive;
+      }
+
+      /* Notebook page (used in FAQ) */
+      .notebook-page {
+        background-color: #fffcf6;
+        background-image: linear-gradient(
+          rgba(146, 64, 14, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 100% 26px;
+        background-position: 0 12px;
+        position: relative;
+      }
+      .notebook-page::before {
+        content: "";
+        position: absolute;
+        left: 28px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: rgba(217, 119, 6, 0.4);
+      }
+      .lift-card {
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .lift-card:hover {
+        transform: rotate(0deg) translateY(-4px) !important;
+        z-index: 30;
+      }
+
+      /* Palette */
+      .bg-cream {
+        background-color: #fbefd9;
+      }
+      .bg-cream-deep {
+        background-color: #f5e4c2;
+      }
+      .text-deep {
+        color: #3f1d04;
+      }
+      .text-mid {
+        color: #6b4423;
+      }
+      .text-soft {
+        color: #8c6b47;
+      }
+      .accent-bg {
+        background-color: #d97706;
+      }
+      .accent-bg:hover {
+        background-color: #b45309;
+      }
+      .accent-text {
+        color: #d97706;
+      }
+      .accent-soft {
+        background-color: rgba(217, 119, 6, 0.1);
+      }
+      .secondary-bg {
+        background-color: #2f5d50;
+      }
+      .secondary-text {
+        color: #2f5d50;
+      }
+      .secondary-soft {
+        background-color: rgba(47, 93, 80, 0.1);
+      }
+      .tertiary-bg {
+        background-color: #92400e;
+      }
+      .border-cream {
+        border-color: #f5deb3;
+      }
+
+      .hero-mesh {
+        background-color: #fbefd9;
+        background-image:
+          radial-gradient(
+            at 100% 0%,
+            rgba(217, 119, 6, 0.22) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(47, 93, 80, 0.12) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 50% 50%,
+            rgba(146, 64, 14, 0.05) 0px,
+            transparent 60%
+          );
+      }
+      .dot-pattern {
+        background-image: radial-gradient(
+          rgba(146, 64, 14, 0.18) 1px,
+          transparent 1px
+        );
+        background-size: 22px 22px;
+      }
+      .squiggle-wave path {
+        stroke-dasharray: 600;
+      }
+      @keyframes float-soft {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .float-1 {
+        animation: float-soft 5s ease-in-out infinite;
+      }
+      .float-2 {
+        animation: float-soft 6s ease-in-out infinite 0.8s;
+      }
+      .float-3 {
+        animation: float-soft 7s ease-in-out infinite 1.6s;
+      }
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.95);
+          opacity: 0.7;
+        }
+        70% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+      }
+      .pulse-dot::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        background: rgba(47, 93, 80, 0.5);
+        animation: pulse-ring 2s ease-out infinite;
+      }
+
+      /* ======= Phone mockup frame — thin bezel, tighter corners ======= */
+      .phone-frame {
+        position: relative;
+        background: linear-gradient(
+          160deg,
+          #2a1810 0%,
+          #1a0e04 40%,
+          #0f0700 75%,
+          #050200 100%
+        );
+        border-radius: 36px;
+        padding: 6px;
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+          inset 0 1.5px 0 rgba(255, 255, 255, 0.14),
+          inset 0 -1.5px 2px rgba(0, 0, 0, 0.35),
+          0 0 0 0.5px rgba(63, 29, 4, 0.5),
+          0 8px 16px -4px rgba(63, 29, 4, 0.25),
+          0 30px 60px -15px rgba(63, 29, 4, 0.5),
+          0 50px 90px -30px rgba(217, 119, 6, 0.2);
+      }
+      /* Speaker pill (above screen, doesn't intrude on status bar) */
+      .phone-frame .speaker {
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 44px;
+        height: 3px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.1)
+        );
+        border-radius: 1.5px;
+        z-index: 5;
+      }
+      /* Camera lens dot */
+      .phone-frame .camera {
+        position: absolute;
+        top: 3px;
+        right: calc(50% - 34px);
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #2a2a2a 0%,
+          #050505 60%,
+          #000 100%
+        );
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(0, 0, 0, 0.4);
+        z-index: 5;
+      }
+      /* Side buttons — thinner and shorter */
+      .phone-frame .btn-vol-up,
+      .phone-frame .btn-vol-down,
+      .phone-frame .btn-power {
+        position: absolute;
+        background: linear-gradient(180deg, #1a0e04, #050200);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .phone-frame .btn-vol-up {
+        left: -2px;
+        top: 100px;
+        width: 2px;
+        height: 32px;
+        border-radius: 0 1px 1px 0;
+      }
+      .phone-frame .btn-vol-down {
+        left: -2px;
+        top: 140px;
+        width: 2px;
+        height: 32px;
+        border-radius: 0 1px 1px 0;
+      }
+      .phone-frame .btn-power {
+        right: -2px;
+        top: 120px;
+        width: 2px;
+        height: 50px;
+        border-radius: 1px 0 0 1px;
+      }
+      /* Screen */
+      .phone-frame .screen {
+        border-radius: 30px;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+      .phone-frame .screen img {
+        display: block;
+        width: 100%;
+      }
+      /* Glassy reflection */
+      .phone-frame .screen::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.14) 0%,
+          rgba(255, 255, 255, 0.03) 22%,
+          transparent 42%,
+          transparent 78%,
+          rgba(255, 255, 255, 0.06) 100%
+        );
+        pointer-events: none;
+        border-radius: 30px;
+        mix-blend-mode: overlay;
+      }
+
+      /* ======= Mini phone (used inside Features section) ======= */
+      .mini-phone {
+        position: relative;
+        background: linear-gradient(
+          160deg,
+          #2a1810 0%,
+          #1a0e04 40%,
+          #0f0700 75%,
+          #050200 100%
+        );
+        border-radius: 28px;
+        padding: 5px;
+        max-width: 240px;
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          inset 0 -1px 1px rgba(0, 0, 0, 0.35),
+          0 0 0 0.5px rgba(63, 29, 4, 0.5),
+          0 4px 8px -2px rgba(63, 29, 4, 0.22),
+          0 20px 40px -12px rgba(63, 29, 4, 0.42),
+          0 45px 70px -28px rgba(217, 119, 6, 0.18);
+      }
+      .mini-phone::before {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: 55px;
+        width: 2px;
+        height: 38px;
+        background: linear-gradient(180deg, #1a0e04, #050200);
+        border-radius: 1px 0 0 1px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .mini-phone::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 42px;
+        width: 2px;
+        height: 24px;
+        background: linear-gradient(180deg, #1a0e04, #050200);
+        border-radius: 0 1px 1px 0;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .mini-phone .screen {
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+        background: #000;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+      .mini-phone .screen img {
+        display: block;
+        width: 100%;
+      }
+      .mini-phone .screen::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.14) 0%,
+          rgba(255, 255, 255, 0.03) 22%,
+          transparent 42%,
+          transparent 78%,
+          rgba(255, 255, 255, 0.06) 100%
+        );
+        pointer-events: none;
+        border-radius: 24px;
+        mix-blend-mode: overlay;
+      }
+
+      /* Big editorial numeral */
+      .big-numeral {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 12rem;
+        line-height: 0.85;
+        letter-spacing: -0.05em;
+        z-index: 0;
+      }
+
+      /* ======= How-It-Works journey animation ======= */
+      /* The path itself stays dashed; we reveal it left-to-right via a clip-path rect */
+      .journey-reveal-rect {
+        width: 0;
+      }
+      .journey.is-visible .journey-reveal-rect {
+        width: 1100px;
+        transition: width 4s cubic-bezier(0.65, 0, 0.35, 1);
+      }
+      .journey-dot {
+        opacity: 0;
+        transform: scale(0);
+        transform-origin: center;
+        transform-box: fill-box;
+      }
+      .journey-step {
+        opacity: 0;
+        transform: translateY(16px) scale(0.85);
+      }
+      @keyframes step-pop {
+        0% {
+          opacity: 0;
+          transform: translateY(16px) scale(0.85);
+        }
+        70% {
+          transform: translateY(-2px) scale(1.04);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes dot-pop {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+        to {
+          opacity: 0.55;
+          transform: scale(1);
+        }
+      }
+      .journey.is-visible .journey-step {
+        animation: step-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      }
+      .journey.is-visible .journey-dot {
+        animation: dot-pop 0.4s ease-out forwards;
+      }
+      .journey.is-visible .step-1 {
+        animation-delay: 0.2s;
+      }
+      .journey.is-visible .dot-12 {
+        animation-delay: 0.6s;
+      }
+      .journey.is-visible .step-2 {
+        animation-delay: 1.05s;
+      }
+      .journey.is-visible .dot-23 {
+        animation-delay: 1.45s;
+      }
+      .journey.is-visible .step-3 {
+        animation-delay: 1.85s;
+      }
+      .journey.is-visible .dot-34 {
+        animation-delay: 2.25s;
+      }
+      .journey.is-visible .step-4 {
+        animation-delay: 2.6s;
+      }
+      .journey.is-visible .dot-45 {
+        animation-delay: 3s;
+      }
+      .journey.is-visible .step-5 {
+        animation-delay: 3.4s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .journey-reveal-rect {
+          width: 1100px;
+          transition: none;
+        }
+        .journey-step,
+        .journey-dot {
+          opacity: 1;
+          transform: none;
+          animation: none !important;
+        }
+      }
+      .dark-section {
+        background-color: #1f0f02;
+        background-image:
+          radial-gradient(
+            at 80% 0%,
+            rgba(217, 119, 6, 0.18) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(47, 93, 80, 0.2) 0px,
+            transparent 50%
+          );
+      }
+      details[open] summary .chev {
+        transform: rotate(180deg);
+      }
+      .chev {
+        transition: transform 0.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================== NAVBAR ============================== -->
+    <header
+      class="sticky top-0 z-50 backdrop-blur bg-cream/85 border-b border-cream"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16"
+      >
+        <a href="#" class="flex items-center gap-2">
+          <div
+            class="w-8 h-8 rounded-md"
+            style="background: linear-gradient(135deg, #d97706, #92400e)"
+          ></div>
+          <span class="font-fraunces font-bold text-lg text-deep"
+            >RetailFlow</span
+          >
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-7 text-sm text-mid">
+          <a href="#features" class="hover:text-deep">Features</a>
+          <a href="#industries" class="hover:text-deep">Industries</a>
+          <a href="#screenshots" class="hover:text-deep">App preview</a>
+          <a href="#pricing" class="hover:text-deep">Pricing</a>
+          <a href="#faq" class="hover:text-deep">FAQ</a>
+        </nav>
+
+        <!-- Right side: CTA + hamburger -->
+        <div class="flex items-center gap-2">
+          <a
+            href="#contact"
+            class="text-sm font-semibold accent-bg text-white px-4 sm:px-5 py-2 rounded-full"
+            >Start free trial</a
+          >
+
+          <!-- Hamburger (mobile only) -->
+          <button
+            id="hamburger-btn"
+            class="md:hidden w-10 h-10 flex items-center justify-center text-deep hover:bg-cream-deep rounded-lg"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <svg
+              class="hamburger-icon w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              class="hamburger-close hidden w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu panel -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-cream bg-white/95 backdrop-blur"
+      >
+        <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col">
+          <a
+            href="#features"
+            class="mobile-nav-link py-3 px-4 text-sm font-semibold text-deep hover:bg-cream rounded-lg flex items-center justify-between"
+          >
+            Features
+            <span class="text-soft text-xs">→</span>
+          </a>
+          <a
+            href="#industries"
+            class="mobile-nav-link py-3 px-4 text-sm font-semibold text-deep hover:bg-cream rounded-lg flex items-center justify-between"
+          >
+            Industries
+            <span class="text-soft text-xs">→</span>
+          </a>
+          <a
+            href="#screenshots"
+            class="mobile-nav-link py-3 px-4 text-sm font-semibold text-deep hover:bg-cream rounded-lg flex items-center justify-between"
+          >
+            App preview
+            <span class="text-soft text-xs">→</span>
+          </a>
+          <a
+            href="#pricing"
+            class="mobile-nav-link py-3 px-4 text-sm font-semibold text-deep hover:bg-cream rounded-lg flex items-center justify-between"
+          >
+            Pricing
+            <span class="text-soft text-xs">→</span>
+          </a>
+          <a
+            href="#faq"
+            class="mobile-nav-link py-3 px-4 text-sm font-semibold text-deep hover:bg-cream rounded-lg flex items-center justify-between"
+          >
+            FAQ
+            <span class="text-soft text-xs">→</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============================== HERO ============================== -->
+      <section class="hero-mesh relative overflow-hidden">
+        <!-- ====== Abstract background layer ====== -->
+        <!-- Big soft blobs -->
+        <div
+          class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.3) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-32 -left-32 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.2) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/3 left-1/2 w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.1) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Dot pattern overlay (top-right corner only) -->
+        <div
+          class="absolute top-8 right-8 w-64 h-64 dot-pattern opacity-40 pointer-events-none"
+          style="
+            mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute bottom-8 left-8 w-56 h-56 dot-pattern opacity-30 pointer-events-none"
+          style="
+            mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Decorative SVG shapes -->
+        <svg
+          class="absolute top-20 left-[40%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 60 Q 50 5, 100 40 T 195 30"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.6"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-32 left-[20%] w-20 h-20 opacity-30 pointer-events-none float-3"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <circle
+            cx="40"
+            cy="40"
+            r="34"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="22"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+        </svg>
+        <svg
+          class="absolute top-32 right-[8%] w-10 h-10 opacity-60 pointer-events-none float-1"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 5 L20 35 M5 20 L35 20"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-24 right-[6%] w-14 h-14 opacity-40 pointer-events-none float-2"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <path
+            d="M28 4 L34 22 L52 22 L37 33 L43 51 L28 40 L13 51 L19 33 L4 22 L22 22 Z"
+            fill="#D97706"
+          />
+        </svg>
+        <svg
+          class="absolute top-1/2 left-8 w-12 h-12 opacity-40 pointer-events-none"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="32"
+            height="32"
+            rx="6"
+            stroke="#92400E"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(15 24 24)"
+          />
+        </svg>
+
+        <!-- ====== Hero content ====== -->
+        <div
+          class="relative max-w-7xl mx-auto px-6 py-12 lg:py-16 grid lg:grid-cols-12 gap-10 items-center min-h-[calc(100vh-4rem)]"
+        >
+          <div class="lg:col-span-7">
+            <div
+              class="inline-flex items-center gap-2 bg-white border rounded-full px-3.5 py-1 text-xs font-semibold mb-5 shadow-sm border-cream"
+              style="color: #92400e"
+            >
+              <span
+                class="relative w-1.5 h-1.5 rounded-full secondary-bg pulse-dot"
+              ></span>
+              Made for Philippine retail
+            </div>
+
+            <h1
+              class="font-fraunces text-4xl sm:text-5xl lg:text-6xl text-deep leading-[1.05] font-medium"
+            >
+              The POS that <em class="accent-text italic">never quits</em> on
+              you.
+            </h1>
+
+            <p class="mt-5 text-base lg:text-lg text-mid max-w-lg">
+              The offline-first Android POS for Filipino retail. Install on any
+              tablet, set up your products, and start ringing up sales. No setup
+              fees. No hardware required. No IT person needed.
+            </p>
+
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href="#contact"
+                class="accent-bg text-white px-6 py-3 rounded-full font-semibold shadow-lg"
+                style="box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.35)"
+                >Start 14-day free trial</a
+              >
+            </div>
+
+            <div class="mt-6 flex items-center gap-3 text-sm text-soft">
+              <div class="flex -space-x-2">
+                <div
+                  class="w-7 h-7 rounded-full border-2 border-white"
+                  style="background: #d97706"
+                ></div>
+                <div
+                  class="w-7 h-7 rounded-full border-2 border-white"
+                  style="background: #92400e"
+                ></div>
+                <div
+                  class="w-7 h-7 rounded-full border-2 border-white"
+                  style="background: #2f5d50"
+                ></div>
+                <div
+                  class="w-7 h-7 rounded-full border-2 border-white"
+                  style="background: #7c2d12"
+                ></div>
+              </div>
+              <span
+                ><strong class="text-deep">99+</strong> Filipino businesses ·
+                4.9★</span
+              >
+            </div>
+          </div>
+
+          <!-- ====== Two phones tilted toward each other ====== -->
+          <div
+            class="lg:col-span-5 relative flex justify-center lg:justify-end"
+          >
+            <div
+              class="relative w-full max-w-[460px] h-[560px] sm:h-[600px] flex items-center justify-center"
+            >
+              <!-- Backdrop circles (soft pastel-style discs) -->
+              <div
+                class="absolute left-[2%] top-[15%] w-56 h-56 rounded-full pointer-events-none"
+                style="
+                  background: radial-gradient(
+                    circle,
+                    rgba(217, 119, 6, 0.28) 0%,
+                    rgba(217, 119, 6, 0.08) 60%,
+                    transparent 100%
+                  );
+                "
+              ></div>
+              <div
+                class="absolute right-[2%] bottom-[10%] w-64 h-64 rounded-full pointer-events-none"
+                style="
+                  background: radial-gradient(
+                    circle,
+                    rgba(47, 93, 80, 0.22) 0%,
+                    rgba(47, 93, 80, 0.06) 60%,
+                    transparent 100%
+                  );
+                "
+              ></div>
+              <div
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full blur-2xl pointer-events-none"
+                style="
+                  background: radial-gradient(
+                    ellipse,
+                    rgba(146, 64, 14, 0.1) 0%,
+                    transparent 65%
+                  );
+                "
+              ></div>
+
+              <!-- Phones container -->
+              <div class="relative flex items-center justify-center">
+                <!-- Front phone (LEFT, tilted right, on top) -->
+                <div
+                  class="relative z-20"
+                  style="
+                    width: 215px;
+                    transform: rotate(-8deg) translateY(20px);
+                    margin-right: -55px;
+                  "
+                >
+                  <div class="phone-frame">
+                    <span class="speaker"></span>
+                    <span class="camera"></span>
+                    <span class="btn-vol-up"></span>
+                    <span class="btn-vol-down"></span>
+                    <span class="btn-power"></span>
+                    <div class="screen">
+                      <img
+                        src="../public/POS.JPG"
+                        alt="RetailFlow POS checkout screen on a smartphone"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Back phone (RIGHT, tilted left, behind) -->
+                <div
+                  class="relative z-10"
+                  style="
+                    width: 215px;
+                    transform: rotate(8deg) translateY(-20px);
+                    margin-left: -55px;
+                  "
+                >
+                  <div class="phone-frame">
+                    <span class="speaker"></span>
+                    <span class="camera"></span>
+                    <span class="btn-vol-up"></span>
+                    <span class="btn-vol-down"></span>
+                    <span class="btn-power"></span>
+                    <div class="screen">
+                      <img
+                        src="../public/Sales.jpg"
+                        alt="Sales analytics screen on a smartphone"
+                        loading="eager"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ₱49/month sticker -->
+              <div
+                class="absolute top-2 right-4 text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-lg secondary-bg z-30"
+                style="transform: rotate(10deg)"
+              >
+                ₱49/month
+              </div>
+
+              <!-- Floating card 1: Sale total (top-left) -->
+              <div
+                class="absolute top-2 left-0 sm:-left-4 bg-white rounded-2xl shadow-xl border border-cream px-4 py-3 z-30 float-1"
+                style="box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.25)"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-9 h-9 rounded-xl accent-bg text-white flex items-center justify-center text-base font-bold"
+                  >
+                    ₱
+                  </div>
+                  <div>
+                    <div
+                      class="text-[10px] text-soft uppercase tracking-wider font-semibold"
+                    >
+                      Today's sales
+                    </div>
+                    <div
+                      class="font-fraunces font-semibold text-deep text-lg leading-none"
+                    >
+                      ₱14,250
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating card 2: Sale completed (bottom-right) -->
+              <div
+                class="absolute bottom-4 right-0 sm:-right-4 bg-white rounded-2xl shadow-xl border border-cream px-4 py-3 z-30 float-2"
+                style="box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.25)"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-9 h-9 rounded-full secondary-bg text-white flex items-center justify-center text-sm"
+                  >
+                    ✓
+                  </div>
+                  <div>
+                    <div class="text-xs font-semibold text-deep leading-tight">
+                      Order #1284 paid
+                    </div>
+                    <div class="text-[10px] text-soft mt-0.5">
+                      2 sec ago · GCash
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom fade -->
+        <div
+          class="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
+          style="background: linear-gradient(to top, #fbefd9, transparent)"
+        ></div>
+      </section>
+
+      <!-- ============================== LOGO CLOUD ============================== -->
+      <section class="bg-white py-12 border-y border-cream">
+        <div class="max-w-7xl mx-auto px-6">
+          <p
+            class="text-center text-xs uppercase tracking-widest text-soft mb-6"
+          >
+            Trusted by businesses across the Philippines
+          </p>
+          <div
+            class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 opacity-70 text-sm font-semibold text-mid"
+          >
+            <span class="font-fraunces">SARI · STORE</span>
+            <span class="font-fraunces">KAFE MNL</span>
+            <span class="font-fraunces">BARBERIA PH</span>
+            <span class="font-fraunces">ROSE BAKERY</span>
+            <span class="font-fraunces">LECHON KING</span>
+            <span class="font-fraunces">BOTICA NENA</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== FEATURES (V3 · Editorial) ============================== -->
+      <section id="features" class="bg-cream py-24 relative overflow-hidden">
+        <!-- ===== Abstract background layer ===== -->
+        <!-- Big soft blobs (mirrored vs industries) -->
+        <div
+          class="absolute -top-40 -right-32 w-[550px] h-[550px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.2) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.15) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-40 right-1/4 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.1) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Dot pattern panels -->
+        <div
+          class="absolute top-32 right-12 w-72 h-72 opacity-35 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute bottom-32 left-12 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Decorative SVG marks scattered (different positions vs industries) -->
+        <svg
+          class="absolute top-12 left-[8%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 30 Q 50 75, 100 40 T 195 50"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.6"
+          />
+        </svg>
+
+        <svg
+          class="absolute top-1/3 right-4 w-24 h-24 opacity-25 pointer-events-none"
+          viewBox="0 0 96 96"
+          fill="none"
+        >
+          <circle
+            cx="48"
+            cy="48"
+            r="42"
+            stroke="#D97706"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="48"
+            cy="48"
+            r="28"
+            stroke="#D97706"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+          <circle
+            cx="48"
+            cy="48"
+            r="14"
+            stroke="#D97706"
+            stroke-width="1"
+            fill="none"
+          />
+        </svg>
+
+        <svg
+          class="absolute top-[28%] right-[12%] w-12 h-12 opacity-40 pointer-events-none float-2"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+            fill="#92400E"
+          />
+        </svg>
+
+        <svg
+          class="absolute bottom-[35%] left-[6%] w-14 h-14 opacity-30 pointer-events-none float-1"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="6"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(20 28 28)"
+          />
+        </svg>
+
+        <svg
+          class="absolute top-[60%] right-[5%] w-10 h-10 opacity-50 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 4 L20 36 M4 20 L36 20"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <svg
+          class="absolute bottom-40 left-[40%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#D97706" opacity="0.6" />
+        </svg>
+
+        <svg
+          class="absolute top-[15%] left-[35%] w-6 h-6 opacity-40 pointer-events-none"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <polygon
+            points="12,3 21,21 3,21"
+            fill="#2F5D50"
+            opacity="0.6"
+            transform="rotate(180 12 12)"
+          />
+        </svg>
+
+        <!-- Wavy line bottom-right -->
+        <svg
+          class="absolute bottom-[20%] right-[15%] w-28 h-8 opacity-40 pointer-events-none"
+          viewBox="0 0 120 30"
+          fill="none"
+        >
+          <path
+            d="M5 15 Q 20 5, 35 15 T 65 15 T 95 15 T 115 15"
+            stroke="#D97706"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+
+        <!-- Concentric dot rings mid-left -->
+        <svg
+          class="absolute top-[48%] left-[15%] w-10 h-10 opacity-40 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <circle cx="20" cy="20" r="3" fill="#92400E" />
+          <circle
+            cx="20"
+            cy="20"
+            r="10"
+            stroke="#92400E"
+            stroke-width="1.5"
+            fill="none"
+          />
+          <circle
+            cx="20"
+            cy="20"
+            r="17"
+            stroke="#92400E"
+            stroke-width="1"
+            fill="none"
+            stroke-dasharray="3 3"
+          />
+        </svg>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+          <!-- Section header (with sparkle accents) -->
+          <div class="mb-20 relative">
+            <svg
+              class="absolute -top-4 left-[280px] w-7 h-7 opacity-60 pointer-events-none hidden sm:block"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M14 2 L16 12 L26 14 L16 16 L14 26 L12 16 L2 14 L12 12 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <svg
+              class="absolute top-2 -right-4 w-6 h-6 opacity-50 pointer-events-none hidden lg:block"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M12 2 L13 10 L21 12 L13 14 L12 22 L11 14 L3 12 L11 10 Z"
+                fill="#2F5D50"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-widest accent-text font-bold mb-3"
+            >
+              — Features
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium max-w-2xl"
+            >
+              What you get when you choose
+              <em class="accent-text italic">RetailFlow.</em>
+            </h2>
+          </div>
+
+          <!-- Row 1: image right, big "01" -->
+          <div class="relative mb-32">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 relative z-10">
+                <div
+                  class="big-numeral absolute -top-32 -left-2 select-none pointer-events-none"
+                  style="color: rgba(63, 29, 4, 0.05)"
+                >
+                  01
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-4"
+                  >
+                    Point of Sale
+                  </div>
+                  <h3
+                    class="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]"
+                  >
+                    A checkout your<br /><em class="accent-text italic"
+                      >cashier loves.</em
+                    >
+                  </h3>
+                  <p class="text-mid text-lg mb-6 max-w-lg">
+                    Scan a barcode, tap a payment, print the receipt. Under four
+                    seconds per transaction and the flow feels obvious on day
+                    one.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream"
+                      >Barcode</span
+                    >
+                    <span
+                      class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream"
+                      >GCash · Maya</span
+                    >
+                    <span
+                      class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream"
+                      >Receipts</span
+                    >
+                    <span
+                      class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream"
+                      >Promos</span
+                    >
+                    <span
+                      class="px-3 py-1.5 bg-white rounded-full text-xs font-semibold text-deep border border-cream"
+                      >Hold orders</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-5 relative">
+                <div
+                  class="absolute -inset-8 dot-pattern opacity-40 pointer-events-none rounded-full"
+                  style="
+                    mask-image: radial-gradient(
+                      circle,
+                      black 30%,
+                      transparent 70%
+                    );
+                    -webkit-mask-image: radial-gradient(
+                      circle,
+                      black 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <div
+                  class="absolute inset-0 blur-3xl pointer-events-none"
+                  style="
+                    background: radial-gradient(
+                      ellipse at center,
+                      rgba(217, 119, 6, 0.3) 0%,
+                      transparent 65%
+                    );
+                  "
+                ></div>
+                <div class="relative flex justify-center">
+                  <div class="relative">
+                    <div class="mini-phone" style="transform: rotate(-5deg)">
+                      <div class="screen">
+                        <img
+                          src="../public/POS.JPG"
+                          alt="POS checkout screen"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="hidden sm:flex absolute -top-3 -left-12 items-center gap-2.5 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-1"
+                      style="
+                        box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.25);
+                      "
+                    >
+                      <div
+                        class="w-9 h-9 rounded-xl accent-bg text-white flex items-center justify-center text-base font-bold"
+                      >
+                        ₱
+                      </div>
+                      <div>
+                        <div
+                          class="text-[9px] text-soft uppercase tracking-wider font-semibold"
+                        >
+                          Today
+                        </div>
+                        <div
+                          class="font-fraunces font-semibold text-deep text-base leading-none"
+                        >
+                          ₱14,250
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="hidden sm:flex absolute -bottom-2 -right-10 items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-2"
+                      style="box-shadow: 0 12px 28px -8px rgba(63, 29, 4, 0.22)"
+                    >
+                      <div
+                        class="w-7 h-7 rounded-full secondary-bg text-white flex items-center justify-center text-xs"
+                      >
+                        ✓
+                      </div>
+                      <div>
+                        <div
+                          class="text-xs font-semibold text-deep leading-tight"
+                        >
+                          Paid · GCash
+                        </div>
+                        <div class="text-[9px] text-soft leading-none mt-0.5">
+                          2 sec ago
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: image left, big "02" -->
+          <div class="relative mb-32">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-5 relative order-2 lg:order-1">
+                <div
+                  class="absolute -inset-8 dot-pattern opacity-40 pointer-events-none rounded-full"
+                  style="
+                    mask-image: radial-gradient(
+                      circle,
+                      black 30%,
+                      transparent 70%
+                    );
+                    -webkit-mask-image: radial-gradient(
+                      circle,
+                      black 30%,
+                      transparent 70%
+                    );
+                  "
+                ></div>
+                <div
+                  class="absolute inset-0 blur-3xl pointer-events-none"
+                  style="
+                    background: radial-gradient(
+                      ellipse at center,
+                      rgba(47, 93, 80, 0.3) 0%,
+                      transparent 65%
+                    );
+                  "
+                ></div>
+                <div class="relative flex justify-center">
+                  <div class="relative">
+                    <div class="mini-phone" style="transform: rotate(5deg)">
+                      <div class="screen">
+                        <img
+                          src="../public/Dashboard.jpg"
+                          alt="Dashboard analytics screen"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="hidden sm:flex absolute -top-2 -right-8 items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-1"
+                      style="
+                        box-shadow: 0 12px 28px -8px rgba(47, 93, 80, 0.25);
+                      "
+                    >
+                      <div
+                        class="w-6 h-6 rounded-full flex items-center justify-center"
+                        style="background: rgba(47, 93, 80, 0.15)"
+                      >
+                        <span class="w-2 h-2 rounded-full secondary-bg"></span>
+                      </div>
+                      <span class="text-xs font-semibold text-deep"
+                        >Offline · syncing</span
+                      >
+                    </div>
+                    <div
+                      class="hidden sm:flex absolute -bottom-3 -left-12 items-center gap-2.5 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-2"
+                      style="
+                        box-shadow: 0 15px 35px -10px rgba(47, 93, 80, 0.2);
+                      "
+                    >
+                      <div
+                        class="w-9 h-9 rounded-xl secondary-bg text-white flex items-center justify-center text-base"
+                      >
+                        ⚡
+                      </div>
+                      <div>
+                        <div
+                          class="text-[9px] text-soft uppercase tracking-wider font-semibold"
+                        >
+                          Brownouts
+                        </div>
+                        <div
+                          class="font-fraunces font-semibold text-deep text-base leading-none"
+                        >
+                          0 lost sales
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-7 relative z-10 order-1 lg:order-2">
+                <div
+                  class="big-numeral absolute -top-32 -right-2 select-none pointer-events-none"
+                  style="color: rgba(47, 93, 80, 0.05)"
+                >
+                  02
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="text-xs uppercase tracking-[0.2em] font-bold mb-4"
+                    style="color: #2f5d50"
+                  >
+                    Offline-first
+                  </div>
+                  <h3
+                    class="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]"
+                  >
+                    When the WiFi drops,<br /><em
+                      class="italic"
+                      style="color: #2f5d50"
+                      >you keep selling.</em
+                    >
+                  </h3>
+                  <p class="text-mid text-lg mb-6 max-w-lg">
+                    Local SQLite storage. Every sale, every inventory update,
+                    every report all working without internet. Reconnect later,
+                    everything syncs.
+                  </p>
+                  <div
+                    class="grid grid-cols-3 gap-4 max-w-md pt-4 border-t border-cream"
+                  >
+                    <div>
+                      <div
+                        class="font-fraunces text-2xl font-semibold text-deep"
+                      >
+                        100%
+                      </div>
+                      <div class="text-xs text-soft uppercase tracking-wide">
+                        Offline
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="font-fraunces text-2xl font-semibold text-deep"
+                      >
+                        0
+                      </div>
+                      <div class="text-xs text-soft uppercase tracking-wide">
+                        Lost sales
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="font-fraunces text-2xl font-semibold text-deep"
+                      >
+                        ∞
+                      </div>
+                      <div class="text-xs text-soft uppercase tracking-wide">
+                        Brownouts ok
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: multi-phone right, big "03" -->
+          <div class="relative">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+              <div class="lg:col-span-7 relative z-10">
+                <div
+                  class="big-numeral absolute -top-32 -left-2 select-none pointer-events-none"
+                  style="color: rgba(146, 64, 14, 0.05)"
+                >
+                  03
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="text-xs uppercase tracking-[0.2em] font-bold mb-4"
+                    style="color: #92400e"
+                  >
+                    Multi-device sync
+                  </div>
+                  <h3
+                    class="font-fraunces text-4xl sm:text-5xl text-deep mb-5 leading-[1.05]"
+                  >
+                    Three cashier stations.<br /><em class="italic accent-text"
+                      >One WiFi. Zero cloud.</em
+                    >
+                  </h3>
+                  <p class="text-mid text-lg mb-6 max-w-lg">
+                    Add devices as your shop grows. They sync over your local
+                    network, no monthly cloud bill and no data leaving your
+                    store.
+                  </p>
+                  <ul class="space-y-2 text-mid">
+                    <li class="flex items-center gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs"
+                        >✓</span
+                      >
+                      Any Android 8+ device
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs"
+                        >✓</span
+                      >
+                      Real-time inventory across stations
+                    </li>
+                    <li class="flex items-center gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs"
+                        >✓</span
+                      >
+                      Per-cashier PIN login & reports
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="lg:col-span-5 relative">
+                <div
+                  class="absolute inset-0 blur-3xl pointer-events-none"
+                  style="
+                    background: radial-gradient(
+                      ellipse at center,
+                      rgba(146, 64, 14, 0.25) 0%,
+                      transparent 65%
+                    );
+                  "
+                ></div>
+                <div class="relative flex justify-center items-end gap-1.5">
+                  <div
+                    class="mini-phone"
+                    style="max-width: 120px; transform: rotate(-8deg)"
+                  >
+                    <div class="screen">
+                      <img src="../public/Sales.jpg" alt="Sales history" />
+                    </div>
+                  </div>
+                  <div class="mini-phone" style="max-width: 160px">
+                    <div class="screen">
+                      <img
+                        src="../public/Products.jpg"
+                        alt="Products catalog"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="mini-phone"
+                    style="max-width: 120px; transform: rotate(8deg)"
+                  >
+                    <div class="screen">
+                      <img src="../public/EOD.jpg" alt="End-of-day report" />
+                    </div>
+                  </div>
+                  <div
+                    class="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white rounded-full shadow-xl border border-cream pl-1.5 pr-3 py-1.5 z-20 float-1"
+                    style="box-shadow: 0 12px 28px -8px rgba(146, 64, 14, 0.25)"
+                  >
+                    <div
+                      class="w-6 h-6 rounded-full accent-bg text-white flex items-center justify-center text-xs"
+                    >
+                      🔄
+                    </div>
+                    <span class="text-xs font-semibold text-deep"
+                      >3 devices · synced</span
+                    >
+                  </div>
+                  <div
+                    class="hidden sm:flex absolute -bottom-3 -right-4 items-center gap-2 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 z-20 float-2"
+                    style="box-shadow: 0 12px 28px -8px rgba(146, 64, 14, 0.2)"
+                  >
+                    <div
+                      class="w-7 h-7 rounded-lg tertiary-bg text-white flex items-center justify-center text-sm"
+                    >
+                      📡
+                    </div>
+                    <div class="text-xs font-semibold text-deep leading-tight">
+                      Local WiFi<br /><span
+                        class="text-[9px] text-soft font-normal"
+                        >No cloud</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== PLUS EVERYTHING ELSE (full-width white separator) ============================== -->
+      <section class="bg-white border-y border-cream py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-10 relative">
+            <svg
+              class="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full w-8 h-8 opacity-50 pointer-events-none"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M16 2 L18 14 L30 16 L18 18 L16 30 L14 18 L2 16 L14 14 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-[0.2em] accent-text font-bold mb-2"
+            >
+              Plus everything else
+            </p>
+            <h3 class="font-fraunces text-2xl sm:text-3xl text-deep">
+              No upsells. It's all included.
+            </h3>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <!-- Inventory · saffron -->
+            <article
+              class="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+            >
+              <div
+                class="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                style="background: rgba(217, 119, 6, 0.3)"
+              ></div>
+              <div class="relative flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl accent-bg text-white flex items-center justify-center text-lg shadow-md"
+                  style="box-shadow: 0 6px 14px -4px rgba(217, 119, 6, 0.4)"
+                >
+                  📦
+                </div>
+                <span
+                  class="text-[10px] font-mono accent-text font-bold opacity-60"
+                  >07</span
+                >
+              </div>
+              <h4 class="font-fraunces text-base text-deep leading-tight">
+                Inventory
+              </h4>
+              <p class="text-[11px] text-soft mt-0.5">Stock & alerts</p>
+            </article>
+
+            <!-- Refunds · forest -->
+            <article
+              class="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+            >
+              <div
+                class="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                style="background: rgba(47, 93, 80, 0.25)"
+              ></div>
+              <div class="relative flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl secondary-bg text-white flex items-center justify-center text-lg shadow-md"
+                  style="box-shadow: 0 6px 14px -4px rgba(47, 93, 80, 0.4)"
+                >
+                  ↩️
+                </div>
+                <span
+                  class="text-[10px] font-mono secondary-text font-bold opacity-60"
+                  >08</span
+                >
+              </div>
+              <h4 class="font-fraunces text-base text-deep leading-tight">
+                Refunds
+              </h4>
+              <p class="text-[11px] text-soft mt-0.5">Full audit trail</p>
+            </article>
+
+            <!-- Receipts · burnt -->
+            <article
+              class="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+            >
+              <div
+                class="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                style="background: rgba(146, 64, 14, 0.25)"
+              ></div>
+              <div class="relative flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl tertiary-bg text-white flex items-center justify-center text-lg shadow-md"
+                  style="box-shadow: 0 6px 14px -4px rgba(146, 64, 14, 0.4)"
+                >
+                  🖨️
+                </div>
+                <span
+                  class="text-[10px] font-mono font-bold opacity-60"
+                  style="color: #92400e"
+                  >09</span
+                >
+              </div>
+              <h4 class="font-fraunces text-base text-deep leading-tight">
+                Receipts
+              </h4>
+              <p class="text-[11px] text-soft mt-0.5">PDF + thermal</p>
+            </article>
+
+            <!-- Roles & PIN · saffron -->
+            <article
+              class="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+            >
+              <div
+                class="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                style="background: rgba(217, 119, 6, 0.3)"
+              ></div>
+              <div class="relative flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl accent-bg text-white flex items-center justify-center text-lg shadow-md"
+                  style="box-shadow: 0 6px 14px -4px rgba(217, 119, 6, 0.4)"
+                >
+                  👥
+                </div>
+                <span
+                  class="text-[10px] font-mono accent-text font-bold opacity-60"
+                  >10</span
+                >
+              </div>
+              <h4 class="font-fraunces text-base text-deep leading-tight">
+                Roles & PIN
+              </h4>
+              <p class="text-[11px] text-soft mt-0.5">Per-cashier access</p>
+            </article>
+
+            <!-- Promo codes · forest -->
+            <article
+              class="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+            >
+              <div
+                class="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                style="background: rgba(47, 93, 80, 0.25)"
+              ></div>
+              <div class="relative flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl secondary-bg text-white flex items-center justify-center text-lg shadow-md"
+                  style="box-shadow: 0 6px 14px -4px rgba(47, 93, 80, 0.4)"
+                >
+                  🏷️
+                </div>
+                <span
+                  class="text-[10px] font-mono secondary-text font-bold opacity-60"
+                  >11</span
+                >
+              </div>
+              <h4 class="font-fraunces text-base text-deep leading-tight">
+                Promo codes
+              </h4>
+              <p class="text-[11px] text-soft mt-0.5">Discounts & VAT</p>
+            </article>
+
+            <!-- EOD reports · burnt -->
+            <article
+              class="group relative rounded-2xl p-5 border bg-cream/40 hover:bg-cream transition border-cream overflow-hidden"
+            >
+              <div
+                class="absolute -top-6 -right-6 w-16 h-16 rounded-full blur-2xl pointer-events-none opacity-70"
+                style="background: rgba(146, 64, 14, 0.25)"
+              ></div>
+              <div class="relative flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl tertiary-bg text-white flex items-center justify-center text-lg shadow-md"
+                  style="box-shadow: 0 6px 14px -4px rgba(146, 64, 14, 0.4)"
+                >
+                  🧾
+                </div>
+                <span
+                  class="text-[10px] font-mono font-bold opacity-60"
+                  style="color: #92400e"
+                  >12</span
+                >
+              </div>
+              <h4 class="font-fraunces text-base text-deep leading-tight">
+                EOD reports
+              </h4>
+              <p class="text-[11px] text-soft mt-0.5">Auto cash count</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== INDUSTRIES (Tabbed + abstracts) ============================== -->
+      <section id="industries" class="bg-cream relative overflow-hidden py-24">
+        <!-- ===== Abstract background layer ===== -->
+        <div
+          class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.22) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/3 -right-40 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.18) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-32 left-1/3 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.12) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Dot pattern panels -->
+        <div
+          class="absolute top-12 left-8 w-72 h-72 opacity-40 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at top left,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at top left,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute bottom-12 right-8 w-64 h-64 opacity-35 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at bottom right,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at bottom right,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Decorative SVG marks scattered -->
+        <svg
+          class="absolute top-16 right-[15%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 60 Q 50 5, 100 40 T 195 30"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.6"
+          />
+        </svg>
+        <svg
+          class="absolute top-1/2 left-4 w-20 h-20 opacity-30 pointer-events-none"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <circle
+            cx="40"
+            cy="40"
+            r="34"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="22"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="10"
+            stroke="#2F5D50"
+            stroke-width="1"
+            fill="none"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-32 left-12 w-12 h-12 opacity-50 pointer-events-none"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 6 L24 42 M6 24 L42 24"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="absolute top-32 left-[42%] w-16 h-16 opacity-40 pointer-events-none"
+          viewBox="0 0 64 64"
+          fill="none"
+        >
+          <path
+            d="M32 4 L38 25 L60 25 L42 37 L48 60 L32 46 L16 60 L22 37 L4 25 L26 25 Z"
+            fill="#D97706"
+            opacity="0.7"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-20 right-[20%] w-14 h-14 opacity-35 pointer-events-none"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="8"
+            stroke="#92400E"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(15 28 28)"
+          />
+        </svg>
+        <svg
+          class="absolute top-[55%] right-6 w-10 h-10 opacity-40 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <circle cx="20" cy="20" r="3" fill="#2F5D50" />
+          <circle
+            cx="20"
+            cy="20"
+            r="10"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+          />
+          <circle
+            cx="20"
+            cy="20"
+            r="17"
+            stroke="#2F5D50"
+            stroke-width="1"
+            fill="none"
+            stroke-dasharray="3 3"
+          />
+        </svg>
+        <svg
+          class="absolute top-24 left-[28%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#92400E" opacity="0.6" />
+        </svg>
+        <svg
+          class="absolute bottom-40 right-[35%] w-6 h-6 opacity-40 pointer-events-none"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <polygon
+            points="12,3 21,21 3,21"
+            fill="#2F5D50"
+            opacity="0.5"
+            transform="rotate(180 12 12)"
+          />
+        </svg>
+        <svg
+          class="absolute top-[40%] left-[10%] w-24 h-8 opacity-40 pointer-events-none"
+          viewBox="0 0 100 30"
+          fill="none"
+        >
+          <path
+            d="M5 15 Q 15 5, 25 15 T 45 15 T 65 15 T 85 15 T 95 15"
+            stroke="#92400E"
+            stroke-width="2"
+            stroke-linecap="round"
+            fill="none"
+          />
+        </svg>
+
+        <!-- ===== Content ===== -->
+        <div class="relative max-w-7xl mx-auto px-6">
+          <div class="text-center mb-12 max-w-2xl mx-auto relative">
+            <svg
+              class="absolute -top-6 -left-8 w-8 h-8 opacity-60 pointer-events-none"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M16 2 L18 14 L30 16 L18 18 L16 30 L14 18 L2 16 L14 14 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <svg
+              class="absolute -bottom-4 -right-6 w-6 h-6 opacity-50 pointer-events-none"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M12 2 L13 10 L21 12 L13 14 L12 22 L11 14 L3 12 L11 10 Z"
+                fill="#2F5D50"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-widest accent-text font-bold mb-3"
+            >
+              Industries
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium"
+            >
+              See how RetailFlow works for
+              <em class="accent-text italic">your kind of business.</em>
+            </h2>
+          </div>
+
+          <!-- Tab chips -->
+          <div class="flex flex-wrap justify-center gap-2 mb-10 relative">
+            <button
+              class="bg-white border-2 px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-md"
+              style="
+                border-color: #d97706;
+                color: #3f1d04;
+                box-shadow: 0 8px 20px -6px rgba(217, 119, 6, 0.3);
+              "
+            >
+              <span>🏪</span> Sari-sari
+            </button>
+            <button
+              class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300"
+            >
+              <span>🍜</span> Restaurants
+            </button>
+            <button
+              class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300"
+            >
+              <span>☕</span> Cafés & bakeries
+            </button>
+            <button
+              class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300"
+            >
+              <span>💈</span> Salons
+            </button>
+            <button
+              class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300"
+            >
+              <span>💊</span> Pharmacies
+            </button>
+            <button
+              class="bg-white border border-cream px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 text-mid hover:border-orange-300"
+            >
+              <span>👗</span> Boutiques
+            </button>
+          </div>
+
+          <!-- Preview pane (active: Sari-sari) -->
+          <div class="relative">
+            <div
+              class="absolute -inset-4 rounded-[2rem] border-2 border-dashed pointer-events-none opacity-25"
+              style="border-color: #d97706"
+            ></div>
+            <div
+              class="absolute -top-2 -left-2 w-4 h-4 rounded-full accent-bg shadow-lg z-10"
+            ></div>
+            <div
+              class="absolute -top-2 -right-2 w-4 h-4 rounded-full secondary-bg shadow-lg z-10"
+            ></div>
+            <div
+              class="absolute -bottom-2 -left-2 w-4 h-4 rounded-full tertiary-bg shadow-lg z-10"
+            ></div>
+            <div
+              class="absolute -bottom-2 -right-2 w-4 h-4 rounded-full accent-bg shadow-lg z-10"
+            ></div>
+
+            <div
+              class="bg-white rounded-3xl border border-cream p-8 lg:p-12 relative overflow-hidden"
+              style="box-shadow: 0 25px 50px -15px rgba(63, 29, 4, 0.15)"
+            >
+              <div
+                class="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl pointer-events-none"
+                style="background: rgba(217, 119, 6, 0.2)"
+              ></div>
+              <div
+                class="absolute -bottom-20 -left-20 w-56 h-56 rounded-full blur-3xl pointer-events-none"
+                style="background: rgba(47, 93, 80, 0.12)"
+              ></div>
+              <div
+                class="absolute top-0 right-0 w-48 h-48 opacity-25 pointer-events-none"
+                style="
+                  background-image: radial-gradient(
+                    rgba(146, 64, 14, 0.3) 1px,
+                    transparent 1px
+                  );
+                  background-size: 16px 16px;
+                  mask-image: radial-gradient(
+                    circle at top right,
+                    black 0%,
+                    transparent 70%
+                  );
+                  -webkit-mask-image: radial-gradient(
+                    circle at top right,
+                    black 0%,
+                    transparent 70%
+                  );
+                "
+              ></div>
+
+              <svg
+                class="absolute top-6 left-6 w-10 h-10 opacity-40 pointer-events-none"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="14"
+                  stroke="#D97706"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-dasharray="3 3"
+                />
+                <circle cx="20" cy="20" r="3" fill="#D97706" />
+              </svg>
+              <svg
+                class="absolute bottom-6 right-6 w-12 h-12 opacity-35 pointer-events-none"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <path
+                  d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+                  fill="#2F5D50"
+                />
+              </svg>
+
+              <div class="relative grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7">
+                  <div class="flex items-center gap-3 mb-5">
+                    <div
+                      class="relative w-14 h-14 rounded-2xl accent-bg text-white flex items-center justify-center text-3xl shadow-lg"
+                      style="
+                        box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
+                      "
+                    >
+                      🏪
+                      <div
+                        class="absolute -inset-1.5 rounded-2xl border-2 border-dashed pointer-events-none"
+                        style="border-color: rgba(217, 119, 6, 0.4)"
+                      ></div>
+                    </div>
+                    <div>
+                      <div
+                        class="text-xs uppercase tracking-widest accent-text font-bold"
+                      >
+                        Sari-sari & convenience
+                      </div>
+                      <div class="text-xs text-soft mt-0.5">
+                        ~620 stores using RetailFlow
+                      </div>
+                    </div>
+                  </div>
+                  <h3
+                    class="font-fraunces text-3xl text-deep mb-4 leading-tight"
+                  >
+                    Replace the <em class="accent-text italic">notebook</em> for
+                    good.
+                  </h3>
+                  <p class="text-mid mb-6">
+                    Quick checkout for high-volume foot traffic. Track inventory
+                    and tubo without spreadsheets. Brownout-proof so the store
+                    keeps running.
+                  </p>
+                  <ul class="space-y-2.5 text-sm text-mid mb-6">
+                    <li class="flex items-start gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5"
+                        >✓</span
+                      >
+                      Quick-scan checkout (under 4 sec per sale)
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5"
+                        >✓</span
+                      >
+                      Low-stock alerts so you never run out of bestsellers
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5"
+                        >✓</span
+                      >
+                      Daily cash count + EOD report (no more counting at
+                      midnight)
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span
+                        class="accent-bg text-white w-5 h-5 rounded-full inline-flex items-center justify-center text-xs shrink-0 mt-0.5"
+                        >✓</span
+                      >
+                      Multi-cashier on one WiFi (busy nights covered)
+                    </li>
+                  </ul>
+                </div>
+                <div class="lg:col-span-5 relative flex justify-center">
+                  <svg
+                    class="absolute inset-0 w-full h-full pointer-events-none"
+                    viewBox="0 0 300 400"
+                    fill="none"
+                  >
+                    <circle
+                      cx="150"
+                      cy="200"
+                      r="140"
+                      stroke="#D97706"
+                      stroke-width="1"
+                      stroke-dasharray="3 5"
+                      opacity="0.30"
+                    />
+                    <circle
+                      cx="150"
+                      cy="200"
+                      r="100"
+                      stroke="#D97706"
+                      stroke-width="1"
+                      stroke-dasharray="3 5"
+                      opacity="0.40"
+                    />
+                  </svg>
+                  <div
+                    class="absolute inset-4 rounded-full blur-3xl pointer-events-none"
+                    style="
+                      background: radial-gradient(
+                        ellipse at center,
+                        rgba(217, 119, 6, 0.3) 0%,
+                        transparent 65%
+                      );
+                    "
+                  ></div>
+
+                  <div class="relative">
+                    <div class="mini-phone" style="transform: rotate(-4deg)">
+                      <div class="screen">
+                        <img src="../public/POS.JPG" alt="POS" />
+                      </div>
+                    </div>
+                    <div
+                      class="absolute -top-3 -left-10 bg-white rounded-2xl shadow-xl border border-cream px-3 py-2 flex items-center gap-2 z-20"
+                    >
+                      <div
+                        class="w-8 h-8 rounded-lg accent-bg text-white flex items-center justify-center text-sm font-bold"
+                      >
+                        ₱
+                      </div>
+                      <div>
+                        <div
+                          class="text-[9px] text-soft uppercase tracking-wider font-semibold"
+                        >
+                          Today
+                        </div>
+                        <div
+                          class="font-fraunces font-semibold text-deep text-sm leading-none"
+                        >
+                          ₱14,250
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 flex items-center justify-center gap-4">
+            <div
+              class="h-px w-24"
+              style="
+                background: linear-gradient(to right, transparent, #f5deb3);
+              "
+            ></div>
+            <span class="text-xs text-soft uppercase tracking-widest font-bold"
+              >Switch tabs above to explore</span
+            >
+            <div
+              class="h-px w-24"
+              style="background: linear-gradient(to left, transparent, #f5deb3)"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== SCREENSHOTS (V5 · Hybrid Coverflow + Annotations) ============================== -->
+      <section
+        id="screenshots"
+        class="dark-section text-white py-24 relative overflow-hidden"
+      >
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center mb-14 max-w-2xl mx-auto">
+            <p
+              class="text-xs uppercase tracking-widest font-bold mb-3"
+              style="color: #fba94c"
+            >
+              App preview
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-white leading-tight font-medium"
+            >
+              Designed for
+              <em class="italic" style="color: #fba94c">speed and clarity.</em>
+            </h2>
+            <p class="mt-4 text-lg text-white/70">
+              Built for the cashier who's been on shift for six hours. Big
+              targets, instant feedback, no learning curve.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <!-- Left annotations -->
+            <div class="lg:col-span-3 space-y-4">
+              <div
+                class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:translate-x-4"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="w-7 h-7 rounded-full accent-bg text-white text-xs font-bold flex items-center justify-center"
+                    >1</span
+                  >
+                  <h4 class="font-fraunces text-sm text-white">Quick search</h4>
+                </div>
+                <p class="text-xs text-white/60">
+                  Type or scan — products show in &lt;200ms.
+                </p>
+              </div>
+              <div
+                class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="w-7 h-7 rounded-full secondary-bg text-white text-xs font-bold flex items-center justify-center"
+                    >2</span
+                  >
+                  <h4 class="font-fraunces text-sm text-white">
+                    Category chips
+                  </h4>
+                </div>
+                <p class="text-xs text-white/60">
+                  Tap to filter. Designed for thumbs.
+                </p>
+              </div>
+              <div
+                class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:translate-x-4"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="w-7 h-7 rounded-full tertiary-bg text-white text-xs font-bold flex items-center justify-center"
+                    >3</span
+                  >
+                  <h4 class="font-fraunces text-sm text-white">
+                    Big touch targets
+                  </h4>
+                </div>
+                <p class="text-xs text-white/60">
+                  No accidental taps. 80px+ per card.
+                </p>
+              </div>
+            </div>
+
+            <!-- Center coverflow row -->
+            <div
+              class="lg:col-span-6 relative flex items-center justify-center"
+            >
+              <!-- Left fading phone -->
+              <div
+                class="hidden md:block opacity-45 brightness-90"
+                style="transform: translateX(-30px) translateY(8px) scale(0.78)"
+              >
+                <div style="width: 160px">
+                  <div class="phone-frame relative">
+                    <span class="speaker"></span>
+                    <span class="camera"></span>
+                    <span class="btn-vol-up"></span>
+                    <span class="btn-vol-down"></span>
+                    <span class="btn-power"></span>
+                    <div class="screen">
+                      <img src="../public/Sales.jpg" alt="Sales" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Center spotlight phone -->
+              <div class="relative z-10 mx-2">
+                <div
+                  class="absolute -inset-10 rounded-full blur-3xl pointer-events-none"
+                  style="
+                    background: radial-gradient(
+                      ellipse,
+                      rgba(217, 119, 6, 0.4) 0%,
+                      transparent 65%
+                    );
+                  "
+                ></div>
+                <div style="width: 230px" class="relative">
+                  <div class="phone-frame relative">
+                    <span class="speaker"></span>
+                    <span class="camera"></span>
+                    <span class="btn-vol-up"></span>
+                    <span class="btn-vol-down"></span>
+                    <span class="btn-power"></span>
+                    <div class="screen">
+                      <img src="../public/POS.JPG" alt="POS checkout" />
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-4">
+                  <h3 class="font-fraunces text-xl text-white">
+                    Point of Sale
+                  </h3>
+                  <p class="text-xs text-white/50 mt-1">
+                    Active screen · tap to switch
+                  </p>
+                </div>
+              </div>
+
+              <!-- Right fading phone -->
+              <div
+                class="hidden md:block opacity-45 brightness-90"
+                style="transform: translateX(30px) translateY(8px) scale(0.78)"
+              >
+                <div style="width: 160px">
+                  <div class="phone-frame relative">
+                    <span class="speaker"></span>
+                    <span class="camera"></span>
+                    <span class="btn-vol-up"></span>
+                    <span class="btn-vol-down"></span>
+                    <span class="btn-power"></span>
+                    <div class="screen">
+                      <img src="../public/Dashboard.jpg" alt="Dashboard" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right annotations -->
+            <div class="lg:col-span-3 space-y-4">
+              <div
+                class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:-translate-x-4"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="w-7 h-7 rounded-full accent-bg text-white text-xs font-bold flex items-center justify-center"
+                    >4</span
+                  >
+                  <h4 class="font-fraunces text-sm text-white">Live cart</h4>
+                </div>
+                <p class="text-xs text-white/60">
+                  Cart updates as you add. Total visible.
+                </p>
+              </div>
+              <div
+                class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="w-7 h-7 rounded-full secondary-bg text-white text-xs font-bold flex items-center justify-center"
+                    >5</span
+                  >
+                  <h4 class="font-fraunces text-sm text-white">
+                    Tap to checkout
+                  </h4>
+                </div>
+                <p class="text-xs text-white/60">
+                  One tap to total. One more to mark paid.
+                </p>
+              </div>
+              <div
+                class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-4 lg:-translate-x-4"
+              >
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="w-7 h-7 rounded-full tertiary-bg text-white text-xs font-bold flex items-center justify-center"
+                    >6</span
+                  >
+                  <h4 class="font-fraunces text-sm text-white">Bottom nav</h4>
+                </div>
+                <p class="text-xs text-white/60">
+                  POS · Products · Expenses · Dashboard.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination + screen quick-jump strip -->
+          <div class="mt-12 flex flex-col items-center gap-4">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-white/30"></span>
+              <span class="w-2 h-2 rounded-full bg-white/30"></span>
+              <span
+                class="h-2 w-8 rounded-full"
+                style="background: #fba94c"
+              ></span>
+              <span class="w-2 h-2 rounded-full bg-white/30"></span>
+              <span class="w-2 h-2 rounded-full bg-white/30"></span>
+            </div>
+            <div
+              class="flex flex-wrap items-center justify-center gap-2 max-w-3xl"
+            >
+              <button
+                class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition"
+              >
+                Expenses
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition"
+              >
+                Sales
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs accent-bg text-white font-bold"
+              >
+                Point of Sale
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition"
+              >
+                Dashboard
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition"
+              >
+                EOD reports
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition"
+              >
+                Products
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs text-white/60 hover:bg-white/10 transition"
+              >
+                More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== HOW IT WORKS (Clean horizontal journey · white bg + abstracts) ============================== -->
+      <section id="how" class="bg-white py-24 relative overflow-hidden">
+        <!-- ===== Abstract background layer ===== -->
+        <div
+          class="absolute -top-32 -left-32 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.18) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.12) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.08) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Dot pattern panels -->
+        <div
+          class="absolute top-12 right-8 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute bottom-12 left-8 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Decorative SVG marks scattered -->
+        <svg
+          class="absolute top-20 left-[8%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 30 Q 50 75, 100 40 T 195 50"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.5"
+          />
+        </svg>
+        <svg
+          class="absolute top-1/3 right-4 w-20 h-20 opacity-25 pointer-events-none"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <circle
+            cx="40"
+            cy="40"
+            r="34"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="22"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-32 right-[10%] w-12 h-12 opacity-40 pointer-events-none"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+            fill="#92400E"
+            opacity="0.7"
+          />
+        </svg>
+        <svg
+          class="absolute top-[40%] left-4 w-10 h-10 opacity-50 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 4 L20 36 M4 20 L36 20"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-24 left-[42%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#D97706" opacity="0.6" />
+        </svg>
+        <svg
+          class="absolute top-[60%] right-[8%] w-14 h-14 opacity-30 pointer-events-none"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="6"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(15 28 28)"
+          />
+        </svg>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+          <div class="text-center mb-16 max-w-2xl mx-auto relative">
+            <svg
+              class="absolute -top-4 left-[260px] w-7 h-7 opacity-60 pointer-events-none hidden sm:block"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M14 2 L16 12 L26 14 L16 16 L14 26 L12 16 L2 14 L12 12 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-widest accent-text font-bold mb-3"
+            >
+              How it works
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium"
+            >
+              Your <em class="accent-text italic">first day</em> with
+              RetailFlow.
+            </h2>
+            <p class="mt-4 text-mid">
+              From the first message to your first sale — usually under 24
+              hours.
+            </p>
+          </div>
+
+          <!-- Desktop: zigzag journey with much curvier path + sequential animation -->
+          <div
+            class="journey hidden lg:block relative max-w-6xl mx-auto h-[600px]"
+          >
+            <!-- Highly curved cubic-bezier path that PASSES THROUGH each circle center -->
+            <svg
+              viewBox="0 0 1100 600"
+              class="absolute inset-0 w-full h-full pointer-events-none"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <clipPath id="journey-reveal">
+                  <rect class="journey-reveal-rect" x="0" y="0" height="600" />
+                </clipPath>
+              </defs>
+              <!-- Dashed path, revealed left-to-right by the clip-path rect growing in width -->
+              <path
+                d="M 90 90 C 90 280, 260 380, 330 320 C 410 270, 380 100, 560 220 C 740 340, 620 100, 790 320 C 940 480, 1080 360, 1010 510"
+                stroke="#D97706"
+                stroke-width="2.5"
+                stroke-dasharray="8 6"
+                stroke-linecap="round"
+                fill="none"
+                opacity="0.55"
+                clip-path="url(#journey-reveal)"
+              />
+              <!-- Mid-path decorative dots (animated in sequence) -->
+              <circle
+                class="journey-dot dot-12"
+                cx="225"
+                cy="365"
+                r="3.5"
+                fill="#D97706"
+              />
+              <circle
+                class="journey-dot dot-23"
+                cx="445"
+                cy="225"
+                r="3.5"
+                fill="#D97706"
+              />
+              <circle
+                class="journey-dot dot-34"
+                cx="675"
+                cy="225"
+                r="3.5"
+                fill="#D97706"
+              />
+              <circle
+                class="journey-dot dot-45"
+                cx="900"
+                cy="450"
+                r="3.5"
+                fill="#D97706"
+              />
+            </svg>
+
+            <!-- Step 1: top-left · circle center at (90, 90) -->
+            <article
+              class="journey-step step-1 absolute text-center"
+              style="left: 0%; top: 8%; width: 200px"
+            >
+              <div
+                class="relative inline-flex items-center justify-center w-20 h-20 rounded-full border-4 border-white shadow-xl mb-3"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                  box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.2);
+                "
+              >
+                <span class="text-3xl">💬</span>
+                <span
+                  class="absolute -top-2 -right-2 w-8 h-8 accent-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md"
+                  >1</span
+                >
+              </div>
+              <div
+                class="text-[10px] font-mono accent-text font-bold uppercase tracking-wider mb-1"
+              >
+                Day 0 · ~2 min
+              </div>
+              <h3 class="font-fraunces text-base text-deep mb-1">
+                Get in touch
+              </h3>
+              <p class="text-xs text-mid leading-snug">
+                Message us via Messenger, email, or phone.
+              </p>
+            </article>
+
+            <!-- Step 2: middle-left · circle center at (330, 320) -->
+            <article
+              class="journey-step step-2 absolute text-center"
+              style="left: 21%; top: 47%; width: 200px"
+            >
+              <div
+                class="relative inline-flex items-center justify-center w-20 h-20 rounded-full border-4 border-white shadow-xl mb-3"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                  box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.2);
+                "
+              >
+                <span class="text-3xl">📩</span>
+                <span
+                  class="absolute -top-2 -right-2 w-8 h-8 secondary-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md"
+                  >2</span
+                >
+              </div>
+              <div
+                class="text-[10px] font-mono secondary-text font-bold uppercase tracking-wider mb-1"
+              >
+                Day 0 · &lt;1 hour
+              </div>
+              <h3 class="font-fraunces text-base text-deep mb-1">
+                We send your link
+              </h3>
+              <p class="text-xs text-mid leading-snug">
+                Google Play link + setup guide arrives.
+              </p>
+            </article>
+
+            <!-- Step 3: center · circle center at (560, 220) -->
+            <article
+              class="journey-step step-3 absolute text-center"
+              style="left: 42%; top: 30%; width: 200px"
+            >
+              <div
+                class="relative inline-flex items-center justify-center w-20 h-20 rounded-full border-4 border-white shadow-xl mb-3"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                  box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.2);
+                "
+              >
+                <span class="text-3xl">🎁</span>
+                <span
+                  class="absolute -top-2 -right-2 w-8 h-8 tertiary-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md"
+                  >3</span
+                >
+              </div>
+              <div
+                class="text-[10px] font-mono font-bold uppercase tracking-wider mb-1"
+                style="color: #92400e"
+              >
+                Day 0–14 · Free
+              </div>
+              <h3 class="font-fraunces text-base text-deep mb-1">
+                Try free for 14 days
+              </h3>
+              <p class="text-xs text-mid leading-snug">
+                Install, set up products, run real sales.
+              </p>
+            </article>
+
+            <!-- Step 4: middle-right · circle center at (790, 320) -->
+            <article
+              class="journey-step step-4 absolute text-center"
+              style="left: 63%; top: 47%; width: 200px"
+            >
+              <div
+                class="relative inline-flex items-center justify-center w-20 h-20 rounded-full border-4 border-white shadow-xl mb-3"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                  box-shadow: 0 15px 35px -10px rgba(63, 29, 4, 0.2);
+                "
+              >
+                <span class="text-3xl">💸</span>
+                <span
+                  class="absolute -top-2 -right-2 w-8 h-8 accent-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md"
+                  >4</span
+                >
+              </div>
+              <div
+                class="text-[10px] font-mono accent-text font-bold uppercase tracking-wider mb-1"
+              >
+                Day 14 · ~3 min
+              </div>
+              <h3 class="font-fraunces text-base text-deep mb-1">
+                Pay your way
+              </h3>
+              <p class="text-xs text-mid leading-snug mb-2">
+                Send payment when you're ready.
+              </p>
+              <div class="flex flex-wrap justify-center gap-1">
+                <span
+                  class="px-2 py-0.5 bg-cream rounded text-[10px] font-bold text-deep border border-cream"
+                  >GCash</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-cream rounded text-[10px] font-bold text-deep border border-cream"
+                  >Maya</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-cream rounded text-[10px] font-bold text-deep border border-cream"
+                  >Bank</span
+                >
+              </div>
+            </article>
+
+            <!-- Step 5: bottom-right (FINISH) · circle center at (1010, 510) -->
+            <article
+              class="journey-step step-5 absolute text-center"
+              style="right: 0%; top: 78%; width: 220px"
+            >
+              <div
+                class="relative inline-flex items-center justify-center w-24 h-24 rounded-full text-white border-4 border-white shadow-xl mb-3"
+                style="
+                  background: linear-gradient(135deg, #d97706, #92400e);
+                  box-shadow: 0 20px 40px -10px rgba(217, 119, 6, 0.4);
+                "
+              >
+                <span class="text-4xl">🚀</span>
+                <span
+                  class="absolute -top-2 -right-2 w-8 h-8 bg-white text-deep text-xs font-bold rounded-full flex items-center justify-center font-fraunces shadow-md border-2"
+                  style="border-color: #d97706"
+                  >5</span
+                >
+                <div
+                  class="absolute -top-3 -left-3 accent-bg text-white text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full shadow-lg"
+                  style="transform: rotate(-15deg)"
+                >
+                  Finish
+                </div>
+              </div>
+              <div
+                class="text-[10px] font-mono accent-text font-bold uppercase tracking-wider mb-1"
+              >
+                Day 14 · ~1 min
+              </div>
+              <h3 class="font-fraunces text-base text-deep mb-1">
+                Activate & sell
+              </h3>
+              <p class="text-xs text-mid leading-snug">
+                Enter your license key. Next sale rings up on RetailFlow.
+              </p>
+            </article>
+          </div>
+
+          <!-- Mobile: vertical fallback -->
+          <div class="lg:hidden max-w-md mx-auto space-y-6 mb-8">
+            <article class="flex gap-4 items-start">
+              <div
+                class="relative shrink-0 inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-white shadow-md"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                "
+              >
+                <span class="text-2xl">💬</span>
+                <span
+                  class="absolute -top-1 -right-1 w-7 h-7 accent-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces"
+                  >1</span
+                >
+              </div>
+              <div class="flex-1 -mt-1">
+                <div
+                  class="text-[10px] font-mono accent-text font-bold uppercase tracking-wider mb-0.5"
+                >
+                  Day 0 · ~2 min
+                </div>
+                <h3 class="font-fraunces text-lg text-deep mb-1">
+                  Get in touch
+                </h3>
+                <p class="text-sm text-mid">
+                  Send us a message via Messenger, email, or phone.
+                </p>
+              </div>
+            </article>
+            <article class="flex gap-4 items-start">
+              <div
+                class="relative shrink-0 inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-white shadow-md"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                "
+              >
+                <span class="text-2xl">📩</span>
+                <span
+                  class="absolute -top-1 -right-1 w-7 h-7 secondary-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces"
+                  >2</span
+                >
+              </div>
+              <div class="flex-1 -mt-1">
+                <div
+                  class="text-[10px] font-mono secondary-text font-bold uppercase tracking-wider mb-0.5"
+                >
+                  Day 0 · &lt;1 hour
+                </div>
+                <h3 class="font-fraunces text-lg text-deep mb-1">
+                  We send your link
+                </h3>
+                <p class="text-sm text-mid">
+                  Google Play download link + setup guide.
+                </p>
+              </div>
+            </article>
+            <article class="flex gap-4 items-start">
+              <div
+                class="relative shrink-0 inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-white shadow-md"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                "
+              >
+                <span class="text-2xl">🎁</span>
+                <span
+                  class="absolute -top-1 -right-1 w-7 h-7 tertiary-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces"
+                  >3</span
+                >
+              </div>
+              <div class="flex-1 -mt-1">
+                <div
+                  class="text-[10px] font-mono font-bold uppercase tracking-wider mb-0.5"
+                  style="color: #92400e"
+                >
+                  Day 0–14 · Free
+                </div>
+                <h3 class="font-fraunces text-lg text-deep mb-1">
+                  Try free for 14 days
+                </h3>
+                <p class="text-sm text-mid">
+                  Install, set up products, run real sales. No card.
+                </p>
+              </div>
+            </article>
+            <article class="flex gap-4 items-start">
+              <div
+                class="relative shrink-0 inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-white shadow-md"
+                style="
+                  background: radial-gradient(circle, #fbefd9 0%, #f5e4c2 100%);
+                "
+              >
+                <span class="text-2xl">💸</span>
+                <span
+                  class="absolute -top-1 -right-1 w-7 h-7 accent-bg text-white text-xs font-bold rounded-full flex items-center justify-center font-fraunces"
+                  >4</span
+                >
+              </div>
+              <div class="flex-1 -mt-1">
+                <div
+                  class="text-[10px] font-mono accent-text font-bold uppercase tracking-wider mb-0.5"
+                >
+                  Day 14 · ~3 min
+                </div>
+                <h3 class="font-fraunces text-lg text-deep mb-1">
+                  Pay your way
+                </h3>
+                <p class="text-sm text-mid mb-2">
+                  Send payment. Monthly or lifetime.
+                </p>
+                <div class="flex gap-1">
+                  <span
+                    class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream"
+                    >GCash</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream"
+                    >Maya</span
+                  >
+                  <span
+                    class="px-2 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream"
+                    >Bank</span
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="flex gap-4 items-start">
+              <div
+                class="relative shrink-0 inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-white shadow-md text-white"
+                style="background: linear-gradient(135deg, #d97706, #92400e)"
+              >
+                <span class="text-2xl">🚀</span>
+                <span
+                  class="absolute -top-1 -right-1 w-7 h-7 bg-white text-deep text-xs font-bold rounded-full flex items-center justify-center font-fraunces border-2"
+                  style="border-color: #d97706"
+                  >5</span
+                >
+              </div>
+              <div class="flex-1 -mt-1">
+                <div
+                  class="text-[10px] font-mono accent-text font-bold uppercase tracking-wider mb-0.5"
+                >
+                  Day 14 · ~1 min · 🚀 Finish
+                </div>
+                <h3 class="font-fraunces text-lg text-deep mb-1">
+                  Activate & sell
+                </h3>
+                <p class="text-sm text-mid">
+                  Enter your license key. The next sale you ring up runs on
+                  RetailFlow.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== PRICING ============================== -->
+      <section id="pricing" class="bg-white py-24 relative overflow-hidden">
+        <!-- ===== Abstract background layer (continues the rhythm from How It Works) ===== -->
+        <div
+          class="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.18) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/3 -left-40 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.14) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-40 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.1) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Dot pattern panels (mirrored from How It Works) -->
+        <div
+          class="absolute top-12 left-8 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at top left,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at top left,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute bottom-12 right-8 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at bottom right,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at bottom right,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Decorative SVG marks scattered (varied positions vs How It Works) -->
+        <svg
+          class="absolute top-20 right-[10%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 50 Q 50 5, 100 40 T 195 30"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.5"
+          />
+        </svg>
+        <svg
+          class="absolute top-1/3 left-4 w-20 h-20 opacity-25 pointer-events-none"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <circle
+            cx="40"
+            cy="40"
+            r="34"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="22"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-32 left-[10%] w-12 h-12 opacity-40 pointer-events-none"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+            fill="#92400E"
+            opacity="0.7"
+          />
+        </svg>
+        <svg
+          class="absolute top-[40%] right-4 w-10 h-10 opacity-50 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 4 L20 36 M4 20 L36 20"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-24 right-[42%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#D97706" opacity="0.6" />
+        </svg>
+        <svg
+          class="absolute top-[60%] left-[8%] w-14 h-14 opacity-30 pointer-events-none"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="6"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(-15 28 28)"
+          />
+        </svg>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+          <div class="text-center mb-14 max-w-2xl mx-auto relative">
+            <svg
+              class="absolute -top-4 left-[280px] w-7 h-7 opacity-60 pointer-events-none hidden sm:block"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M14 2 L16 12 L26 14 L16 16 L14 26 L12 16 L2 14 L12 12 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-widest accent-text font-bold mb-3"
+            >
+              Pricing
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium"
+            >
+              Simple, <em class="accent-text italic">honest</em> pricing.
+            </h2>
+            <p class="mt-4 text-lg text-mid">
+              All features included. Pay monthly or once. 14-day free trial on
+              every plan.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto md:items-stretch"
+          >
+            <!-- Basic -->
+            <article
+              class="rounded-3xl p-8 bg-cream border border-cream flex flex-col"
+            >
+              <h3 class="font-fraunces text-2xl text-deep">Basic</h3>
+              <p class="text-sm text-soft mb-6">1 device</p>
+              <div>
+                <div class="flex items-baseline gap-1">
+                  <span class="font-fraunces text-5xl text-deep">₱49</span>
+                  <span class="text-sm text-mid">/month</span>
+                </div>
+                <div class="text-sm text-soft mt-2">
+                  or
+                  <span class="accent-text font-semibold">₱499 one-time</span>
+                </div>
+              </div>
+              <ul class="mt-6 space-y-2 text-sm text-mid flex-1">
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Full POS system
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Inventory & products
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Sales & expense tracking
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> EOD reports & dashboard
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Refund management
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Receipt printing
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Works offline
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="mt-6 block text-center bg-deep text-white px-6 py-3 rounded-full font-semibold hover:bg-mid"
+                style="background: #3f1d04"
+                >Start free trial</a
+              >
+            </article>
+
+            <!-- Pro (featured) -->
+            <article
+              class="rounded-3xl p-8 text-white flex flex-col relative md:-my-4 md:py-12 shadow-2xl"
+              style="
+                background: #3f1d04;
+                box-shadow: 0 25px 50px -12px rgba(63, 29, 4, 0.4);
+              "
+            >
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span
+                  class="accent-bg text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide"
+                  >Most popular</span
+                >
+              </div>
+              <h3 class="font-fraunces text-2xl">Pro</h3>
+              <p class="text-sm text-white/60 mb-6">Up to 3 devices</p>
+              <div>
+                <div class="flex items-baseline gap-1">
+                  <span class="font-fraunces text-5xl">₱99</span>
+                  <span class="text-sm text-white/60">/month</span>
+                </div>
+                <div class="text-sm text-white/50 mt-2">
+                  or
+                  <span style="color: #fba94c" class="font-semibold"
+                    >₱999 one-time</span
+                  >
+                </div>
+              </div>
+              <ul class="mt-6 space-y-2 text-sm text-white/80 flex-1">
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Everything in Basic
+                </li>
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Multi-device LAN sync
+                </li>
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Multiple cashier
+                  stations
+                </li>
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Employee management &
+                  PIN
+                </li>
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Role-based access
+                </li>
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Tax settings · Promo
+                  codes
+                </li>
+                <li class="flex gap-2">
+                  <span style="color: #fba94c">✓</span> Priority support
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="mt-6 block text-center accent-bg text-white px-6 py-3 rounded-full font-semibold"
+                >Start free trial</a
+              >
+            </article>
+
+            <!-- Custom -->
+            <article
+              class="rounded-3xl p-8 bg-cream border border-cream flex flex-col"
+            >
+              <h3 class="font-fraunces text-2xl text-deep">Custom</h3>
+              <p class="text-sm text-soft mb-6">Unlimited devices</p>
+              <div>
+                <div class="font-fraunces text-4xl text-deep">Let's talk</div>
+                <div class="text-sm text-soft mt-2">
+                  Tailored for chains & enterprise
+                </div>
+              </div>
+              <ul class="mt-6 space-y-2 text-sm text-mid flex-1">
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Everything in Pro
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Unlimited devices
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Custom branding
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Dedicated support
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> Custom feature requests
+                </li>
+                <li class="flex gap-2">
+                  <span class="accent-text">✓</span> On-site setup assistance
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="mt-6 block text-center accent-soft accent-text px-6 py-3 rounded-full font-semibold border border-cream"
+                >Contact sales</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== TESTIMONIALS (V1 · Spotlight, no stats sidebar) ============================== -->
+      <section
+        id="testimonials"
+        class="bg-cream py-24 relative overflow-hidden"
+      >
+        <!-- ===== Abstract background layer ===== -->
+        <div
+          class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.2) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/3 -right-40 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.16) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-32 left-1/3 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.1) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Dot pattern panels -->
+        <div
+          class="absolute top-12 right-8 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at top right,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute bottom-12 left-8 w-64 h-64 opacity-30 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 22px 22px;
+            mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+            -webkit-mask-image: radial-gradient(
+              circle at bottom left,
+              black 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Decorative SVG marks scattered (varied positions) -->
+        <svg
+          class="absolute top-20 left-[10%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 30 Q 50 75, 100 40 T 195 50"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.5"
+          />
+        </svg>
+        <svg
+          class="absolute top-1/2 right-4 w-20 h-20 opacity-25 pointer-events-none"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <circle
+            cx="40"
+            cy="40"
+            r="34"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="22"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-32 right-[10%] w-12 h-12 opacity-40 pointer-events-none"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+            fill="#92400E"
+            opacity="0.7"
+          />
+        </svg>
+        <svg
+          class="absolute top-[40%] left-4 w-10 h-10 opacity-50 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 4 L20 36 M4 20 L36 20"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="absolute top-24 right-[40%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#D97706" opacity="0.6" />
+        </svg>
+        <svg
+          class="absolute bottom-24 left-[40%] w-14 h-14 opacity-30 pointer-events-none"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="6"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(20 28 28)"
+          />
+        </svg>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+          <div class="text-center mb-12 max-w-2xl mx-auto relative">
+            <svg
+              class="absolute -top-4 left-[230px] w-7 h-7 opacity-60 pointer-events-none hidden sm:block"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M14 2 L16 12 L26 14 L16 16 L14 26 L12 16 L2 14 L12 12 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-widest accent-text font-bold mb-3"
+            >
+              Loved by owners
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium"
+            >
+              Real stores. Real
+              <em class="accent-text italic">peace of mind.</em>
+            </h2>
+          </div>
+
+          <!-- Hero featured testimonial (full-width, no sidebar) -->
+          <article
+            class="relative max-w-4xl mx-auto bg-white rounded-3xl p-8 lg:p-12 border border-cream mb-6"
+            style="box-shadow: 0 25px 50px -15px rgba(63, 29, 4, 0.15)"
+          >
+            <div
+              class="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-3xl pointer-events-none"
+              style="background: rgba(217, 119, 6, 0.2)"
+            ></div>
+            <div
+              class="absolute top-6 left-8 font-fraunces text-8xl accent-text opacity-20 leading-none pointer-events-none"
+            >
+              "
+            </div>
+
+            <div class="relative">
+              <div class="accent-text text-2xl mb-4">★★★★★</div>
+              <blockquote
+                class="font-fraunces text-2xl sm:text-3xl text-deep leading-snug mb-6"
+              >
+                "Brownout for two hours and we kept selling. The next morning
+                everything synced.
+                <em class="italic accent-text"
+                  >I don't know how I ran the store before this.</em
+                >"
+              </blockquote>
+              <figcaption class="flex items-center gap-4">
+                <div
+                  class="w-14 h-14 rounded-full flex items-center justify-center text-2xl font-bold text-white shrink-0"
+                  style="background: #d97706"
+                >
+                  A
+                </div>
+                <div>
+                  <div class="font-fraunces font-semibold text-deep">
+                    Aling Nena
+                  </div>
+                  <div class="text-sm text-soft">
+                    Sari-sari store · Quezon City · 8 years running
+                  </div>
+                </div>
+              </figcaption>
+            </div>
+          </article>
+
+          <!-- Secondary 3-up strip -->
+          <div
+            class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto"
+          >
+            <figure class="bg-white rounded-2xl p-5 border border-cream">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">
+                "Three cashier stations sync over WiFi. Game changer for our
+                kainan."
+              </blockquote>
+              <figcaption class="flex items-center gap-2 text-xs">
+                <div
+                  class="w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center"
+                  style="background: #2f5d50"
+                >
+                  M
+                </div>
+                <div><strong class="text-deep">Mark Reyes</strong> · Cebu</div>
+              </figcaption>
+            </figure>
+            <figure class="bg-white rounded-2xl p-5 border border-cream">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">
+                "Setup took 10 minutes. My cashier learned it in one shift."
+              </blockquote>
+              <figcaption class="flex items-center gap-2 text-xs">
+                <div
+                  class="w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center"
+                  style="background: #92400e"
+                >
+                  J
+                </div>
+                <div><strong class="text-deep">Joana Cruz</strong> · Davao</div>
+              </figcaption>
+            </figure>
+            <figure class="bg-white rounded-2xl p-5 border border-cream">
+              <div class="accent-text text-base mb-2">★★★★★</div>
+              <blockquote class="text-mid text-sm leading-snug mb-3">
+                "Stylist commissions tracked auto. Saves 4 hours every Sunday."
+              </blockquote>
+              <figcaption class="flex items-center gap-2 text-xs">
+                <div
+                  class="w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center"
+                  style="background: #c2410c"
+                >
+                  E
+                </div>
+                <div>
+                  <strong class="text-deep">Kuya Erwin</strong> · Manila
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== FAQ (N1 · Notebook Pages) ============================== -->
+      <section id="faq" class="bg-cream-deep py-24 relative overflow-hidden">
+        <!-- ===== Abstract background layer ===== -->
+        <div
+          class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.18) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute top-1/3 -left-40 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.14) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-32 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(146, 64, 14, 0.1) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <!-- Subtle corkboard dot pattern overlay -->
+        <div
+          class="absolute inset-0 opacity-25 pointer-events-none"
+          style="
+            background-image: radial-gradient(
+              rgba(146, 64, 14, 0.2) 1.2px,
+              transparent 1.2px
+            );
+            background-size: 18px 18px;
+          "
+        ></div>
+
+        <!-- Decorative SVG marks scattered -->
+        <svg
+          class="absolute top-20 left-[8%] w-32 h-16 opacity-50 pointer-events-none"
+          viewBox="0 0 200 80"
+          fill="none"
+        >
+          <path
+            d="M5 30 Q 50 75, 100 40 T 195 50"
+            stroke="#D97706"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.5"
+          />
+        </svg>
+        <svg
+          class="absolute top-1/3 right-4 w-20 h-20 opacity-25 pointer-events-none"
+          viewBox="0 0 80 80"
+          fill="none"
+        >
+          <circle
+            cx="40"
+            cy="40"
+            r="34"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+          />
+          <circle
+            cx="40"
+            cy="40"
+            r="22"
+            stroke="#2F5D50"
+            stroke-width="1.5"
+            fill="none"
+            stroke-dasharray="4 4"
+          />
+        </svg>
+        <svg
+          class="absolute bottom-32 right-[10%] w-12 h-12 opacity-40 pointer-events-none"
+          viewBox="0 0 48 48"
+          fill="none"
+        >
+          <path
+            d="M24 4 L28 19 L43 21 L31 31 L35 46 L24 38 L13 46 L17 31 L5 21 L20 19 Z"
+            fill="#92400E"
+            opacity="0.7"
+          />
+        </svg>
+        <svg
+          class="absolute top-[40%] left-4 w-10 h-10 opacity-50 pointer-events-none"
+          viewBox="0 0 40 40"
+          fill="none"
+        >
+          <path
+            d="M20 4 L20 36 M4 20 L36 20"
+            stroke="#92400E"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          class="absolute top-24 right-[40%] w-8 h-8 opacity-50 pointer-events-none"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <polygon points="16,4 28,28 4,28" fill="#D97706" opacity="0.6" />
+        </svg>
+        <svg
+          class="absolute bottom-24 left-[40%] w-14 h-14 opacity-30 pointer-events-none"
+          viewBox="0 0 56 56"
+          fill="none"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="40"
+            height="40"
+            rx="6"
+            stroke="#2F5D50"
+            stroke-width="2"
+            fill="none"
+            transform="rotate(-15 28 28)"
+          />
+        </svg>
+
+        <div class="relative max-w-7xl mx-auto px-6">
+          <div class="text-center mb-14 max-w-2xl mx-auto relative">
+            <svg
+              class="absolute -top-4 left-[260px] w-7 h-7 opacity-60 pointer-events-none hidden sm:block"
+              viewBox="0 0 28 28"
+              fill="none"
+            >
+              <path
+                d="M14 2 L16 12 L26 14 L16 16 L14 26 L12 16 L2 14 L12 12 Z"
+                fill="#D97706"
+              />
+            </svg>
+            <p
+              class="text-xs uppercase tracking-widest accent-text font-bold mb-3"
+            >
+              FAQ
+            </p>
+            <h2
+              class="font-fraunces text-4xl sm:text-5xl text-deep leading-tight font-medium"
+            >
+              Owner's <em class="accent-text italic">notebook.</em>
+            </h2>
+            <p class="mt-4 text-mid">
+              Quick answers to the things owners ask first.
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          >
+            <!-- Q1 -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(-1.5deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 12px 24px -10px rgba(63, 29, 4, 0.2),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.18);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q1 · Does it work without internet?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed">
+                Yes — all data stored locally with SQLite. Brownouts can't stop
+                you. Sync happens when you reconnect.
+              </p>
+            </article>
+
+            <!-- Q2 -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(1.5deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 12px 24px -10px rgba(63, 29, 4, 0.2),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.18);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q2 · What devices?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed">
+                Any Android 8+ phone or tablet. Cheap tablets are fine.
+              </p>
+            </article>
+
+            <!-- Q3 -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(-2deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 12px 24px -10px rgba(63, 29, 4, 0.2),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.18);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q3 · Scanner & printer?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed">
+                USB & Bluetooth scanners + ESC/POS thermal printers (58mm/80mm).
+              </p>
+            </article>
+
+            <!-- Q4 with payment chips -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(2deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 14px 28px -10px rgba(217, 119, 6, 0.3),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.2);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q4 · How do I pay?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed mb-3">
+                GCash, Maya, or bank transfer. Monthly or lifetime.
+              </p>
+              <div class="flex gap-1">
+                <span
+                  class="px-1.5 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream"
+                  >GCash</span
+                >
+                <span
+                  class="px-1.5 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream"
+                  >Maya</span
+                >
+                <span
+                  class="px-1.5 py-0.5 bg-white rounded text-[10px] font-bold text-deep border border-cream"
+                  >Bank</span
+                >
+              </div>
+            </article>
+
+            <!-- Q5 -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(-1deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 12px 24px -10px rgba(63, 29, 4, 0.2),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.18);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q5 · What if I cancel?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed">
+                Data stays on your device. Export to CSV anytime. No lock-in.
+              </p>
+            </article>
+
+            <!-- Q6 -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(1deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 12px 24px -10px rgba(63, 29, 4, 0.2),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.18);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q6 · Is my data safe?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed">
+                Lives only on your device. Encrypted backups to USB or LAN. No
+                cloud breach risk.
+              </p>
+            </article>
+
+            <!-- Q7 -->
+            <article
+              class="notebook-page lift-card rounded-sm pl-12 pr-5 py-5 relative"
+              style="
+                transform: rotate(-2.5deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 12px 24px -10px rgba(63, 29, 4, 0.2),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.18);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <h3 class="font-caveat text-2xl text-deep leading-tight mb-3">
+                Q7 · Training & support?
+              </h3>
+              <p class="text-sm text-mid leading-relaxed">
+                Email + Messenger on all plans. Pro/Custom get priority support.
+              </p>
+            </article>
+
+            <!-- "Ask another" page (dark) -->
+            <article
+              class="lift-card rounded-sm pl-12 pr-5 py-5 relative flex flex-col items-center justify-center text-center"
+              style="
+                background: #3f1d04;
+                transform: rotate(2.5deg);
+                box-shadow:
+                  0 1px 1px rgba(0, 0, 0, 0.1),
+                  0 14px 28px -10px rgba(63, 29, 4, 0.4),
+                  0 22px 40px -16px rgba(63, 29, 4, 0.3);
+              "
+            >
+              <div
+                class="absolute left-3 top-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 top-20 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div
+                class="absolute left-3 bottom-6 w-3 h-3 rounded-full"
+                style="
+                  background: #f5e4c2;
+                  border: 1px solid rgba(217, 119, 6, 0.3);
+                  box-shadow: inset 0 1px 2px rgba(146, 64, 14, 0.3);
+                "
+              ></div>
+              <div class="font-caveat text-3xl text-white mb-2 leading-tight">
+                Got another?
+              </div>
+              <p class="text-xs text-white/80 mb-3">Add it to our notebook.</p>
+              <a
+                href="#contact"
+                class="accent-bg text-white px-4 py-1.5 rounded-full text-xs font-bold"
+                >Ask away →</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== CTA (V1 · Inline Pill email capture) ============================== -->
+      <section
+        id="contact"
+        class="dark-section text-white py-20 relative overflow-hidden"
+      >
+        <!-- abstracts -->
+        <div
+          class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(217, 119, 6, 0.3) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+        <div
+          class="absolute -bottom-32 -left-32 w-[450px] h-[450px] rounded-full blur-3xl pointer-events-none"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(47, 93, 80, 0.2) 0%,
+              transparent 70%
+            );
+          "
+        ></div>
+
+        <div class="relative max-w-3xl mx-auto px-6 text-center">
+          <h2
+            class="font-fraunces text-4xl sm:text-5xl leading-tight font-medium"
+          >
+            Ready to
+            <em class="italic" style="color: #fba94c">run your store</em> the
+            easy way?
+          </h2>
+          <p class="mt-4 text-white/70 max-w-xl mx-auto">
+            14-day free trial. Full features. No credit card.
+          </p>
+
+          <!-- Inline pill email form -->
+          <form
+            class="mt-8 max-w-xl mx-auto"
+            onsubmit="
+              event.preventDefault();
+              alert('Thanks! We’ll send your trial link shortly.');
+            "
+          >
+            <div
+              class="flex flex-col sm:flex-row gap-2 sm:gap-0 bg-white/10 backdrop-blur border border-white/15 rounded-full p-1.5"
+            >
+              <div class="flex-1 flex items-center pl-4">
+                <span class="text-white/40 mr-2">✉️</span>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                  class="flex-1 bg-transparent text-white placeholder:text-white/40 text-sm py-2.5 focus:outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                class="accent-bg text-white px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap"
+                style="box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4)"
+              >
+                Send my trial link →
+              </button>
+            </div>
+            <p class="mt-3 text-xs text-white/40">
+              We'll send your Google Play link within 1 hour. No spam, ever.
+            </p>
+          </form>
+
+          <div
+            class="mt-8 inline-flex items-center gap-3 text-xs text-white/50 flex-wrap justify-center"
+          >
+            <span class="flex items-center gap-1.5"
+              ><span class="text-emerald-400">✓</span> No credit card</span
+            >
+            <span class="text-white/20">·</span>
+            <span class="flex items-center gap-1.5"
+              ><span class="text-emerald-400">✓</span> 14-day free</span
+            >
+            <span class="text-white/20">·</span>
+            <span class="flex items-center gap-1.5"
+              ><span class="text-emerald-400">✓</span> Cancel anytime</span
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================== FOOTER ============================== -->
+    <!-- Decorative gradient hairline separates CTA from Footer -->
+    <div class="h-px w-full" style="background: linear-gradient(to right, transparent 0%, rgba(217,119,6,0.50) 30%, rgba(47,93,80,0.50) 70%, transparent 100%)"></div>
+
+    <footer class="text-white py-16 relative" style="background: #0a0500">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div class="col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-8 h-8 rounded-md"
+                style="background: linear-gradient(135deg, #d97706, #92400e)"
+              ></div>
+              <span class="font-fraunces font-bold text-lg">RetailFlow</span>
+            </div>
+            <p class="text-sm text-white/60 max-w-xs">
+              The offline-first POS built for Filipino retail. Sell anywhere —
+              even off the grid.
+            </p>
+            <div class="mt-6 flex gap-3">
+              <a
+                class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-sm"
+                >f</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold mb-3 text-white">Product</h4>
+            <ul class="space-y-2 text-sm text-white/60">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#screenshots">App preview</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold mb-3 text-white">Company</h4>
+            <ul class="space-y-2 text-sm text-white/60">
+              <li><a>About</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a>Contact</a></li>
+              <li><a>Privacy</a></li>
+              <li><a>Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/40"
+        >
+          <div>&copy; 2026 RetailFlow POS. All rights reserved.</div>
+          <div>Made in the Philippines 🇵🇭</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================== HAMBURGER TOGGLE ============================== -->
+    <script>
+      (function () {
+        const btn = document.getElementById("hamburger-btn");
+        const menu = document.getElementById("mobile-menu");
+        if (!btn || !menu) return;
+        const iconOpen = btn.querySelector(".hamburger-icon");
+        const iconClose = btn.querySelector(".hamburger-close");
+
+        function setOpen(open) {
+          menu.classList.toggle("hidden", !open);
+          iconOpen.classList.toggle("hidden", open);
+          iconClose.classList.toggle("hidden", !open);
+          btn.setAttribute("aria-expanded", String(open));
+        }
+
+        btn.addEventListener("click", () => {
+          const isOpen = !menu.classList.contains("hidden");
+          setOpen(!isOpen);
+        });
+
+        // Close menu when a link is clicked
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setOpen(false));
+        });
+
+        // Close menu if viewport grows past md breakpoint
+        const mq = window.matchMedia("(min-width: 768px)");
+        mq.addEventListener("change", (e) => {
+          if (e.matches) setOpen(false);
+        });
+      })();
+    </script>
+
+    <!-- ============================== JOURNEY ANIMATION ============================== -->
+    <script>
+      (function () {
+        const journey = document.querySelector(".journey");
+        if (!journey || !("IntersectionObserver" in window)) {
+          // Fallback: just show everything immediately
+          if (journey) journey.classList.add("is-visible");
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                journey.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 },
+        );
+        observer.observe(journey);
+      })();
+    </script>
+  </body>
+</html>
